@@ -1,0 +1,33 @@
+{
+  "name": "picarto.js",
+  "version": "0.0.1",
+  "description": "An unofficial library for interacting with picarto.tv.",
+  "keywords": [
+    "api",
+    "bot",
+    "client",
+    "node",
+    "picarto"
+  ],
+  "bugs": {
+    "url": "https://github.com/Tschrock/Picarto.js/issues"
+  },
+  "license": "MPL-2.0",
+  "author": "Tschrock <tschrock123@gmail.com>",
+  "main": "index.js",
+  "repository": "Tschrock/Picarto.js",
+  "dependencies": {
+    "protobufjs": "^6.6.3",
+    "request": "^2.79.0",
+    "ws": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^7.0.0",
+    "@types/request": "0.0.41",
+    "@types/ws": "0.0.38",
+    "typescript": "^2.1.5"
+  },
+  "engines": {
+    "node": ">=6.9.2"
+  }
+}

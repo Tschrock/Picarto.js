@@ -1,0 +1,137 @@
+{
+	"rules": {
+		// TS
+		"adjacent-overload-signatures": true,
+		"member-access": true,
+		"no-any": true,
+		"no-empty-interface": true,
+		"no-internal-module": true,
+		"no-magic-numbers": true,
+		"no-namespace": true,
+		"no-reference": true,
+		"no-var-requires": true,
+		"prefer-for-of": true,
+		"typedef-whitespace": [
+			true,
+			{
+				"call-signature": "nospace",
+				"index-signature": "nospace",
+				"parameter": "nospace",
+				"property-declaration": "nospace",
+				"variable-declaration": "nospace"
+			},
+			{
+				"call-signature": "onespace",
+				"index-signature": "onespace",
+				"parameter": "onespace",
+				"property-declaration": "onespace",
+				"variable-declaration": "onespace"
+			}
+		],
+		"unified-signatures": true,
+		//Func
+		"curly": true,
+		"label-position": true,
+		"no-arg": true,
+		"no-console": [
+			true,
+			"log",
+			"error"
+		],
+		"no-construct": true,
+		"no-debugger": true,
+		"no-duplicate-variable": true,
+		"no-empty": true,
+		"no-eval": true,
+		"no-misused-new": true,
+		"no-shadowed-variable": true,
+		"no-string-throw": true,
+		"no-switch-case-fall-through": true,
+		"no-unsafe-finally": true,
+		"no-unused-expression": true,
+		"no-unused-new": true,
+		"no-unused-variable": true,
+		"no-var-keyword": true,
+		"radix": true,
+		"switch-default": true,
+		"triple-equals": true,
+		"typeof-compare": true,
+		"use-isnan": true,
+		//Maint
+		"cyclomatic-complexity": [
+			true,
+			20
+		],
+		"eofline": true,
+		"indent": [
+			true,
+			"spaces"
+		],
+		"linebreak-style": [
+			true,
+			"LF"
+		],
+		"max-classes-per-file": [
+			true,
+			1
+		],
+		"no-mergeable-namespace": true,
+		"no-require-imports": true,
+		"no-trailing-whitespace": true,
+		//"object-literal-sort-keys": true,
+		//"prefer-const": true,
+		//"trailing-comma": [true, {"multiline": "always", "singleline": "never"}],
+		//Style
+		"align": [
+			true,
+			"parameters",
+			"statements"
+		],
+		"arrow-return-shorthand": [
+			true,
+			"multiline"
+		],
+		"class-name": true,
+		"comment-format": [
+			true,
+			"check-space",
+			"check-uppercase"
+		],
+		//"completed-docs": [true, "classes", "functions"],
+		"file-header": [
+			true,
+			"/MPL/2.0/"
+		],
+		"import-spacing": true,
+		//"interface-name": [true, "always-prefix"],
+		"interface-over-type-literal": true,
+		"jsdoc-format": true,
+		"new-parens": true,
+		"no-angle-bracket-type-assertion": true,
+		"no-unnecessary-initializer": true,
+		"object-literal-key-quotes": [
+			true,
+			"consistent-as-needed"
+		],
+		"prefer-method-signature": true,
+		//"quotemark": [true, "double", "avoid-escape"],
+		"semicolon": [
+			true,
+			"always"
+		],
+		"space-before-function-paren": [
+			true,
+			{
+				"anonymous": "always",
+				"named": "never",
+				"asyncArrow": "never",
+				"method": "never",
+				"constructor": "never"
+			}
+		]
+		//"variable-name": [true, "ban-keywords", "check-format"],
+		//Misc
+		//"no-duplicate-key": true,
+		//"no-unreachable": true
+	}
+}
