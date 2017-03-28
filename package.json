@@ -15,7 +15,15 @@
   "license": "MPL-2.0",
   "author": "Tschrock <tschrock123@gmail.com>",
   "main": "index.js",
+  "directories": {
+    "lib": "./lib",
+    "test": "./test"
+  },
   "repository": "Tschrock/Picarto.js",
+  "scripts": {
+    "build": "node build.js",
+    "test": "node test/test.js"
+  },
   "dependencies": {
     "protobufjs": "^6.6.3",
     "request": "^2.79.0",
