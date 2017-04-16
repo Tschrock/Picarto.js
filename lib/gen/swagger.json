@@ -1,0 +1,945 @@
+{
+    "swagger": "2.0",
+    "host": "api.picarto.tv",
+    "schemes": [
+        "https"
+    ],
+    "produces": [
+        "application/json; charset=utf-8",
+        "text/plain; charset=utf-8"
+    ],
+    "basePath": "/v1",
+    "tags": [
+        {
+            "name": "public",
+            "description": "Publicly accessible operations without any need for authentication"
+        },
+        {
+            "name": "channel",
+            "description": "All channel information"
+        },
+        {
+            "name": "user",
+            "description": "All operations that read or write account information"
+        },
+        {
+            "name": "sensitive",
+            "description": "All operations that retrieve sensitive account information"
+        },
+        {
+            "name": "bot",
+            "description": "Any actions that are useful to bot/acct management applications"
+        },
+        {
+            "name": "webhook",
+            "description": "Webhook management"
+        }
+    ],
+    "info": {
+        "version": "1.1.1",
+        "title": "Picarto.TV API Documentation",
+        "description": "The Picarto.TV API documentation\n\nNote, for fixed access tokens, the header that needs to be sent is of the format: `Authorization: Bearer yourTokenHere`\n\nThis can be generated at https://oauth.picarto.tv/\n",
+        "termsOfService": "By using this API, you agree to not use the information provided to cause damage, directly or indirectly, to Picarto.TV or any associated persons.\nWe reserve the right to revoke access to this system and any associated systems at any time.\n\nYou must have a privacy policy conforming to BDSG (German privacy laws).\nThis means you must not store data beyond what is absolutely necessary for your application's function, you must inform the user that you store said data, you must delete said data upon request, you must be able to state what data you store upon request, and must have sufficient protection in place to ensure the safety and security of the user's data within reason.\nFull text of the BDSG: https://www.gesetze-im-internet.de/englisch_bdsg/\n",
+        "contact": {
+            "name": "Picarto.TV API Support",
+            "url": "http://help.picarto.tv/",
+            "email": "support@picarto.tv"
+        },
+        "license": {
+            "name": "The MIT License",
+            "url": "/api/LICENSE.txt"
+        }
+    },
+    "securityDefinitions": {
+        "OAuth2Access": {
+            "type": "oauth2",
+            "flow": "accessCode",
+            "authorizationUrl": "https://oauth.picarto.tv/authorize",
+            "tokenUrl": "https://oauth.picarto.tv/token",
+            "scopes": {
+                "readpub": "Read any public info",
+                "readpriv": "Read sensitive account info + readpub",
+                "write": "Modify account details, perform account actions + readpriv",
+                "sudo": "Run actions that may cost the user money, such as subscribe to channels, along any action that would normally be allowed by logging into the account"
+            }
+        },
+        "OAuth2Implicit": {
+            "type": "oauth2",
+            "flow": "implicit",
+            "authorizationUrl": "https://oauth.picarto.tv/authorize",
+            "scopes": {
+                "readpub": "Read any public info",
+                "readpriv": "Read sensitive account info",
+                "write": "Modify account details, perform account actions",
+                "sudo": "Run actions that may cost the user money, such as subscribe to channels, along any action that would normally be allowed by logging into the account"
+            }
+        }
+    },
+    "paths": {
+        "/channel/id/{channel_id}": {
+            "get": {
+                "description": "Gets information about a channel by ID",
+                "tags": [
+                    "channel"
+                ],
+                "parameters": [
+                    {
+                        "name": "channel_id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64",
+                        "description": "Channel ID of user you wish to read"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A successful query, channel exists",
+                        "schema": {
+                            "$ref": "#/definitions/ChannelDetails"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "403": {
+                        "description": "You do not have access to this channel with your access token"
+                    },
+                    "404": {
+                        "description": "Channel does not exist"
+                    }
+                }
+            }
+        },
+        "/channel/name/{channel_name}": {
+            "get": {
+                "description": "Gets information about a channel by name",
+                "tags": [
+                    "channel"
+                ],
+                "parameters": [
+                    {
+                        "name": "channel_name",
+                        "in": "path",
+                        "required": true,
+                        "type": "string",
+                        "description": "Channel name of user you wish to read"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A successful query, channel exists",
+                        "schema": {
+                            "$ref": "#/definitions/ChannelDetails"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "403": {
+                        "description": "You do not have access to this channel with your access token"
+                    },
+                    "404": {
+                        "description": "Channel does not exist"
+                    }
+                }
+            }
+        },
+        "/online": {
+            "get": {
+                "description": "Gets all currently online channels",
+                "tags": [
+                    "public"
+                ],
+                "parameters": [
+                    {
+                        "name": "adult",
+                        "in": "query",
+                        "required": false,
+                        "allowEmptyValue": true,
+                        "type": "boolean",
+                        "description": "Whether or not to include adult channels (defaults to `false`)",
+                        "default": false
+                    },
+                    {
+                        "name": "gaming",
+                        "in": "query",
+                        "required": false,
+                        "allowEmptyValue": true,
+                        "type": "boolean",
+                        "description": "Whether or not to include gaming channels (defaults to `false`)",
+                        "default": false
+                    },
+                    {
+                        "name": "categories",
+                        "in": "query",
+                        "required": false,
+                        "allowEmptyValue": true,
+                        "type": "string",
+                        "description": "What categories to limit this to (blank/not included doesn't filter) - seperate multiple categories by a `,` character"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A successful query, got all online channels",
+                        "schema": {
+                            "$ref": "#/definitions/OnlineChannels"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                }
+            }
+        },
+        "/categories": {
+            "get": {
+                "description": "Get information about all categories",
+                "tags": [
+                    "public"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A successful query, got all categories",
+                        "schema": {
+                            "$ref": "#/definitions/Categories"
+                        }
+                    }
+                }
+            }
+        },
+        "/events": {
+            "get": {
+                "description": "Get all events that are about to run or are running",
+                "tags": [
+                    "public"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A successful query, got all events",
+                        "schema": {
+                            "$ref": "#/definitions/Events"
+                        }
+                    }
+                }
+            }
+        },
+        "/user": {
+            "get": {
+                "description": "Get private info about the currently authenticated user",
+                "tags": [
+                    "user",
+                    "sensitive"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A successful query",
+                        "schema": {
+                            "$ref": "#/definitions/UserData"
+                        }
+                    },
+                    "403": {
+                        "description": "You do not have access to this user with your access token"
+                    },
+                    "404": {
+                        "description": "This user does not exist"
+                    }
+                },
+                "security": [
+                    {
+                        "OAuth2Access": [
+                            "readpriv"
+                        ]
+                    },
+                    {
+                        "OAuth2Implicit": [
+                            "readpriv"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/user/streamkey": {
+            "get": {
+                "description": "Get the stream key of the currently authenticated user",
+                "tags": [
+                    "user",
+                    "sensitive"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A successful query",
+                        "schema": {
+                            "type": "string",
+                            "title": "key",
+                            "description": "The stream key"
+                        }
+                    },
+                    "403": {
+                        "description": "You do not have access to this user's sensitive data with your access token"
+                    },
+                    "404": {
+                        "description": "This user does not exist"
+                    }
+                },
+                "security": [
+                    {
+                        "OAuth2Access": [
+                            "sudo"
+                        ]
+                    },
+                    {
+                        "OAuth2Implicit": [
+                            "sudo"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/user/jwtkey": {
+            "get": {
+                "description": "Generate a bot JWT token to connect to a channel",
+                "tags": [
+                    "user",
+                    "bot",
+                    "sensitive"
+                ],
+                "parameters": [
+                    {
+                        "name": "channel_id",
+                        "in": "query",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64",
+                        "description": "Channel ID you wish to connect to"
+                    },
+                    {
+                        "name": "bot",
+                        "in": "query",
+                        "required": true,
+                        "type": "boolean",
+                        "description": "Whether or not this is a bot token (`false` is a user token)"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A successful query, generated JWT token for the channel",
+                        "schema": {
+                            "type": "string",
+                            "title": "token",
+                            "description": "The JWT token"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    },
+                    "403": {
+                        "description": "Application not authorized to generate a JWT token for this user"
+                    },
+                    "404": {
+                        "description": "Channel to connect to does not exist"
+                    }
+                },
+                "security": [
+                    {
+                        "OAuth2Access": [
+                            "sudo"
+                        ]
+                    },
+                    {
+                        "OAuth2Implicit": [
+                            "sudo"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/webhooks": {
+            "get": {
+                "description": "Get all registered webhooks for your account",
+                "parameters": [
+                    {
+                        "name": "client_id",
+                        "in": "query",
+                        "required": true,
+                        "type": "string",
+                        "description": "Your application's client ID"
+                    },
+                    {
+                        "name": "client_secret",
+                        "in": "query",
+                        "required": true,
+                        "type": "string",
+                        "description": "Your application's client secret"
+                    },
+                    {
+                        "name": "channel_id",
+                        "in": "query",
+                        "required": false,
+                        "type": "integer",
+                        "format": "int64",
+                        "description": "A channel ID to filter by"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A successful query, got all registered webhooks",
+                        "schema": {
+                            "type": "array",
+                            "title": "Webhooks",
+                            "description": "All registered webhooks",
+                            "items": {
+                                "$ref": "#/definitions/Webhook"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Your client ID or client secret is invalid"
+                    }
+                },
+                "tags": [
+                    "webhook"
+                ]
+            },
+            "post": {
+                "description": "Register a webhook",
+                "parameters": [
+                    {
+                        "name": "type",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "enum": [
+                            "online",
+                            "offline",
+                            "follow",
+                            "unfollow",
+                            "subscribe",
+                            "unsubscribe",
+                            "event_start",
+                            "event_end"
+                        ],
+                        "description": "The webhook type"
+                    },
+                    {
+                        "name": "uri",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": "Webhook destination URI"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Successfully registered webhook",
+                        "headers": {
+                            "Location": {
+                                "description": "The newly created webhook",
+                                "type": "string",
+                                "default": "/webhooks/{webhook_id}"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "This webhook type does not exist"
+                    },
+                    "409": {
+                        "description": "A webhook already exists with the same channel, URI and type"
+                    },
+                    "425": {
+                        "description": "Unable to verify you own this URI\n\nNote: This is a custom/undefined HTTP code, and so your client must be designed to handle this correctly.\n"
+                    }
+                },
+                "tags": [
+                    "webhook"
+                ],
+                "security": [
+                    {
+                        "OAuth2Access": [
+                            "readpub"
+                        ]
+                    },
+                    {
+                        "OAuth2Implicit": [
+                            "readpub"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/webhooks/{webhook_id}": {
+            "get": {
+                "description": "Get a webhook",
+                "parameters": [
+                    {
+                        "name": "webhook_id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64",
+                        "description": "The webhook ID"
+                    },
+                    {
+                        "name": "client_id",
+                        "in": "query",
+                        "required": true,
+                        "type": "string",
+                        "description": "Your application's client ID"
+                    },
+                    {
+                        "name": "client_secret",
+                        "in": "query",
+                        "required": true,
+                        "type": "string",
+                        "description": "Your application's client secret"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A successful query, got the webhook",
+                        "schema": {
+                            "$ref": "#/definitions/Webhook"
+                        }
+                    },
+                    "403": {
+                        "description": "Your client ID or client secret is invalid"
+                    },
+                    "404": {
+                        "description": "This webhook does not exist under the context of your application"
+                    }
+                },
+                "tags": [
+                    "webhook"
+                ]
+            },
+            "put": {
+                "description": "Update a webhook's URI\n\nNote: You can not change the webhook type. To do that you must create a new webhook, authenticated by the user.\n",
+                "parameters": [
+                    {
+                        "name": "webhook_id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64",
+                        "description": "The webhook ID"
+                    },
+                    {
+                        "name": "uri",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": "Webhook destination URI"
+                    },
+                    {
+                        "name": "client_id",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": "Your application's client ID"
+                    },
+                    {
+                        "name": "client_secret",
+                        "in": "formData",
+                        "required": true,
+                        "type": "string",
+                        "description": "Your application's client secret"
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "Successfully registered webhook",
+                        "headers": {
+                            "Location": {
+                                "description": "The newly created webhook",
+                                "type": "string",
+                                "default": "/webhooks/{webhook_id}"
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "Your client ID or client secret is invalid"
+                    },
+                    "404": {
+                        "description": "This webhook does not exist"
+                    },
+                    "425": {
+                        "description": "Unable to verify you own this URI\n\nNote: This is a custom/undefined HTTP code, and so your client must be designed to handle this correctly.\n"
+                    }
+                },
+                "tags": [
+                    "webhook"
+                ]
+            },
+            "delete": {
+                "description": "Delete a webhook",
+                "parameters": [
+                    {
+                        "name": "webhook_id",
+                        "in": "path",
+                        "required": true,
+                        "type": "integer",
+                        "format": "int64",
+                        "description": "The webhook ID"
+                    },
+                    {
+                        "name": "client_id",
+                        "in": "query",
+                        "required": true,
+                        "type": "string",
+                        "description": "Your application's client ID"
+                    },
+                    {
+                        "name": "client_secret",
+                        "in": "query",
+                        "required": true,
+                        "type": "string",
+                        "description": "Your application's client secret"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successfully deleted this webhook"
+                    },
+                    "403": {
+                        "description": "Your client ID or client secret is invalid"
+                    },
+                    "404": {
+                        "description": "This webhook does not exist within the context of your client"
+                    }
+                },
+                "tags": [
+                    "webhook"
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "ChannelDetails": {
+            "type": "object",
+            "description": "Details about a channel",
+            "properties": {
+                "user_id": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "The channel's user ID"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the channel"
+                },
+                "online": {
+                    "type": "boolean",
+                    "description": "If the channel is online"
+                },
+                "viewers": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "The number of current viewers watching this stream (0 if offline)"
+                },
+                "viewers_total": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "The total number of viewers this channel has had since the beginning of time"
+                },
+                "followers": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "The total number of people following this streamer"
+                },
+                "adult": {
+                    "type": "boolean",
+                    "description": "If this channel is an adult channel"
+                },
+                "category": {
+                    "type": "string",
+                    "description": "The name of the category this stream is in"
+                },
+                "account_type": {
+                    "type": "string",
+                    "enum": [
+                        "free",
+                        "basic",
+                        "premium"
+                    ],
+                    "description": "The account type of the channel"
+                },
+                "commissions": {
+                    "type": "boolean",
+                    "description": "If this channel is accepting commissions"
+                },
+                "title": {
+                    "type": "string",
+                    "description": "This channel's title"
+                },
+                "description_panels": {
+                    "type": "array",
+                    "description": "This channel's description panels",
+                    "items": {
+                        "type": "object",
+                        "title": "DescriptionPanel",
+                        "description": "A channel's description panel",
+                        "properties": {
+                            "title": {
+                                "type": "string",
+                                "description": "The description panel's title"
+                            },
+                            "body": {
+                                "type": "string",
+                                "description": "The description panel's body"
+                            },
+                            "image": {
+                                "type": "string",
+                                "description": "The description panel's attached image URL, if it exists"
+                            },
+                            "image_link": {
+                                "type": "string",
+                                "description": "The attached image's link, if the image is set."
+                            },
+                            "position": {
+                                "type": "integer",
+                                "format": "int64",
+                                "description": "The order at which this is sorted (just for convenience, can just use array index)"
+                            }
+                        }
+                    }
+                },
+                "private": {
+                    "type": "boolean",
+                    "description": "If this channel is in private mode"
+                },
+                "gaming": {
+                    "type": "boolean",
+                    "description": "If this channel is in game mode"
+                },
+                "guest_chat": {
+                    "type": "boolean",
+                    "description": "If guest (unregistered) users can talk in chat"
+                },
+                "last_live": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "The date/time this user was last live"
+                },
+                "tags": {
+                    "type": "array",
+                    "description": "A list of tags",
+                    "items": {
+                        "type": "string",
+                        "description": "A tag"
+                    }
+                },
+                "multistream": {
+                    "type": "array",
+                    "description": "A list of channels we are multistreaming with",
+                    "items": {
+                        "type": "object",
+                        "title": "MultiParticipant",
+                        "description": "A channel we are multistreaming with",
+                        "properties": {
+                            "user_id": {
+                                "type": "string",
+                                "description": "The user ID of the channel"
+                            },
+                            "name": {
+                                "type": "string",
+                                "description": "The channel name"
+                            },
+                            "online": {
+                                "type": "boolean",
+                                "description": "If the channel is live or not"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "OnlineChannels": {
+            "type": "array",
+            "description": "A list of online channels",
+            "items": {
+                "type": "object",
+                "title": "OnlineDetails",
+                "description": "Details of online channels",
+                "properties": {
+                    "user_id": {
+                        "type": "integer",
+                        "format": "int64",
+                        "description": "The channel's user ID"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the channel"
+                    },
+                    "viewers": {
+                        "type": "integer",
+                        "format": "int64",
+                        "description": "The number of current viewers watching this stream"
+                    },
+                    "category": {
+                        "type": "string",
+                        "description": "The category this stream is in"
+                    },
+                    "adult": {
+                        "type": "boolean",
+                        "description": "If this channel is marked as adult"
+                    },
+                    "gaming": {
+                        "type": "boolean",
+                        "description": "If this channel is gaming"
+                    },
+                    "multistream": {
+                        "type": "boolean",
+                        "description": "If this channel is hosting or participating in a multistream"
+                    }
+                }
+            }
+        },
+        "Categories": {
+            "type": "array",
+            "description": "A list of categories",
+            "items": {
+                "type": "object",
+                "title": "Category",
+                "description": "Details of a category",
+                "properties": {
+                    "name": {
+                        "description": "The category name",
+                        "type": "string"
+                    },
+                    "total_channels": {
+                        "type": "integer",
+                        "format": "int64",
+                        "description": "The total number of channels that are this category"
+                    },
+                    "online_channels": {
+                        "type": "integer",
+                        "format": "int64",
+                        "description": "The number of channels that are live using this category"
+                    },
+                    "viewers": {
+                        "type": "integer",
+                        "format": "int64",
+                        "description": "The total number of viewers"
+                    }
+                }
+            }
+        },
+        "BasicChannelInfo": {
+            "type": "object",
+            "description": "Basic info about a channel",
+            "properties": {
+                "user_id": {
+                    "type": "integer",
+                    "format": "int64",
+                    "description": "The channel's user ID"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the channel"
+                }
+            }
+        },
+        "UserData": {
+            "type": "object",
+            "description": "Private information about an account",
+            "properties": {
+                "channel_details": {
+                    "$ref": "#/definitions/ChannelDetails"
+                },
+                "email": {
+                    "type": "string",
+                    "description": "The email address of the user"
+                },
+                "creation_date": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "The date of the channel's creation"
+                },
+                "private_key": {
+                    "type": "string",
+                    "description": "The user's key to watch their private stream"
+                },
+                "following": {
+                    "type": "array",
+                    "description": "The list of users this person is following",
+                    "items": {
+                        "$ref": "#/definitions/BasicChannelInfo"
+                    }
+                },
+                "subscriptions": {
+                    "type": "array",
+                    "description": "The list of users this person is subscribed to",
+                    "items": {
+                        "$ref": "#/definitions/BasicChannelInfo"
+                    }
+                }
+            }
+        },
+        "Webhook": {
+            "type": "object",
+            "description": "A registered webhook",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "description": "Webhook ID"
+                },
+                "channel": {
+                    "$ref": "#/definitions/BasicChannelInfo"
+                },
+                "type": {
+                    "type": "string",
+                    "description": "Webhook type"
+                },
+                "uri": {
+                    "type": "string",
+                    "description": "Webhook target URI"
+                }
+            }
+        },
+        "Events": {
+            "type": "array",
+            "description": "A list of events",
+            "items": {
+                "type": "object",
+                "title": "Event",
+                "description": "Information about an event",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "description": "Event ID"
+                    },
+                    "channel_details": {
+                        "$ref": "#/definitions/BasicChannelInfo"
+                    },
+                    "category": {
+                        "type": "string",
+                        "description": "The category of this event"
+                    },
+                    "ticket_price": {
+                        "type": "integer",
+                        "format": "int64",
+                        "description": "The price (in US cents - 100 = $1.00)"
+                    },
+                    "ticket_limit": {
+                        "type": "integer",
+                        "format": "int64",
+                        "description": "The total number of tickets able to be sold (0 = unlimited)"
+                    },
+                    "tickets_sold": {
+                        "type": "integer",
+                        "format": "int64",
+                        "description": "The total number of tickets sold so far"
+                    },
+                    "started": {
+                        "type": "boolean",
+                        "description": "If the event has started"
+                    },
+                    "adult": {
+                        "type": "boolean",
+                        "description": "If the event is an adult event"
+                    }
+                }
+            }
+        }
+    }
+}

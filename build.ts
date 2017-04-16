@@ -26,7 +26,7 @@ import { exec } from "child_process";
 
 // tslint:disable-next-line:no-console
 console.log("Prebuilding Protobuffs...");
-pbjs.main(["--target", "static-module", "lib/picarto.proto", "-o", "lib/picarto.proto.prebuilt.js"], function (err, output) {
+pbjs.main(["--target", "static-module", "lib/gen/picarto.proto", "-o", "lib/gen/picarto.proto.prebuilt.js"], function (err, output) {
     if (err) {
         return console.log(err);
     }
@@ -34,7 +34,7 @@ pbjs.main(["--target", "static-module", "lib/picarto.proto", "-o", "lib/picarto.
         console.log(output);
     }
     console.log("TSifying Protobuffs...");
-    pbts.main(["lib/picarto.proto.prebuilt.js", "-o", "lib/picarto.proto.prebuilt.d.ts"], function (err, output) {
+    pbts.main(["lib/gen/picarto.proto.prebuilt.js", "-o", "lib/gen/picarto.proto.prebuilt.d.ts"], function (err, output) {
         if (err) {
             return console.log(err);
         }
