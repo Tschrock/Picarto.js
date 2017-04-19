@@ -2,7 +2,7 @@
  * Picarto.js
  * An unofficial library for interacting with Picarto.tv.
  *
- * This library is not endorsed, supported or otherwise associated with Picarto
+ * This library is not endorsed, supported, or otherwise associated with Picarto
  * or it's team. It is provided as-is with no guarantees. Please make sure you
  * read through and comply with Picarto's TOS: https://picarto.tv/site/terms
  *
@@ -14,7 +14,7 @@
  */
 
 import { User } from "../structures/User";
-import * as ChatProtocol from '../picarto.proto.prebuilt';
+import * as ChatProtocol from '../gen/picarto.proto.prebuilt';
 import { PicartoAPI } from "./PicartoAPI";
 
 import { ChatConnection, ChatConnectionConfig } from "./ChatConnection";
@@ -38,6 +38,11 @@ export class ChatClient {
     private username: string;
     private password: string;
 
+    /**
+     * A list of active chat connections.
+     * @private
+     * @memberOf ChatClient
+     */
     private connections = new Map<string, ChatConnection>();
 
     /**

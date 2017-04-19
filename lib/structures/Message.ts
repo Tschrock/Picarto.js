@@ -16,7 +16,7 @@
 import { ChannelUser } from './ChannelUser';
 import { Channel } from './Channel';
 import { ChatClient } from '../client/ChatClient';
-import * as ChatProtocol from '../picarto.proto.prebuilt';
+import * as ChatProtocol from '../gen/picarto.proto.prebuilt';
 
 /**
  * A Message from Picarto.

@@ -1,6 +1,6 @@
 Picarto.js
 ==========
-An unofficial node.js library for interacting with Picarto.tv's API. There's only one official endpoint right now (https://picarto.tv/settings/api), but more will come.
+An unofficial node.js library for interacting with Picarto.tv's API. See https://docs.picarto.tv/api/.
  
 
 ## Installation

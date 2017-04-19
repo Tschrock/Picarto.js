@@ -15,7 +15,7 @@
 
 import { ChannelUser } from "./ChannelUser";
 import { ChatClient } from "../client/ChatClient";
-import * as ChatProtocol from '../picarto.proto.prebuilt';
+import * as ChatProtocol from '../gen/picarto.proto.prebuilt';
 
 /**
  * A Channel on Picarto.
@@ -72,7 +72,7 @@ export class Channel {
 
     public updateChannelUserList(data: ChatProtocol.UserList) {
         this.channelUsers.clear();
-        data.user.map(u => this.resolveChannelUser(u)).forEach(u => this.channelUsers.set(u.user.id, u));
+        // TODO fix: data.user.map(u => this.resolveChannelUser(u)).forEach(u => this.channelUsers.set(u.user.id, u));
     }
 
     constructor(private client: ChatClient) { }

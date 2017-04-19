@@ -15,16 +15,12 @@
 
 'use strict';
 
+// tslint:disable-next-line:no-require-imports
 import request = require('request');
-
-function parseJSON<T>(json: string) {
-    return new Promise<T>((resolve, reject) => {
-        resolve(JSON.parse(json));
-    });
-}
 
 const HTTP_200_OK = 200;
 const HTTP_302_REDIRECT = 302;
+
 
 /**
  * The main Picarto API class. Each instance acts as a unique browser session.
@@ -33,275 +29,646 @@ const HTTP_302_REDIRECT = 302;
  */
 export class PicartoAPI {
 
-    protected cookieJar = request.jar();
+    protected apiURL = "https://api.picarto.tv/v1";
 
-    protected baseURL = "https://picarto.tv";
-    protected apiURL = "https://api.picarto.tv";
+    // TODO: Actually impliment cacheing
+    private _cacheTime: number = 30000;
+    private _minCacheTime: number = 10000; // Always cache at least 10 sec.
 
-    protected defaultReferer = "https://www.picarto.tv/";
+    public set cacheTime(milliseconds: number) {
+        this._cacheTime = Math.max(milliseconds, this._minCacheTime);
+    }
+    public get cacheTime() {
+        return this._cacheTime;
+    }
 
-    protected getUrl<T>(url: string): Promise<T> {
-        return new Promise<T>((resolve, reject) => {
+    public oauthToken: string;
+
+    /**
+     * Gets all currently online channels
+     * @param {boolean} [adult]
+     * @param {boolean} [gaming]
+     * @param {string[]} [categories]
+     * @returns {Promise<OnlineDetails[]>}
+     * @memberOf PicartoAPI
+     */
+    public getOnlineChannels(adult?: boolean, gaming?: boolean, categories?: string[]): Promise<OnlineDetails[]> {
+        return new Promise((resolve, reject) => {
+
+            const query = {};
+            if (typeof adult !== 'undefined') { query["adult"] = adult; }
+            if (typeof gaming !== 'undefined') { query["gaming"] = gaming; }
+            if (typeof categories !== 'undefined') { query["categories"] = gaming; }
+
+            const head = {};
+            if (this.oauthToken) { head["Authorization"] = `Bearer ${this.oauthToken}`; }
+
             request({
-                uri: url,
-                jar: this.cookieJar,
-                headers: { Referer: this.defaultReferer }
-            }, function (error, response, body) {
-                if (error) {
-                    reject(error);
-                    return;
+                method: 'GET',
+                qs: query,
+                headers: head,
+                uri: `${this.apiURL}/online`,
+                useQuerystring: true,
+                json: true
+            }, (err, httpResponse, body) => {
+                if (err) {
+                    reject(err);
                 }
-
-                if (!response || (response.statusCode !== HTTP_200_OK && response.statusCode !== HTTP_302_REDIRECT)) {
-                    reject(new Error('Unexpected status code: ' + response.statusCode));
-                    return;
+                else {
+                    const statusCode = httpResponse.statusCode;
+                    if (statusCode !== HTTP_200_OK && statusCode !== HTTP_302_REDIRECT) {
+                        reject(new Error(`Recieved Status Code ${statusCode}`));
+                    }
+                    resolve(body);
                 }
-                resolve(body);
             });
         });
     }
 
-    protected postUrl<T>(url: string, data?: Object): Promise<T> {
-        return new Promise<T>((resolve, reject) => {
+    /**
+     * Get information about all categories
+     * @returns {Promise<Category[]>}
+     * @memberOf PicartoAPI
+     */
+    public getChannelCategories(): Promise<Category[]> {
+        return new Promise((resolve, reject) => {
+
+            const head = {};
+            if (this.oauthToken) { head["Authorization"] = `Bearer ${this.oauthToken}`; }
+
             request({
-                uri: url,
+                method: 'GET',
+                headers: head,
+                uri: `${this.apiURL}/categories`,
+                json: true
+            }, (err, httpResponse, body) => {
+                if (err) {
+                    reject(err);
+                }
+                else {
+                    const statusCode = httpResponse.statusCode;
+                    if (statusCode !== HTTP_200_OK && statusCode !== HTTP_302_REDIRECT) {
+                        reject(new Error(`Recieved Status Code ${statusCode}`));
+                    }
+                    resolve(body);
+                }
+            });
+        });
+    }
+
+    /**
+     * Get all events that are about to run or are running
+     * @returns {Promise<Event[]>}
+     * @memberOf PicartoAPI
+     */
+    public getCurrentEvents(): Promise<Event[]> {
+        return new Promise((resolve, reject) => {
+
+            const head = {};
+            if (this.oauthToken) { head["Authorization"] = `Bearer ${this.oauthToken}`; }
+
+            request({
+                method: 'GET',
+                headers: head,
+                uri: `${this.apiURL}/events`,
+                json: true
+            }, (err, httpResponse, body) => {
+                if (err) {
+                    reject(err);
+                }
+                else {
+                    const statusCode = httpResponse.statusCode;
+                    if (statusCode !== HTTP_200_OK && statusCode !== HTTP_302_REDIRECT) {
+                        reject(new Error(`Recieved Status Code ${statusCode}`));
+                    }
+                    resolve(body);
+                }
+            });
+        });
+    }
+
+    /**
+     * Gets information about a channel by ID
+     * @param {number} channelId The channel's Id
+     * @returns {Promise<ChannelDetails>}
+     * @memberOf PicartoAPI
+     */
+    public getChannelInfoById(channelId: number): Promise<ChannelDetails> {
+        return new Promise((resolve, reject) => {
+
+            const head = {};
+            if (this.oauthToken) { head["Authorization"] = `Bearer ${this.oauthToken}`; }
+
+            request({
+                method: 'GET',
+                headers: head,
+                uri: `${this.apiURL}/channel/id/${channelId}`,
+                json: true
+            }, (err, httpResponse, body) => {
+                if (err) {
+                    reject(err);
+                }
+                else {
+                    const statusCode = httpResponse.statusCode;
+                    if (statusCode !== HTTP_200_OK && statusCode !== HTTP_302_REDIRECT) {
+                        reject(new Error(`Recieved Status Code ${statusCode}`));
+                    }
+                    resolve(body);
+                }
+            });
+        });
+    }
+
+    /**
+     * Gets information about a channel by Name
+     * @param {string} channelName The channel's Name
+     * @returns {Promise<ChannelDetails>}
+     * @memberOf PicartoAPI
+     */
+    public getChannelInfoByName(channelName: string): Promise<ChannelDetails> {
+        return new Promise((resolve, reject) => {
+
+            const head = {};
+            if (this.oauthToken) { head["Authorization"] = `Bearer ${this.oauthToken}`; }
+
+            request({
+                method: 'GET',
+                headers: head,
+                uri: `${this.apiURL}/channel/name/${channelName}`,
+                json: true
+            }, (err, httpResponse, body) => {
+                if (err) {
+                    reject(err);
+                }
+                else {
+                    const statusCode = httpResponse.statusCode;
+                    if (statusCode !== HTTP_200_OK && statusCode !== HTTP_302_REDIRECT) {
+                        reject(new Error(`Recieved Status Code ${statusCode}`));
+                    }
+                    resolve(body);
+                }
+            });
+        });
+    }
+
+    /**
+     * Get private info about the currently authenticated user
+     * @returns {Promise<ChannelDetails>}
+     * @memberOf PicartoAPI
+     */
+    public getUserInfo(): Promise<UserData> {
+        return new Promise((resolve, reject) => {
+
+            if (!this.oauthToken) {
+                reject(new Error("This endpoint requires authorization."));
+                return;
+            }
+
+            const head = {};
+            if (this.oauthToken) { head["Authorization"] = `Bearer ${this.oauthToken}`; }
+
+            request({
+                method: 'GET',
+                headers: head,
+                uri: `${this.apiURL}/user`,
+                json: true
+            }, (err, httpResponse, body) => {
+                if (err) {
+                    reject(err);
+                }
+                else {
+                    const statusCode = httpResponse.statusCode;
+                    if (statusCode !== HTTP_200_OK && statusCode !== HTTP_302_REDIRECT) {
+                        reject(new Error(`Recieved Status Code ${statusCode}`));
+                    }
+                    resolve(body);
+                }
+            });
+        });
+    }
+
+    /**
+     * Get the stream key of the currently authenticated user
+     * @returns {Promise<string>}
+     * @memberOf PicartoAPI
+     */
+    public getUserStreamKey(): Promise<string> {
+        return new Promise((resolve, reject) => {
+
+            if (!this.oauthToken) {
+                reject(new Error("This endpoint requires authorization."));
+                return;
+            }
+
+            const head = {};
+            if (this.oauthToken) { head["Authorization"] = `Bearer ${this.oauthToken}`; }
+
+            request({
+                method: 'GET',
+                headers: head,
+                uri: `${this.apiURL}/user/streamkey`,
+                json: true
+            }, (err, httpResponse, body) => {
+                if (err) {
+                    reject(err);
+                }
+                else {
+                    const statusCode = httpResponse.statusCode;
+                    if (statusCode !== HTTP_200_OK && statusCode !== HTTP_302_REDIRECT) {
+                        reject(new Error(`Recieved Status Code ${statusCode}`));
+                    }
+                    resolve(body);
+                }
+            });
+        });
+    }
+
+    /**
+     * Generate a bot JWT token to connect to a channel
+     * @param {number} channel_id
+     * @param {boolean} bot
+     * @returns {Promise<string>}
+     * @memberOf PicartoAPI
+     */
+    public getUserChatKey(channel_id: number, bot: boolean): Promise<string> {
+        return new Promise((resolve, reject) => {
+
+            if (!this.oauthToken) {
+                reject(new Error("This endpoint requires authorization."));
+                return;
+            }
+
+            if (!channel_id) {
+                reject(new Error("`channel_id` is required."));
+                return;
+            }
+
+            if (typeof bot === "undefined") {
+                reject(new Error("`bot` is required."));
+                return;
+            }
+
+            const head = {};
+            if (this.oauthToken) { head["Authorization"] = `Bearer ${this.oauthToken}`; }
+
+            request({
+                method: 'GET',
+                headers: head,
+                qs: {
+                    channel_id: channel_id,
+                    bot: bot
+                },
+                uri: `${this.apiURL}/user/streamkey`,
+                useQuerystring: true,
+                json: true
+            }, (err, httpResponse, body) => {
+                if (err) {
+                    reject(err);
+                }
+                else {
+                    const statusCode = httpResponse.statusCode;
+                    if (statusCode !== HTTP_200_OK && statusCode !== HTTP_302_REDIRECT) {
+                        reject(new Error(`Recieved Status Code ${statusCode}`));
+                    }
+                    resolve(body);
+                }
+            });
+        });
+    }
+
+
+    public getWebhooks(client_id: string, client_secret: string, channel_id?: number): Promise<Webhook[]> {
+        return new Promise((resolve, reject) => {
+
+            if (!client_id) {
+                reject(new Error("`client_id` is required."));
+                return;
+            }
+
+            if (!client_secret) {
+                reject(new Error("`client_secret` is required."));
+                return;
+            }
+
+            const query = {};
+            if (typeof client_id !== 'undefined') { query["client_id"] = client_id; }
+            if (typeof client_secret !== 'undefined') { query["client_secret"] = client_secret; }
+            if (typeof channel_id !== 'undefined') { query["channel_id"] = channel_id; }
+
+            const head = {};
+            if (this.oauthToken) { head["Authorization"] = `Bearer ${this.oauthToken}`; }
+
+            request({
+                method: 'GET',
+                headers: head,
+                qs: query,
+                uri: `${this.apiURL}/webhooks`,
+                useQuerystring: true,
+                json: true
+            }, (err, httpResponse, body) => {
+                if (err) {
+                    reject(err);
+                }
+                else {
+                    const statusCode = httpResponse.statusCode;
+                    if (statusCode !== HTTP_200_OK && statusCode !== HTTP_302_REDIRECT) {
+                        reject(new Error(`Recieved Status Code ${statusCode}`));
+                    }
+                    resolve(body);
+                }
+            });
+        });
+    }
+
+    public registerWebhook(type: string, uri: string): Promise<null> {
+        return new Promise((resolve, reject) => {
+
+            if (!type) {
+                reject(new Error("`type` is required."));
+                return;
+            }
+
+            if (!uri) {
+                reject(new Error("`uri` is required."));
+                return;
+            }
+
+            const head = {};
+            if (this.oauthToken) { head["Authorization"] = `Bearer ${this.oauthToken}`; }
+
+            request({
                 method: 'POST',
-                form: data,
-                jar: this.cookieJar,
-                headers: { Referer: this.defaultReferer }
-            }, function (error, response, body) {
-                if (error) {
-                    reject(error);
-                    return;
+                headers: head,
+                formData: {
+                    type: type,
+                    uri: uri
+                },
+                uri: `${this.apiURL}/webhooks`,
+                json: true
+            }, (err, httpResponse, body) => {
+                if (err) {
+                    reject(err);
                 }
-
-                if (!response || (response.statusCode !== HTTP_200_OK && response.statusCode !== HTTP_302_REDIRECT)) {
-                    reject(new Error('Unexpected status code: ' + response.statusCode));
-                    return;
+                else {
+                    const statusCode = httpResponse.statusCode;
+                    if (statusCode !== HTTP_200_OK && statusCode !== HTTP_302_REDIRECT) {
+                        reject(new Error(`Recieved Status Code ${statusCode}`));
+                    }
+                    resolve();
                 }
-                resolve(body);
             });
         });
     }
 
-    /**
-     * Clears the current session, deleting any saved cookies.
-     * @memberOf PicartoAPI
-     */
-    public clearSession() {
-        this.cookieJar = request.jar();
+    public deleteWebhook(webhook_id: number, client_id: string, client_secret: string): Promise<null> {
+        return new Promise((resolve, reject) => {
+
+            if (!webhook_id) {
+                reject(new Error("`webhook_id` is required."));
+                return;
+            }
+
+            if (!client_id) {
+                reject(new Error("`client_id` is required."));
+                return;
+            }
+
+            if (!client_secret) {
+                reject(new Error("`client_secret` is required."));
+                return;
+            }
+
+            const query = {};
+            if (typeof client_id !== 'undefined') { query["client_id"] = client_id; }
+            if (typeof client_secret !== 'undefined') { query["client_secret"] = client_secret; }
+
+            const head = {};
+            if (this.oauthToken) { head["Authorization"] = `Bearer ${this.oauthToken}`; }
+
+            request({
+                method: 'DELETE',
+                headers: head,
+                qs: query,
+                uri: `${this.apiURL}/webhooks/${webhook_id}`,
+                useQuerystring: true,
+                json: true
+            }, (err, httpResponse, body) => {
+                if (err) {
+                    reject(err);
+                }
+                else {
+                    const statusCode = httpResponse.statusCode;
+                    if (statusCode !== HTTP_200_OK && statusCode !== HTTP_302_REDIRECT) {
+                        reject(new Error(`Recieved Status Code ${statusCode}`));
+                    }
+                    resolve();
+                }
+            });
+        });
     }
 
-    /**
-     * Official API
-     * This is the Official API provided to streamers.
-     */
+    public getWebhookDetails(webhook_id: number, client_id: string, client_secret: string): Promise<Webhook> {
+        return new Promise((resolve, reject) => {
 
-    /**
-     * [Official] Gets detailed info about a channel.
-     * See {@link https://picarto.tv/settings/api}.
-     * @param {string} accessKey The access key (It's a guid) for the channel
-     * @returns {Promise<ChannelInfo>} A promise. Resolves with [ChannelInfo]. Rejects with [Error].
-     * @memberOf PicartoAPI
-     */
-    public getChannelInfo(accessKey: string): Promise<ChannelInfo> {
-        return this.getUrl(`${this.apiURL}/channel/${accessKey}`).then(parseJSON) as Promise<ChannelInfo>;
+            if (!webhook_id) {
+                reject(new Error("`webhook_id` is required."));
+                return;
+            }
+
+            if (!client_id) {
+                reject(new Error("`client_id` is required."));
+                return;
+            }
+
+            if (!client_secret) {
+                reject(new Error("`client_secret` is required."));
+                return;
+            }
+
+            const query = {};
+            if (typeof client_id !== 'undefined') { query["client_id"] = client_id; }
+            if (typeof client_secret !== 'undefined') { query["client_secret"] = client_secret; }
+
+            const head = {};
+            if (this.oauthToken) { head["Authorization"] = `Bearer ${this.oauthToken}`; }
+
+            request({
+                method: 'GET',
+                headers: head,
+                qs: query,
+                uri: `${this.apiURL}/webhooks/${webhook_id}`,
+                useQuerystring: true,
+                json: true
+            }, (err, httpResponse, body) => {
+                if (err) {
+                    reject(err);
+                }
+                else {
+                    const statusCode = httpResponse.statusCode;
+                    if (statusCode !== HTTP_200_OK && statusCode !== HTTP_302_REDIRECT) {
+                        reject(new Error(`Recieved Status Code ${statusCode}`));
+                    }
+                    resolve(body);
+                }
+            });
+        });
     }
 
-    /**
-     * Unofficial API
-     * This is the Unofficial API collected through watching client network communication and exploring client source code.
-     * It may break or change at any time and is provided as-is with no guarantees. Please be sure to read through and comply with Picarto's TOS: https://picarto.tv/site/terms
-     */
+    public updateWebhookURI(webhook_id: number, uri: string, client_id: string, client_secret: string): Promise<Webhook> {
+        return new Promise((resolve, reject) => {
 
-    /**
-     * [Unofficial] Logs into Picarto with the specified credentials. The current PicartoAPI object will stay logged in until the session expires, the object is destroyed, or `logout()` is successfully resolved.
-     * @param {string} username The username for the Picarto account
-     * @param {string} password The password for the Picarto account
-     * @param {boolean} stayLoggedIn Whether or not to "Stay logged in"
-     * @returns {Promise<LoginResponse>} A promise. Resolves with [LoginResponse]. Rejects with [Error].
-     * @memberOf PicartoAPI
-     */
-    public login(username: string, password: string, stayLoggedIn: boolean = true): Promise<LoginResponse> {
-        return this.postUrl(`${this.baseURL}/process/login`, { username: username, password: password, staylogged: stayLoggedIn }).then(parseJSON)
-            .then((result: LoginResponse) => new Promise((resolve, reject) => result.loginstatus ? resolve(result) : reject(new Error("Invalid Username or Password.")))) as Promise<LoginResponse>;
-    }
+            if (!webhook_id) {
+                reject(new Error("`webhook_id` is required."));
+                return;
+            }
 
-    /**
-     * [Unofficial] Logs out of Picarto. On success, resolves with the loneliest number.
-     * @returns {Promise<number>} A promise. Resolves with [number]. Rejects with [Error].
-     * @memberOf PicartoAPI
-     */
-    public logout(): Promise<number> {
-        return this.postUrl(`${this.baseURL}/process/logout`).then(parseJSON) as Promise<number>;
-    }
+            if (!uri) {
+                reject(new Error("`uri` is required."));
+                return;
+            }
 
-    /**
-     * [Unstable] Gets init info for a channel's chat.
-     * @param {string} channelName The name of the channel to get the chat for.
-     * @returns {Promise<ChatInitInfo>} A promise. Resolves with [ChatInitInfo]. Rejects with [Error].
-     * @memberOf PicartoAPI
-     */
-    public unsp_getChatInitInfo(channelName: string): Promise<ChatInitInfo> {
-        return this.getUrl(`${this.baseURL}/chatpopout/${channelName}/public`).then((html: string) => {
-            let info = regex_ChatInit.exec(html)[1].split(',').map(p => p.replace(/'/g, "").trim());
-            return {
-                simple: +info.shift() === 1,
-                linkDetection: +info.shift() === 1,
-                emoticons: +info.shift() === 1,
-                timestamps: +info.shift() === 1,
-                soundNotifications: +info.shift() === 1,
-                chatUsername: info.shift(),
-                chatChannel: info.shift(),
-                chatKey: info.shift()
-            };
+            if (!client_id) {
+                reject(new Error("`client_id` is required."));
+                return;
+            }
+
+            if (!client_secret) {
+                reject(new Error("`client_secret` is required."));
+                return;
+            }
+
+            const query = {};
+            if (typeof uri !== 'undefined') { query["uri"] = uri; }
+            if (typeof client_id !== 'undefined') { query["client_id"] = client_id; }
+            if (typeof client_secret !== 'undefined') { query["client_secret"] = client_secret; }
+
+            const head = {};
+            if (this.oauthToken) { head["Authorization"] = `Bearer ${this.oauthToken}`; }
+
+            request({
+                method: 'PUT',
+                headers: head,
+                qs: query,
+                uri: `${this.apiURL}/webhooks/${webhook_id}`,
+                useQuerystring: true,
+                json: true
+            }, (err, httpResponse, body) => {
+                if (err) {
+                    reject(err);
+                }
+                else {
+                    const statusCode = httpResponse.statusCode;
+                    if (statusCode !== HTTP_200_OK && statusCode !== HTTP_302_REDIRECT) {
+                        reject(new Error(`Recieved Status Code ${statusCode}`));
+                    }
+                    resolve(body);
+                }
+            });
         });
     }
 
 }
 
-const regex_ChatInit = /initChatVariables\((.*?)\)/;
 
-export interface ChannelInfoLanguage {
-    language_code: string;
-    flag_url: string;
-}
+/*
+ *   Public
+ */
 
-export interface ChannelInfo {
-    id: number;
-    channel: string;
-    channel_title: string;
-    avatar_url: string;
-    offline_image: string;
-    chat_banner: string;
-    thumbnail_url: string;
-    background_url: string;
-    tags: Array<string>;
-    language_primary: ChannelInfoLanguage;
-    language_secondary: ChannelInfoLanguage;
-    followers: number;
-    channel_views: number;
-    is_online: boolean;
-    is_multistream: boolean;
-    multistream_participants: Array<string>;
-    current_viewers: number;
-    is_nsfw: boolean;
-    commissions_enabled: boolean;
-    tablet: string;
-    program: string;
-    content_type: string;
-    description: string;
-    commission_info: string;
-    channel_url: string;
-    social_urls: Object;
-}
-
-export interface LoginResponse {
-    loginstatus: boolean;
-    accountStatus: number;
-    stayloggedVal: string;
-    staylogged: number;
-}
-
-export interface News {
-    title: string;
-    description: string;
-}
-
-export interface HomepageInfoVideo {
-    channel_name: string;
-    channel_title: string;
-    featured: boolean;
-    offline_image: boolean;
-    product: number;
-}
-
-export interface HomepageInfoCommunity {
-    community_id: number;
-    community_name: string;
-    file: string;
-}
-
-export interface HomepageInfoStream {
-    channel_name: string;
-    channel_title: string;
-    community_id: number;
-    community_name: string;
-    product: number;
-}
-
-export interface HomepageInfo {
-    videos: Array<HomepageInfoVideo>;
-    communities: Array<HomepageInfoCommunity>;
-    top_streams: Array<HomepageInfoStream>;
-    random_streams: Array<HomepageInfoStream>;
-}
-
-export interface ExplorePageInfoLanguage {
-    lang_id: number;
-    language: string;
-    flag: string;
-    online_sfw: number;
-    online_nsfw: number;
-}
-
-export interface ExplorePageInfoLanguage2 {
-    language_id: number;
-    language_code: string;
-    flag: string;
-}
-
-export interface ExplorePageInfoChannel {
-    id: number;
-    channel_name: string;
-    channel_title: string;
-    channel_viewers: number;
-    product: number;
-    adult: boolean;
-    cat_id: number;
-    cat_name: string;
-    language_primary: ExplorePageInfoLanguage2;
-    language_secondary: ExplorePageInfoLanguage2;
-    tags: string[];
-    is_multistream: boolean;
-    gamemode: boolean;
-    commissions: boolean;
-}
-
-export interface ExplorePageInfoCommunity {
-    id: number;
+export interface OnlineDetails {
+    user_id: number;
     name: string;
-    viewers_sfw: number;
-    viewers_nsfw: number;
-    online_sfw: number;
-    online_nsfw: number;
-    file_name: string;
+    viewers: number;
+    category: string;
+    adult: boolean;
+    gaming: boolean;
+    multistream: boolean;
 }
 
-export interface ExplorePageInfo {
-    languages: ExplorePageInfoLanguage[];
-    channels: ExplorePageInfoChannel[];
+export interface Category {
+    name: string;
+    total_channels: number;
+    online_channels: number;
+    viewers: number;
+}
+
+export interface BasicChannelInfo {
+    user_id: number;
+    name: string;
+}
+
+export interface Event {
+    id: string;
+    channel_details: BasicChannelInfo;
+    category: string;
+    ticket_price: number;
+    ticket_limit: number;
+    tickets_sold: number;
+    started: boolean;
+    adult: boolean;
+}
+
+export interface DescriptionPanel {
+    title: string;
+    body: string;
+    image: string;
+    image_link: string;
+    position: number;
+}
+
+export interface MultiParticipant {
+    user_id: string;
+    name: string;
+    online: boolean;
+}
+
+export interface ChannelDetails {
+    user_id: number;
+    name: string;
+    online: boolean;
+    viewers: number;
+    viewers_total: number;
+    followers: number;
+    adult: boolean;
+    category: string;
+    account_type: string;
+    commissions: boolean;
+    title: string;
+    description_panels: DescriptionPanel[];
+    private: boolean;
+    gaming: boolean;
+    guest_chat: boolean;
+    last_live: Date;
     tags: string[];
-    communities: ExplorePageInfoCommunity[];
+    multistream: MultiParticipant[];
 }
 
-export interface NsfwWarningStatus {
-    nsfw_warnings: boolean;
+export interface UserData {
+    channel_details: ChannelDetails;
+    email: string;
+    creation_date: string;
+    private_key: string;
+    following: BasicChannelInfo[];
+    subscriptions: BasicChannelInfo[];
 }
 
-export interface AvatarUpdateResult {
-    state: number;
-    message: string;
-    result: string;
+// tslint:disable-next-line:no-namespace
+// tslint:disable-next-line:no-internal-module
+export module WebhookType {
+    export const online = "online";
+    export const offline = "offline";
+    export const follow = "follow";
+    export const unfollow = "unfollow";
+    export const subscribe = "subscribe";
+    export const unsubscribe = "unsubscribe";
+    export const event_start = "event_start";
+    export const event_end = "event_end";
 }
 
-export interface ChatInitInfo {
-    simple: boolean;
-    linkDetection: boolean;
-    emoticons: boolean;
-    timestamps: boolean;
-    soundNotifications: boolean;
-    chatUsername: string;
-    chatChannel: string;
-    chatKey: string;
+export interface Webhook {
+    id: string;
+    channel: BasicChannelInfo;
+    type: string;
+    uri: string;
 }
+
+

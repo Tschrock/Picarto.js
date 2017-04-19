@@ -6,22 +6,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const pbjs = require("protobufjs/cli/pbjs");
 const pbts = require("protobufjs/cli/pbts");
 const child_process_1 = require("child_process");
-// tslint:disable-next-line:no-console
 console.log("Prebuilding Protobuffs...");
-pbjs.main(["--target", "static-module", "lib/picarto.proto", "-o", "lib/picarto.proto.prebuilt.js"], function (err, output) {
+pbjs.main(["--target", "static-module", "lib/gen/picarto.proto", "-o", "lib/gen/picarto.proto.prebuilt.js"], function (err, output) {
     if (err) {
-        return console.log(err);
-    }
-    if (output) {
-        console.log(output);
+        console.log(err);
+        return;
     }
     console.log("TSifying Protobuffs...");
-    pbts.main(["lib/picarto.proto.prebuilt.js", "-o", "lib/picarto.proto.prebuilt.d.ts"], function (err, output) {
-        if (err) {
-            return console.log(err);
-        }
-        if (output) {
-            console.log(output);
+    pbts.main(["lib/gen/picarto.proto.prebuilt.js", "-o", "lib/gen/picarto.proto.prebuilt.d.ts"], function (err2, output2) {
+        if (err2) {
+            console.log(err2);
+            return;
         }
         console.log("Compiling TypeScript...");
         child_process_1.exec("tsc", function (error, stdout, stderr) {
@@ -36,5 +31,7 @@ pbjs.main(["--target", "static-module", "lib/picarto.proto", "-o", "lib/picarto.
             }
             console.log("Done!");
         });
+        return {};
     });
+    return {};
 });

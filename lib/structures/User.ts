@@ -14,7 +14,7 @@
  */
 
 import { ChatClient } from "../client/ChatClient";
-import * as ChatProtocol from '../picarto.proto.prebuilt';
+import * as ChatProtocol from '../gen/picarto.proto.prebuilt';
 
 /**
  * A user on Picarto.
@@ -79,6 +79,13 @@ export class User {
      */
     public isIgnored: boolean;
 
+    /**
+     * The last time the user's information was updated.
+     * @type {number}
+     * @memberOf User
+     */
+    public lasUpdatedTime: number;
+
     constructor(private client: ChatClient, data?: ChatProtocol.UserList.User | ChatProtocol.ChatMessage | ChatProtocol.Whisper) {
         if(data) { this.update(data); }
      }
@@ -101,6 +108,7 @@ export class User {
                     this.hasPremium = data.userData.premium;
                     this.color = data.userData.color;
                     this.isIgnored = data.userData.ignoring;
+                    this.lasUpdatedTime = Date.now();
                 }
             }
             else if (data instanceof ChatProtocol.ChatMessage) {
@@ -110,6 +118,7 @@ export class User {
                 this.hasPremium = data.premium;
                 this.color = data.color;
                 this.isIgnored = false; // If we see a message from them we can't be ignoring them :P
+                this.lasUpdatedTime = Date.now();
             }
             else if (data instanceof ChatProtocol.Whisper) {
                 this.isIgnored = false; // If we see a message from them we can't be ignoring them :P

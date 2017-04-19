@@ -33,6 +33,7 @@
     "@types/node": "^7.0.0",
     "@types/request": "0.0.41",
     "@types/ws": "0.0.38",
+    "tslint": "^5.1.0",
     "typescript": "^2.1.5"
   },
   "engines": {

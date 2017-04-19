@@ -24,22 +24,17 @@ import pbts = require("protobufjs/cli/pbts");
 
 import { exec } from "child_process";
 
-// tslint:disable-next-line:no-console
 console.log("Prebuilding Protobuffs...");
 pbjs.main(["--target", "static-module", "lib/gen/picarto.proto", "-o", "lib/gen/picarto.proto.prebuilt.js"], function (err, output) {
     if (err) {
-        return console.log(err);
-    }
-    if (output) {
-        console.log(output);
+        console.log(err);
+        return;
     }
     console.log("TSifying Protobuffs...");
-    pbts.main(["lib/gen/picarto.proto.prebuilt.js", "-o", "lib/gen/picarto.proto.prebuilt.d.ts"], function (err, output) {
-        if (err) {
-            return console.log(err);
-        }
-        if (output) {
-            console.log(output);
+    pbts.main(["lib/gen/picarto.proto.prebuilt.js", "-o", "lib/gen/picarto.proto.prebuilt.d.ts"], function (err2, output2) {
+        if (err2) {
+            console.log(err2);
+            return;
         }
         console.log("Compiling TypeScript...");
         exec("tsc", function (error, stdout, stderr) {
@@ -54,5 +49,7 @@ pbjs.main(["--target", "static-module", "lib/gen/picarto.proto", "-o", "lib/gen/
             }
             console.log("Done!");
         });
-    })
-})
+        return {};
+    });
+    return {};
+});

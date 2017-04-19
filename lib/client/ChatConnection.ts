@@ -18,7 +18,7 @@ import * as http from 'http';
 /*import * as WebSocket from 'ws';*/
 import WebSocket = require('ws');
 
-import * as ChatProtocol from '../picarto.proto.prebuilt';
+import * as ChatProtocol from '../gen/picarto.proto.prebuilt';
 
 export interface ChatConnectionConfig {
     socketUrl?: string;
