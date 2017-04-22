@@ -15,8 +15,7 @@
 
 import { EventEmitter } from 'events';
 import * as http from 'http';
-/*import * as WebSocket from 'ws';*/
-import WebSocket = require('ws');
+import * as WebSocket from 'ws';
 
 import * as ChatProtocol from '../gen/picarto.proto.prebuilt';
 
@@ -57,6 +56,7 @@ export class ChatConnection extends EventEmitter {
         this.config = defaultConfig;
         Object.keys(config).forEach(key => this.config[key] = config[key]);
 
+        this.connect();
     }
 
     protected connect() {
@@ -154,7 +154,7 @@ export class ChatConnection extends EventEmitter {
 
     private _queueSendMessage(signal: TSignal) {
         this.messageQueue.push(signal);
-        if (!this.messageQueueTimeout) { this._checkQueue(); };
+        if (!this.messageQueueTimeout) { this._checkQueue(); }
     }
 
     private _checkQueue() {

@@ -35,15 +35,12 @@ export class ChatClient {
      */
     private picartoAPI: PicartoAPI;
 
-    private username: string;
-    private password: string;
-
     /**
      * A list of active chat connections.
      * @private
      * @memberOf ChatClient
      */
-    private connections = new Map<string, ChatConnection>();
+    private connections = new Map<number, ChatConnection>();
 
     /**
      * A list of all users this ChatClient has seen.
@@ -64,32 +61,29 @@ export class ChatClient {
         }
     }
 
-    public login(username: string, password: string): Promise<null> {
-        return new Promise((resolve, reject) => {
-            this.username = username;
-            this.password = password;
-            this.picartoAPI = new PicartoAPI();
-            return this.picartoAPI.login(username, password, true);
-        });
+    constructor(OAuthAuthToken: string) {
+        this.picartoAPI = new PicartoAPI();
+        this.picartoAPI.setOAuthToken(OAuthAuthToken);
     }
 
-    public connectToChannel(channelName: string, options?: ChatConnectionConfig): Promise<null> {
-        return new Promise((resolve, reject) => {
-
-            if (this.connections.has(channelName.toLowerCase())) {
-                this.connections.get(channelName.toLowerCase()).disconnect();
-                this.connections.delete(channelName.toLowerCase());
-            }
-
-            return this.picartoAPI.unsp_getChatInitInfo(channelName).then(
-                info => {
-                    if (!this.connections.has(channelName.toLowerCase())) {
-                        this.connections.set(channelName.toLowerCase(), new ChatConnection(info.chatKey, options));
-                    }
+    public joinChannelById(channelId: number): Promise<ChatConnection> {
+        if(this.connections.has(channelId)) { return Promise.reject(new Error("Already connected to channel!")); }
+        return this.picartoAPI.getUserChatKey(channelId, true).then(
+            key => {
+                //
+                let con = this.connections.get(channelId);
+                if(!con) {
+                    con = new ChatConnection(key);
+                    this.connections.set(channelId, con);
                 }
-            );
-
-        });
+                return con;
+            }
+        );
+    }
+    public joinChannelByName(channelName: string): Promise<ChatConnection> {
+        return this.picartoAPI.getChannelInfoByName(channelName).then(
+            details => this.joinChannelById(details.user_id)
+        );
     }
 
 

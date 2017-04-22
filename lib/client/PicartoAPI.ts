@@ -42,7 +42,11 @@ export class PicartoAPI {
         return this._cacheTime;
     }
 
-    public oauthToken: string;
+    private _oauthToken: string;
+
+    public setOAuthToken(token: string) {
+        this._oauthToken = token;
+    }
 
     /**
      * Gets all currently online channels
@@ -61,7 +65,7 @@ export class PicartoAPI {
             if (typeof categories !== 'undefined') { query["categories"] = gaming; }
 
             const head = {};
-            if (this.oauthToken) { head["Authorization"] = `Bearer ${this.oauthToken}`; }
+            if (this._oauthToken) { head["Authorization"] = `Bearer ${this._oauthToken}`; }
 
             request({
                 method: 'GET',
@@ -94,7 +98,7 @@ export class PicartoAPI {
         return new Promise((resolve, reject) => {
 
             const head = {};
-            if (this.oauthToken) { head["Authorization"] = `Bearer ${this.oauthToken}`; }
+            if (this._oauthToken) { head["Authorization"] = `Bearer ${this._oauthToken}`; }
 
             request({
                 method: 'GET',
@@ -125,7 +129,7 @@ export class PicartoAPI {
         return new Promise((resolve, reject) => {
 
             const head = {};
-            if (this.oauthToken) { head["Authorization"] = `Bearer ${this.oauthToken}`; }
+            if (this._oauthToken) { head["Authorization"] = `Bearer ${this._oauthToken}`; }
 
             request({
                 method: 'GET',
@@ -157,7 +161,7 @@ export class PicartoAPI {
         return new Promise((resolve, reject) => {
 
             const head = {};
-            if (this.oauthToken) { head["Authorization"] = `Bearer ${this.oauthToken}`; }
+            if (this._oauthToken) { head["Authorization"] = `Bearer ${this._oauthToken}`; }
 
             request({
                 method: 'GET',
@@ -189,7 +193,7 @@ export class PicartoAPI {
         return new Promise((resolve, reject) => {
 
             const head = {};
-            if (this.oauthToken) { head["Authorization"] = `Bearer ${this.oauthToken}`; }
+            if (this._oauthToken) { head["Authorization"] = `Bearer ${this._oauthToken}`; }
 
             request({
                 method: 'GET',
@@ -219,13 +223,13 @@ export class PicartoAPI {
     public getUserInfo(): Promise<UserData> {
         return new Promise((resolve, reject) => {
 
-            if (!this.oauthToken) {
+            if (!this._oauthToken) {
                 reject(new Error("This endpoint requires authorization."));
                 return;
             }
 
             const head = {};
-            if (this.oauthToken) { head["Authorization"] = `Bearer ${this.oauthToken}`; }
+            if (this._oauthToken) { head["Authorization"] = `Bearer ${this._oauthToken}`; }
 
             request({
                 method: 'GET',
@@ -255,13 +259,13 @@ export class PicartoAPI {
     public getUserStreamKey(): Promise<string> {
         return new Promise((resolve, reject) => {
 
-            if (!this.oauthToken) {
+            if (!this._oauthToken) {
                 reject(new Error("This endpoint requires authorization."));
                 return;
             }
 
             const head = {};
-            if (this.oauthToken) { head["Authorization"] = `Bearer ${this.oauthToken}`; }
+            if (this._oauthToken) { head["Authorization"] = `Bearer ${this._oauthToken}`; }
 
             request({
                 method: 'GET',
@@ -293,7 +297,7 @@ export class PicartoAPI {
     public getUserChatKey(channel_id: number, bot: boolean): Promise<string> {
         return new Promise((resolve, reject) => {
 
-            if (!this.oauthToken) {
+            if (!this._oauthToken) {
                 reject(new Error("This endpoint requires authorization."));
                 return;
             }
@@ -309,7 +313,7 @@ export class PicartoAPI {
             }
 
             const head = {};
-            if (this.oauthToken) { head["Authorization"] = `Bearer ${this.oauthToken}`; }
+            if (this._oauthToken) { head["Authorization"] = `Bearer ${this._oauthToken}`; }
 
             request({
                 method: 'GET',
@@ -356,7 +360,7 @@ export class PicartoAPI {
             if (typeof channel_id !== 'undefined') { query["channel_id"] = channel_id; }
 
             const head = {};
-            if (this.oauthToken) { head["Authorization"] = `Bearer ${this.oauthToken}`; }
+            if (this._oauthToken) { head["Authorization"] = `Bearer ${this._oauthToken}`; }
 
             request({
                 method: 'GET',
@@ -394,7 +398,7 @@ export class PicartoAPI {
             }
 
             const head = {};
-            if (this.oauthToken) { head["Authorization"] = `Bearer ${this.oauthToken}`; }
+            if (this._oauthToken) { head["Authorization"] = `Bearer ${this._oauthToken}`; }
 
             request({
                 method: 'POST',
@@ -443,7 +447,7 @@ export class PicartoAPI {
             if (typeof client_secret !== 'undefined') { query["client_secret"] = client_secret; }
 
             const head = {};
-            if (this.oauthToken) { head["Authorization"] = `Bearer ${this.oauthToken}`; }
+            if (this._oauthToken) { head["Authorization"] = `Bearer ${this._oauthToken}`; }
 
             request({
                 method: 'DELETE',
@@ -490,7 +494,7 @@ export class PicartoAPI {
             if (typeof client_secret !== 'undefined') { query["client_secret"] = client_secret; }
 
             const head = {};
-            if (this.oauthToken) { head["Authorization"] = `Bearer ${this.oauthToken}`; }
+            if (this._oauthToken) { head["Authorization"] = `Bearer ${this._oauthToken}`; }
 
             request({
                 method: 'GET',
@@ -543,7 +547,7 @@ export class PicartoAPI {
             if (typeof client_secret !== 'undefined') { query["client_secret"] = client_secret; }
 
             const head = {};
-            if (this.oauthToken) { head["Authorization"] = `Bearer ${this.oauthToken}`; }
+            if (this._oauthToken) { head["Authorization"] = `Bearer ${this._oauthToken}`; }
 
             request({
                 method: 'PUT',

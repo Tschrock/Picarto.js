@@ -1,6 +1,8 @@
 Picarto.js
 ==========
 An unofficial node.js library for interacting with Picarto.tv's API. See https://docs.picarto.tv/api/.
+
+**Note: this is still very much a work in progress and some things probably won't work as advertized yet :D**
  
 
 ## Installation
@@ -15,37 +17,34 @@ npm install --save tschrock/picarto.js
 // Include the library
 var picartojs = require('picarto.js');
 
-// Start a new session
-var apiSession = new picartojs.PicartoAPI();
+var oauthAuthToken = "<Token>";
 
-// Get the details about your channel (See https://picarto.tv/settings/api)
-apiSession.getChannelInfo("<AccessKey>").then(
-    info => {
-        console.log("Your channel has " + info.followers + " followers!");
-    },
-    error => {
-        console.log("Error getting channel info: ", error);
+var bot = new picartojs.ChatClient(oauthAuthToken);
+
+bot.on('message', function (chatMessage) {
+    if(chatMessage.content.toLowerCase().indexOf("boop") != -1) {
+        chatMessage.reply("Boop!");
     }
-)
+}
+
+bot.joinChannelByName("<ChannelName>");
 ```
 
 ### TS
 ```ts
-// Include the library
-import { PicartoAPI } from 'picarto.js';
+import { ChatClient } from 'picarto.js';
 
-// Start a new session
-var apiSession = new PicartoAPI();
+const oauthAuthToken = "<Token>";
 
-// Get the details about your channel (See https://picarto.tv/settings/api)
-apiSession.getChannelInfo("<AccessKey>").then(
-    info => {
-        console.log(`Your channel has ${info.followers} followers!`);
-    },
-    error => {
-        console.log(`Error getting channel info: ${error}`);
+const bot = new ChatClient(oauthAuthToken);
+
+bot.on('message', chatMessage => {
+    if(chatMessage.content.toLowerCase().indexOf("boop") != -1) {
+        chatMessage.reply("Boop!");
     }
-)
+}
+
+bot.joinChannelByName("<ChannelName>");
 ```
 
 ## Legal
