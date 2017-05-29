@@ -322,7 +322,7 @@ export class PicartoAPI {
                     channel_id: channel_id,
                     bot: bot
                 },
-                uri: `${this.apiURL}/user/streamkey`,
+                uri: `${this.apiURL}/user/jwtkey`,
                 useQuerystring: true,
                 json: true
             }, (err, httpResponse, body) => {
