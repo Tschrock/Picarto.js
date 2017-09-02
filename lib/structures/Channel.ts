@@ -6,16 +6,17 @@
  * or it's team. It is provided as-is with no guarantees. Please make sure you
  * read through and comply with Picarto's TOS: https://picarto.tv/site/terms
  *
- * Tschrock <tschrock123@gmail.com>
+ * CyberPon3 <cyber@cyberpon3.net>
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-import { ChannelUser } from "./ChannelUser";
 import { ChatClient } from "../client/ChatClient";
-import * as ChatProtocol from '../gen/picarto.proto.prebuilt';
+import { ChannelUser } from "./ChannelUser";
+
+import * as ChatProtocol from "../gen/picarto.proto.prebuilt";
 
 /**
  * A Channel on Picarto.
@@ -58,8 +59,8 @@ export class Channel {
     public channelUsersLastUpdate: Date;
 
     public resolveChannelUser(data: ChatProtocol.UserList.User | ChatProtocol.ChatMessage | ChatProtocol.Whisper) {
-        if(this.channelUserCache.has(data.userId)){
-            const existing = this.channelUserCache.get(data.userId);
+        const existing = this.channelUserCache.get(data.userId);
+        if (existing) {
             existing.update(data);
             return existing;
         }
@@ -72,15 +73,19 @@ export class Channel {
 
     public updateChannelUserList(data: ChatProtocol.UserList) {
         this.channelUsers.clear();
-        // TODO fix: data.user.map(u => this.resolveChannelUser(u)).forEach(u => this.channelUsers.set(u.user.id, u));
+        data.user.map(u => this.resolveChannelUser(u)).forEach(u => this.channelUsers.set(u.user.id, u));
     }
 
     constructor(private client: ChatClient) { }
 
     public update(data: ChatProtocol.OnlineState | ChatProtocol.Multistream.Channel | ChatProtocol.MonitorData) {
-        if(!this.id) { this.id = data.channel; }
-        if(this.id === data.channel) {
+        if (!this.id) { this.id = data.channel; }
+        if (this.id === data.channel) {
             this.name = data.channelName;
         }
+    }
+
+    public sendMessage(content: string) {
+        // TODO
     }
 }

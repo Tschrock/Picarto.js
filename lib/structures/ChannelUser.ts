@@ -6,17 +6,18 @@
  * or it's team. It is provided as-is with no guarantees. Please make sure you
  * read through and comply with Picarto's TOS: https://picarto.tv/site/terms
  *
- * Tschrock <tschrock123@gmail.com>
+ * CyberPon3 <cyber@cyberpon3.net>
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-import { User } from "./User";
-import { Channel } from "./Channel";
 import { ChatClient } from "../client/ChatClient";
-import * as ChatProtocol from '../gen/picarto.proto.prebuilt';
+import { Channel } from "./Channel";
+import { User } from "./User";
+
+import * as ChatProtocol from "../gen/picarto.proto.prebuilt";
 
 /**
  * A user in a Picarto Channel.
@@ -69,12 +70,12 @@ export class ChannelUser {
         this.user = this.client.resolveUser(data);
         if (data instanceof ChatProtocol.UserList.User) {
             if (data.userData) {
-                this.isStreamer = data.userData.streamer;
+                this.isStreamer = !!data.userData.streamer;
                 this.isShadowBanned = false;
             }
             else if (data.banData) {
                 this.isStreamer = false;
-                this.isShadowBanned = data.banData.isShadowBan;
+                this.isShadowBanned = !!data.banData.isShadowBan;
             }
         }
         else if (data instanceof ChatProtocol.ChatMessage) {

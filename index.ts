@@ -6,7 +6,7 @@
  * or it's team. It is provided as-is with no guarantees. Please make sure you
  * read through and comply with Picarto's TOS: https://picarto.tv/site/terms
  *
- * Tschrock <tschrock123@gmail.com>
+ * CyberPon3 <cyber@cyberpon3.net>
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
@@ -16,3 +16,4 @@
 'use strict';
 
 export * from './lib/client/PicartoAPI';
+export * from './lib/client/ChatClient';
