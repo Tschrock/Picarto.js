@@ -2,3 +2,4 @@
 node_modules
 old
 re_src
+*.d.ts

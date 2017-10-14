@@ -1,5 +1,4 @@
 syntax = "proto3";
-
 // Chat message client->server
 message NewMessage {
 	string message = 1;
@@ -18,6 +17,7 @@ message UserList {
 			bool subscriber = 7;
 			string color = 8;
 			bool ignoring = 9;
+			bool bot = 10;
 		}
 
 		message BanData {
@@ -37,6 +37,17 @@ message UserList {
 
 // Chat message
 message ChatMessage {
+	message Mention {
+		uint32 user_id = 1;
+		string display_name = 2;
+		string color = 3;
+	}
+	message CustomEmote {
+		int64 id = 1;
+		string Channel = 2;
+		string Alias = 3;
+	}
+
 	uint32 id = 1;
 	uint32 user_id = 2;
 	string display_name = 3;
@@ -51,6 +62,9 @@ message ChatMessage {
 	string color = 12;
 	int64 time_stamp = 13;
 	bool is_me_message = 14;
+	repeated Mention mentions = 15;
+	repeated CustomEmote custom_emotes = 16;
+	bool bot = 17;
 }
 
 // A global admin message
@@ -60,12 +74,20 @@ message GlobalMessage {
 
 // Whisper message
 message Whisper {
+	message CustomEmote {
+		int64 id = 1;
+		string Channel = 2;
+		string Alias = 3;
+	}
+
 	uint32 id = 1;
 	uint32 user_id = 2;
 	string display_name = 3;
 	string message = 4;
 	bool incomming = 5; // Whether or not we are recieving this whisper (otherwise we sent it)
 	int64 time_stamp = 6;
+	repeated CustomEmote custom_emotes = 7;
+	bool bot = 8;
 }
 
 // Server message
@@ -91,14 +113,18 @@ message Control {
 		GAMING = 2; // Enable/disable gaming mode
 		ADULT = 3; // Enable/disable adult mode
 		COMMISSIONS = 4; // Enable/disable commissions
-		COMMISSION_DESCRIPTION = 5; // Commission description update
-		DESCRIPTION = 6; // Description update
+		UNUSED_COMMISSION_DESCRIPTION = 5; // Commission description update - UNUSED
+		UNUSED_DESCRIPTION = 6; // Description update - UNUSED
 		CONTENT_TYPE = 7; // Update content type/category
 		CAN_TALK = 8; // Can the user talk
 		SHOW_POLL_CREATOR = 9; // Show the poll creator
-		SHOW_RAFFLE_CREATOR = 10; // Show the raffle creator
+		UNUSED_SHOW_RAFFLE_CREATOR = 10; // Show the raffle creator - UNUSED
 		NAME_TAKEN = 11; // The name you have picked has already been taken
-		HIDE_POLL = 12; // [CyberPon3] Hide the poll?
+		HIDE_POLL = 12; // Hide a running poll silently - used sometimes when leaving a multi
+		AWAY = 13; // When user goes AFK
+		JWT_SUCCESS = 14; // If the JWT token setting succeeded/failed
+		ENABLE_WHISPERS = 15; // Allow/deny whispers to be received client->server
+		ALLOW_LINKS = 16; // Allow/deny link posting in chat
 	}
 	MessageType message_type = 1;
 	bool data_bool = 2;
@@ -298,7 +324,7 @@ message MonitorData {
 	string channel_name = 3;
 }
 
-// When the chat level has changed (who can talk)
+// When the chat level has changed (who can talk) (client->server and server->client)
 message ChatLevel {
 	enum ChatLevelType {
 		EVERYONE = 0; // Everyone can talk
@@ -307,14 +333,16 @@ message ChatLevel {
 		STREAMER_MODERATOR_SUBSCRIBER = 3; // Only the streamer, moderators and subscribers can talk
 		STREAMER_MODERATOR_FOLLOWER = 4; // Only the streamer, moderators and followers can talk
 		STREAMER_MODERATOR_SUBSCRIBER_FOLLOWER = 5; // Only the streamer, moderators, subscribers and followers can talk
+		NO_GUEST = 6; // No guests can talk
 	}
 	ChatLevelType chat_level = 1;
 }
 
-// [CyberPon3] Requests the List of Users
-message RequestUserlist { }
+// Request the userlist from the server client->server
+message RequestUserlist {
+}
 
-// [CyberPon3] Data about a specific user
+// Send info about a specific user (client->server and server->client) - For client->server, send only display_name
 message UserInfo {
 	uint32 user_id = 1;
 	string display_name = 2;
@@ -329,18 +357,51 @@ message UserInfo {
 	bool ignoring = 11;
 	bool banned = 12;
 	bool shadow_banned = 13;
+	bool bot = 14;
 }
 
-// [CyberPon3] A count of current users
+// Total users currently in chat
 message UserCount {
 	uint32 users = 1;
 }
 
-// [CyberPon3] Sent when a raffle is started?
+// Show the raffle overlay with these users
 message ShowRaffle {
 	message User {
 		string display_name = 1;
 		bool subscriber = 2;
 	}
-	repeated User user_list = 1;
+	repeated User user = 1;
+}
+
+// When an event starts/stops
+message Event {
+	string event_id = 1;
+	bool starting = 2;
+	bool should_redirect = 3;
+}
+
+// When a new JWT key is set client->server and server->client
+// When client->server, only key is needed. Other fields are used in the reply to update client state
+message SetJWT {
+	string key = 1;
+	string name = 2;
+	bool registered = 3;
+	bool premium = 4;
+	bool basic = 5;
+	bool streamer = 6;
+}
+
+// Updates emotes with a signed message client->server
+message UpdateEmotes {
+	string emotes = 1;
+}
+
+// Ping/pong message (must answer a ping with a pong from either side)
+message PingPong {
+	enum PingType {
+		PING = 0;
+		PONG = 1;
+	}
+	PingType type = 1;
 }

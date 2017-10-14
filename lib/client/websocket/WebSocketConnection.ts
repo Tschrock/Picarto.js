@@ -72,7 +72,10 @@ export enum SignalId {
     UserInfo = 38,
     UserCount = 39,
     ShowRaffle = 40,
-    Event = 41
+    Event = 41,
+    SetJWT = 42,
+    UpdateEmotes = 43,
+    PingPong = 44
 }
 
 /**
@@ -120,7 +123,10 @@ export type TSignal =
     ChatProtocol.UserInfo |
     ChatProtocol.UserCount |
     ChatProtocol.ShowRaffle |
-    ChatProtocol.Event;
+    ChatProtocol.Event |
+    ChatProtocol.SetJWT |
+    ChatProtocol.UpdateEmotes |
+    ChatProtocol.PingPong;
 
 
 /**

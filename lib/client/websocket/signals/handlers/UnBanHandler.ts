@@ -14,20 +14,18 @@
  */
 "use strict";
 
-import { WebSocketSignalManager } from "../WebSocketSignalManager";
-
-import { TSignal } from "../../WebSocketConnection";
+import { UnBan } from "../../../../gen/picarto.proto.prebuilt";
+import { AbstractHandler } from "./AbstractHandler";
 
 /**
- * Signal handler base.
+ * Handler for UnBan signals.
  * @export
- * @class AbstractHandler
+ * @class UnBanHandler
+ * @extends {AbstractHandler}
  */
-export class AbstractHandler {
-    constructor(protected packetManager: WebSocketSignalManager) { }
-
-    public handle(signal: TSignal): boolean {
+export class UnBanHandler extends AbstractHandler {
+    public handle(signal: UnBan): boolean {
         console.log(signal);
-        return !!signal;
+        return true;
     }
 }

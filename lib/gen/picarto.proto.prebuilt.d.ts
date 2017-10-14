@@ -1,1621 +1,1748 @@
 import * as $protobuf from "protobufjs";
 
-/**
- * Constructs a new NewMessage.
- * @exports NewMessage
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a NewMessage. */
+export interface INewMessage {
+
+    /** NewMessage message */
+    message?: string;
+}
+
+/** Represents a NewMessage. */
 export class NewMessage {
 
     /**
      * Constructs a new NewMessage.
-     * @exports NewMessage
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: INewMessage);
 
-    /**
-     * NewMessage message.
-     * @type {string|undefined}
-     */
-    message?: string;
+    /** NewMessage message. */
+    public message: string;
 
     /**
      * Creates a new NewMessage instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {NewMessage} NewMessage instance
+     * @param [properties] Properties to set
+     * @returns NewMessage instance
      */
-    static create(properties?: Object): NewMessage;
+    public static create(properties?: INewMessage): NewMessage;
 
     /**
-     * Encodes the specified NewMessage message.
-     * @param {NewMessage|Object} message NewMessage message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified NewMessage message. Does not implicitly {@link NewMessage.verify|verify} messages.
+     * @param message NewMessage message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (NewMessage|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: INewMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified NewMessage message, length delimited.
-     * @param {NewMessage|Object} message NewMessage message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified NewMessage message, length delimited. Does not implicitly {@link NewMessage.verify|verify} messages.
+     * @param message NewMessage message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (NewMessage|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: INewMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a NewMessage message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {NewMessage} NewMessage
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns NewMessage
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): NewMessage;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): NewMessage;
 
     /**
      * Decodes a NewMessage message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {NewMessage} NewMessage
+     * @param reader Reader or buffer to decode from
+     * @returns NewMessage
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): NewMessage;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): NewMessage;
 
     /**
      * Verifies a NewMessage message.
-     * @param {NewMessage|Object} message NewMessage message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (NewMessage|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a NewMessage message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {NewMessage} NewMessage
+     * @param object Plain object
+     * @returns NewMessage
      */
-    static fromObject(object: { [k: string]: any }): NewMessage;
-
-    /**
-     * Creates a NewMessage message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link NewMessage.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {NewMessage} NewMessage
-     */
-    static from(object: { [k: string]: any }): NewMessage;
+    public static fromObject(object: { [k: string]: any }): NewMessage;
 
     /**
      * Creates a plain object from a NewMessage message. Also converts values to other types if specified.
-     * @param {NewMessage} message NewMessage
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message NewMessage
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: NewMessage, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this NewMessage message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: NewMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this NewMessage to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new UserList.
- * @exports UserList
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a UserList. */
+export interface IUserList {
+
+    /** UserList user */
+    user?: UserList.IUser[];
+}
+
+/** Represents a UserList. */
 export class UserList {
 
     /**
      * Constructs a new UserList.
-     * @exports UserList
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IUserList);
 
-    /**
-     * UserList user.
-     * @type {Array.<UserList.User>|undefined}
-     */
-    user?: UserList.User[];
+    /** UserList user. */
+    public user: UserList.IUser[];
 
     /**
      * Creates a new UserList instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {UserList} UserList instance
+     * @param [properties] Properties to set
+     * @returns UserList instance
      */
-    static create(properties?: Object): UserList;
+    public static create(properties?: IUserList): UserList;
 
     /**
-     * Encodes the specified UserList message.
-     * @param {UserList|Object} message UserList message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified UserList message. Does not implicitly {@link UserList.verify|verify} messages.
+     * @param message UserList message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (UserList|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IUserList, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified UserList message, length delimited.
-     * @param {UserList|Object} message UserList message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified UserList message, length delimited. Does not implicitly {@link UserList.verify|verify} messages.
+     * @param message UserList message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (UserList|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IUserList, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a UserList message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {UserList} UserList
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns UserList
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): UserList;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): UserList;
 
     /**
      * Decodes a UserList message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {UserList} UserList
+     * @param reader Reader or buffer to decode from
+     * @returns UserList
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): UserList;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): UserList;
 
     /**
      * Verifies a UserList message.
-     * @param {UserList|Object} message UserList message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (UserList|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a UserList message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {UserList} UserList
+     * @param object Plain object
+     * @returns UserList
      */
-    static fromObject(object: { [k: string]: any }): UserList;
-
-    /**
-     * Creates a UserList message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link UserList.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {UserList} UserList
-     */
-    static from(object: { [k: string]: any }): UserList;
+    public static fromObject(object: { [k: string]: any }): UserList;
 
     /**
      * Creates a plain object from a UserList message. Also converts values to other types if specified.
-     * @param {UserList} message UserList
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message UserList
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: UserList, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this UserList message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: UserList, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this UserList to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
 export namespace UserList {
 
-    /**
-     * Constructs a new User.
-     * @exports UserList.User
-     * @constructor
-     * @param {Object} [properties] Properties to set
-     */
+    /** Properties of a User. */
+    interface IUser {
+
+        /** User userId */
+        userId?: number;
+
+        /** User displayName */
+        displayName?: string;
+
+        /** User userData */
+        userData?: UserList.User.IUserData;
+
+        /** User banData */
+        banData?: UserList.User.IBanData;
+    }
+
+    /** Represents a User. */
     class User {
 
         /**
          * Constructs a new User.
-         * @exports UserList.User
-         * @constructor
-         * @param {Object} [properties] Properties to set
+         * @param [properties] Properties to set
          */
-        constructor(properties?: Object);
+        constructor(properties?: UserList.IUser);
 
-        /**
-         * User userId.
-         * @type {number|undefined}
-         */
-        userId?: number;
+        /** User userId. */
+        public userId: number;
 
-        /**
-         * User displayName.
-         * @type {string|undefined}
-         */
-        displayName?: string;
+        /** User displayName. */
+        public displayName: string;
 
-        /**
-         * User userData.
-         * @type {UserList.User.UserData|undefined}
-         */
-        userData?: UserList.User.UserData;
+        /** User userData. */
+        public userData?: (UserList.User.IUserData|null);
 
-        /**
-         * User banData.
-         * @type {UserList.User.BanData|undefined}
-         */
-        banData?: UserList.User.BanData;
+        /** User banData. */
+        public banData?: (UserList.User.IBanData|null);
 
-        /**
-         * User userState.
-         * @name UserList.User#userState
-         * @type {string|undefined}
-         */
-        userState?: string;
+        /** User userState. */
+        public userState?: string;
 
         /**
          * Creates a new User instance using the specified properties.
-         * @param {Object} [properties] Properties to set
-         * @returns {UserList.User} User instance
+         * @param [properties] Properties to set
+         * @returns User instance
          */
-        static create(properties?: Object): UserList.User;
+        public static create(properties?: UserList.IUser): UserList.User;
 
         /**
-         * Encodes the specified User message.
-         * @param {UserList.User|Object} message User message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
+         * Encodes the specified User message. Does not implicitly {@link UserList.User.verify|verify} messages.
+         * @param message User message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
          */
-        static encode(message: (UserList.User|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: UserList.IUser, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified User message, length delimited.
-         * @param {UserList.User|Object} message User message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
+         * Encodes the specified User message, length delimited. Does not implicitly {@link UserList.User.verify|verify} messages.
+         * @param message User message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
          */
-        static encodeDelimited(message: (UserList.User|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: UserList.IUser, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
          * Decodes a User message from the specified reader or buffer.
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {UserList.User} User
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns User
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): UserList.User;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): UserList.User;
 
         /**
          * Decodes a User message from the specified reader or buffer, length delimited.
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {UserList.User} User
+         * @param reader Reader or buffer to decode from
+         * @returns User
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): UserList.User;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): UserList.User;
 
         /**
          * Verifies a User message.
-         * @param {UserList.User|Object} message User message or plain object to verify
-         * @returns {?string} `null` if valid, otherwise the reason why it is not
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
          */
-        static verify(message: (UserList.User|Object)): string;
+        public static verify(message: { [k: string]: any }): (string|null);
 
         /**
          * Creates a User message from a plain object. Also converts values to their respective internal types.
-         * @param {Object.<string,*>} object Plain object
-         * @returns {UserList.User} User
+         * @param object Plain object
+         * @returns User
          */
-        static fromObject(object: { [k: string]: any }): UserList.User;
-
-        /**
-         * Creates a User message from a plain object. Also converts values to their respective internal types.
-         * This is an alias of {@link UserList.User.fromObject}.
-         * @function
-         * @param {Object.<string,*>} object Plain object
-         * @returns {UserList.User} User
-         */
-        static from(object: { [k: string]: any }): UserList.User;
+        public static fromObject(object: { [k: string]: any }): UserList.User;
 
         /**
          * Creates a plain object from a User message. Also converts values to other types if specified.
-         * @param {UserList.User} message User
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
+         * @param message User
+         * @param [options] Conversion options
+         * @returns Plain object
          */
-        static toObject(message: UserList.User, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-        /**
-         * Creates a plain object from this User message. Also converts values to other types if specified.
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+        public static toObject(message: UserList.User, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this User to JSON.
-         * @returns {Object.<string,*>} JSON object
+         * @returns JSON object
          */
-        toJSON(): { [k: string]: any };
+        public toJSON(): { [k: string]: any };
     }
 
     namespace User {
 
-        /**
-         * Constructs a new UserData.
-         * @exports UserList.User.UserData
-         * @constructor
-         * @param {Object} [properties] Properties to set
-         */
+        /** Properties of a UserData. */
+        interface IUserData {
+
+            /** UserData registered */
+            registered?: boolean;
+
+            /** UserData moderator */
+            moderator?: boolean;
+
+            /** UserData streamer */
+            streamer?: boolean;
+
+            /** UserData ptvAdmin */
+            ptvAdmin?: boolean;
+
+            /** UserData basic */
+            basic?: boolean;
+
+            /** UserData premium */
+            premium?: boolean;
+
+            /** UserData subscriber */
+            subscriber?: boolean;
+
+            /** UserData color */
+            color?: string;
+
+            /** UserData ignoring */
+            ignoring?: boolean;
+
+            /** UserData bot */
+            bot?: boolean;
+        }
+
+        /** Represents a UserData. */
         class UserData {
 
             /**
              * Constructs a new UserData.
-             * @exports UserList.User.UserData
-             * @constructor
-             * @param {Object} [properties] Properties to set
+             * @param [properties] Properties to set
              */
-            constructor(properties?: Object);
+            constructor(properties?: UserList.User.IUserData);
 
-            /**
-             * UserData registered.
-             * @type {boolean|undefined}
-             */
-            registered?: boolean;
+            /** UserData registered. */
+            public registered: boolean;
 
-            /**
-             * UserData moderator.
-             * @type {boolean|undefined}
-             */
-            moderator?: boolean;
+            /** UserData moderator. */
+            public moderator: boolean;
 
-            /**
-             * UserData streamer.
-             * @type {boolean|undefined}
-             */
-            streamer?: boolean;
+            /** UserData streamer. */
+            public streamer: boolean;
 
-            /**
-             * UserData ptvAdmin.
-             * @type {boolean|undefined}
-             */
-            ptvAdmin?: boolean;
+            /** UserData ptvAdmin. */
+            public ptvAdmin: boolean;
 
-            /**
-             * UserData basic.
-             * @type {boolean|undefined}
-             */
-            basic?: boolean;
+            /** UserData basic. */
+            public basic: boolean;
 
-            /**
-             * UserData premium.
-             * @type {boolean|undefined}
-             */
-            premium?: boolean;
+            /** UserData premium. */
+            public premium: boolean;
 
-            /**
-             * UserData subscriber.
-             * @type {boolean|undefined}
-             */
-            subscriber?: boolean;
+            /** UserData subscriber. */
+            public subscriber: boolean;
 
-            /**
-             * UserData color.
-             * @type {string|undefined}
-             */
-            color?: string;
+            /** UserData color. */
+            public color: string;
 
-            /**
-             * UserData ignoring.
-             * @type {boolean|undefined}
-             */
-            ignoring?: boolean;
+            /** UserData ignoring. */
+            public ignoring: boolean;
+
+            /** UserData bot. */
+            public bot: boolean;
 
             /**
              * Creates a new UserData instance using the specified properties.
-             * @param {Object} [properties] Properties to set
-             * @returns {UserList.User.UserData} UserData instance
+             * @param [properties] Properties to set
+             * @returns UserData instance
              */
-            static create(properties?: Object): UserList.User.UserData;
+            public static create(properties?: UserList.User.IUserData): UserList.User.UserData;
 
             /**
-             * Encodes the specified UserData message.
-             * @param {UserList.User.UserData|Object} message UserData message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
+             * Encodes the specified UserData message. Does not implicitly {@link UserList.User.UserData.verify|verify} messages.
+             * @param message UserData message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
              */
-            static encode(message: (UserList.User.UserData|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encode(message: UserList.User.IUserData, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Encodes the specified UserData message, length delimited.
-             * @param {UserList.User.UserData|Object} message UserData message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
+             * Encodes the specified UserData message, length delimited. Does not implicitly {@link UserList.User.UserData.verify|verify} messages.
+             * @param message UserData message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
              */
-            static encodeDelimited(message: (UserList.User.UserData|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: UserList.User.IUserData, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
              * Decodes a UserData message from the specified reader or buffer.
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {UserList.User.UserData} UserData
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns UserData
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): UserList.User.UserData;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): UserList.User.UserData;
 
             /**
              * Decodes a UserData message from the specified reader or buffer, length delimited.
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {UserList.User.UserData} UserData
+             * @param reader Reader or buffer to decode from
+             * @returns UserData
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): UserList.User.UserData;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): UserList.User.UserData;
 
             /**
              * Verifies a UserData message.
-             * @param {UserList.User.UserData|Object} message UserData message or plain object to verify
-             * @returns {?string} `null` if valid, otherwise the reason why it is not
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
              */
-            static verify(message: (UserList.User.UserData|Object)): string;
+            public static verify(message: { [k: string]: any }): (string|null);
 
             /**
              * Creates a UserData message from a plain object. Also converts values to their respective internal types.
-             * @param {Object.<string,*>} object Plain object
-             * @returns {UserList.User.UserData} UserData
+             * @param object Plain object
+             * @returns UserData
              */
-            static fromObject(object: { [k: string]: any }): UserList.User.UserData;
-
-            /**
-             * Creates a UserData message from a plain object. Also converts values to their respective internal types.
-             * This is an alias of {@link UserList.User.UserData.fromObject}.
-             * @function
-             * @param {Object.<string,*>} object Plain object
-             * @returns {UserList.User.UserData} UserData
-             */
-            static from(object: { [k: string]: any }): UserList.User.UserData;
+            public static fromObject(object: { [k: string]: any }): UserList.User.UserData;
 
             /**
              * Creates a plain object from a UserData message. Also converts values to other types if specified.
-             * @param {UserList.User.UserData} message UserData
-             * @param {$protobuf.ConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
+             * @param message UserData
+             * @param [options] Conversion options
+             * @returns Plain object
              */
-            static toObject(message: UserList.User.UserData, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-            /**
-             * Creates a plain object from this UserData message. Also converts values to other types if specified.
-             * @param {$protobuf.ConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+            public static toObject(message: UserList.User.UserData, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
             /**
              * Converts this UserData to JSON.
-             * @returns {Object.<string,*>} JSON object
+             * @returns JSON object
              */
-            toJSON(): { [k: string]: any };
+            public toJSON(): { [k: string]: any };
         }
 
-        /**
-         * Constructs a new BanData.
-         * @exports UserList.User.BanData
-         * @constructor
-         * @param {Object} [properties] Properties to set
-         */
+        /** Properties of a BanData. */
+        interface IBanData {
+
+            /** BanData isShadowBan */
+            isShadowBan?: boolean;
+        }
+
+        /** Represents a BanData. */
         class BanData {
 
             /**
              * Constructs a new BanData.
-             * @exports UserList.User.BanData
-             * @constructor
-             * @param {Object} [properties] Properties to set
+             * @param [properties] Properties to set
              */
-            constructor(properties?: Object);
+            constructor(properties?: UserList.User.IBanData);
 
-            /**
-             * BanData isShadowBan.
-             * @type {boolean|undefined}
-             */
-            isShadowBan?: boolean;
+            /** BanData isShadowBan. */
+            public isShadowBan: boolean;
 
             /**
              * Creates a new BanData instance using the specified properties.
-             * @param {Object} [properties] Properties to set
-             * @returns {UserList.User.BanData} BanData instance
+             * @param [properties] Properties to set
+             * @returns BanData instance
              */
-            static create(properties?: Object): UserList.User.BanData;
+            public static create(properties?: UserList.User.IBanData): UserList.User.BanData;
 
             /**
-             * Encodes the specified BanData message.
-             * @param {UserList.User.BanData|Object} message BanData message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
+             * Encodes the specified BanData message. Does not implicitly {@link UserList.User.BanData.verify|verify} messages.
+             * @param message BanData message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
              */
-            static encode(message: (UserList.User.BanData|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encode(message: UserList.User.IBanData, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
-             * Encodes the specified BanData message, length delimited.
-             * @param {UserList.User.BanData|Object} message BanData message or plain object to encode
-             * @param {$protobuf.Writer} [writer] Writer to encode to
-             * @returns {$protobuf.Writer} Writer
+             * Encodes the specified BanData message, length delimited. Does not implicitly {@link UserList.User.BanData.verify|verify} messages.
+             * @param message BanData message or plain object to encode
+             * @param [writer] Writer to encode to
+             * @returns Writer
              */
-            static encodeDelimited(message: (UserList.User.BanData|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+            public static encodeDelimited(message: UserList.User.IBanData, writer?: $protobuf.Writer): $protobuf.Writer;
 
             /**
              * Decodes a BanData message from the specified reader or buffer.
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @param {number} [length] Message length if known beforehand
-             * @returns {UserList.User.BanData} BanData
+             * @param reader Reader or buffer to decode from
+             * @param [length] Message length if known beforehand
+             * @returns BanData
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): UserList.User.BanData;
+            public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): UserList.User.BanData;
 
             /**
              * Decodes a BanData message from the specified reader or buffer, length delimited.
-             * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-             * @returns {UserList.User.BanData} BanData
+             * @param reader Reader or buffer to decode from
+             * @returns BanData
+             * @throws {Error} If the payload is not a reader or valid buffer
+             * @throws {$protobuf.util.ProtocolError} If required fields are missing
              */
-            static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): UserList.User.BanData;
+            public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): UserList.User.BanData;
 
             /**
              * Verifies a BanData message.
-             * @param {UserList.User.BanData|Object} message BanData message or plain object to verify
-             * @returns {?string} `null` if valid, otherwise the reason why it is not
+             * @param message Plain object to verify
+             * @returns `null` if valid, otherwise the reason why it is not
              */
-            static verify(message: (UserList.User.BanData|Object)): string;
+            public static verify(message: { [k: string]: any }): (string|null);
 
             /**
              * Creates a BanData message from a plain object. Also converts values to their respective internal types.
-             * @param {Object.<string,*>} object Plain object
-             * @returns {UserList.User.BanData} BanData
+             * @param object Plain object
+             * @returns BanData
              */
-            static fromObject(object: { [k: string]: any }): UserList.User.BanData;
-
-            /**
-             * Creates a BanData message from a plain object. Also converts values to their respective internal types.
-             * This is an alias of {@link UserList.User.BanData.fromObject}.
-             * @function
-             * @param {Object.<string,*>} object Plain object
-             * @returns {UserList.User.BanData} BanData
-             */
-            static from(object: { [k: string]: any }): UserList.User.BanData;
+            public static fromObject(object: { [k: string]: any }): UserList.User.BanData;
 
             /**
              * Creates a plain object from a BanData message. Also converts values to other types if specified.
-             * @param {UserList.User.BanData} message BanData
-             * @param {$protobuf.ConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
+             * @param message BanData
+             * @param [options] Conversion options
+             * @returns Plain object
              */
-            static toObject(message: UserList.User.BanData, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-            /**
-             * Creates a plain object from this BanData message. Also converts values to other types if specified.
-             * @param {$protobuf.ConversionOptions} [options] Conversion options
-             * @returns {Object.<string,*>} Plain object
-             */
-            toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+            public static toObject(message: UserList.User.BanData, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
             /**
              * Converts this BanData to JSON.
-             * @returns {Object.<string,*>} JSON object
+             * @returns JSON object
              */
-            toJSON(): { [k: string]: any };
+            public toJSON(): { [k: string]: any };
         }
     }
 }
 
-/**
- * Constructs a new ChatMessage.
- * @exports ChatMessage
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a ChatMessage. */
+export interface IChatMessage {
+
+    /** ChatMessage id */
+    id?: number;
+
+    /** ChatMessage userId */
+    userId?: number;
+
+    /** ChatMessage displayName */
+    displayName?: string;
+
+    /** ChatMessage message */
+    message?: string;
+
+    /** ChatMessage registered */
+    registered?: boolean;
+
+    /** ChatMessage moderator */
+    moderator?: boolean;
+
+    /** ChatMessage streamer */
+    streamer?: boolean;
+
+    /** ChatMessage ptvAdmin */
+    ptvAdmin?: boolean;
+
+    /** ChatMessage basic */
+    basic?: boolean;
+
+    /** ChatMessage premium */
+    premium?: boolean;
+
+    /** ChatMessage subscriber */
+    subscriber?: boolean;
+
+    /** ChatMessage color */
+    color?: string;
+
+    /** ChatMessage timeStamp */
+    timeStamp?: (number|Long);
+
+    /** ChatMessage isMeMessage */
+    isMeMessage?: boolean;
+
+    /** ChatMessage mentions */
+    mentions?: ChatMessage.IMention[];
+
+    /** ChatMessage customEmotes */
+    customEmotes?: ChatMessage.ICustomEmote[];
+
+    /** ChatMessage bot */
+    bot?: boolean;
+}
+
+/** Represents a ChatMessage. */
 export class ChatMessage {
 
     /**
      * Constructs a new ChatMessage.
-     * @exports ChatMessage
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IChatMessage);
 
-    /**
-     * ChatMessage id.
-     * @type {number|undefined}
-     */
-    id?: number;
+    /** ChatMessage id. */
+    public id: number;
 
-    /**
-     * ChatMessage userId.
-     * @type {number|undefined}
-     */
-    userId?: number;
+    /** ChatMessage userId. */
+    public userId: number;
 
-    /**
-     * ChatMessage displayName.
-     * @type {string|undefined}
-     */
-    displayName?: string;
+    /** ChatMessage displayName. */
+    public displayName: string;
 
-    /**
-     * ChatMessage message.
-     * @type {string|undefined}
-     */
-    message?: string;
+    /** ChatMessage message. */
+    public message: string;
 
-    /**
-     * ChatMessage registered.
-     * @type {boolean|undefined}
-     */
-    registered?: boolean;
+    /** ChatMessage registered. */
+    public registered: boolean;
 
-    /**
-     * ChatMessage moderator.
-     * @type {boolean|undefined}
-     */
-    moderator?: boolean;
+    /** ChatMessage moderator. */
+    public moderator: boolean;
 
-    /**
-     * ChatMessage streamer.
-     * @type {boolean|undefined}
-     */
-    streamer?: boolean;
+    /** ChatMessage streamer. */
+    public streamer: boolean;
 
-    /**
-     * ChatMessage ptvAdmin.
-     * @type {boolean|undefined}
-     */
-    ptvAdmin?: boolean;
+    /** ChatMessage ptvAdmin. */
+    public ptvAdmin: boolean;
 
-    /**
-     * ChatMessage basic.
-     * @type {boolean|undefined}
-     */
-    basic?: boolean;
+    /** ChatMessage basic. */
+    public basic: boolean;
 
-    /**
-     * ChatMessage premium.
-     * @type {boolean|undefined}
-     */
-    premium?: boolean;
+    /** ChatMessage premium. */
+    public premium: boolean;
 
-    /**
-     * ChatMessage subscriber.
-     * @type {boolean|undefined}
-     */
-    subscriber?: boolean;
+    /** ChatMessage subscriber. */
+    public subscriber: boolean;
 
-    /**
-     * ChatMessage color.
-     * @type {string|undefined}
-     */
-    color?: string;
+    /** ChatMessage color. */
+    public color: string;
 
-    /**
-     * ChatMessage timeStamp.
-     * @type {number|$protobuf.Long|undefined}
-     */
-    timeStamp?: (number|$protobuf.Long);
+    /** ChatMessage timeStamp. */
+    public timeStamp: (number|Long);
 
-    /**
-     * ChatMessage isMeMessage.
-     * @type {boolean|undefined}
-     */
-    isMeMessage?: boolean;
+    /** ChatMessage isMeMessage. */
+    public isMeMessage: boolean;
+
+    /** ChatMessage mentions. */
+    public mentions: ChatMessage.IMention[];
+
+    /** ChatMessage customEmotes. */
+    public customEmotes: ChatMessage.ICustomEmote[];
+
+    /** ChatMessage bot. */
+    public bot: boolean;
 
     /**
      * Creates a new ChatMessage instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {ChatMessage} ChatMessage instance
+     * @param [properties] Properties to set
+     * @returns ChatMessage instance
      */
-    static create(properties?: Object): ChatMessage;
+    public static create(properties?: IChatMessage): ChatMessage;
 
     /**
-     * Encodes the specified ChatMessage message.
-     * @param {ChatMessage|Object} message ChatMessage message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified ChatMessage message. Does not implicitly {@link ChatMessage.verify|verify} messages.
+     * @param message ChatMessage message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (ChatMessage|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IChatMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified ChatMessage message, length delimited.
-     * @param {ChatMessage|Object} message ChatMessage message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified ChatMessage message, length delimited. Does not implicitly {@link ChatMessage.verify|verify} messages.
+     * @param message ChatMessage message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (ChatMessage|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IChatMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a ChatMessage message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {ChatMessage} ChatMessage
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ChatMessage
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ChatMessage;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ChatMessage;
 
     /**
      * Decodes a ChatMessage message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {ChatMessage} ChatMessage
+     * @param reader Reader or buffer to decode from
+     * @returns ChatMessage
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ChatMessage;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ChatMessage;
 
     /**
      * Verifies a ChatMessage message.
-     * @param {ChatMessage|Object} message ChatMessage message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (ChatMessage|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a ChatMessage message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {ChatMessage} ChatMessage
+     * @param object Plain object
+     * @returns ChatMessage
      */
-    static fromObject(object: { [k: string]: any }): ChatMessage;
-
-    /**
-     * Creates a ChatMessage message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link ChatMessage.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {ChatMessage} ChatMessage
-     */
-    static from(object: { [k: string]: any }): ChatMessage;
+    public static fromObject(object: { [k: string]: any }): ChatMessage;
 
     /**
      * Creates a plain object from a ChatMessage message. Also converts values to other types if specified.
-     * @param {ChatMessage} message ChatMessage
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message ChatMessage
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: ChatMessage, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this ChatMessage message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: ChatMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this ChatMessage to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new GlobalMessage.
- * @exports GlobalMessage
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+export namespace ChatMessage {
+
+    /** Properties of a Mention. */
+    interface IMention {
+
+        /** Mention userId */
+        userId?: number;
+
+        /** Mention displayName */
+        displayName?: string;
+
+        /** Mention color */
+        color?: string;
+    }
+
+    /** Represents a Mention. */
+    class Mention {
+
+        /**
+         * Constructs a new Mention.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: ChatMessage.IMention);
+
+        /** Mention userId. */
+        public userId: number;
+
+        /** Mention displayName. */
+        public displayName: string;
+
+        /** Mention color. */
+        public color: string;
+
+        /**
+         * Creates a new Mention instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns Mention instance
+         */
+        public static create(properties?: ChatMessage.IMention): ChatMessage.Mention;
+
+        /**
+         * Encodes the specified Mention message. Does not implicitly {@link ChatMessage.Mention.verify|verify} messages.
+         * @param message Mention message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: ChatMessage.IMention, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified Mention message, length delimited. Does not implicitly {@link ChatMessage.Mention.verify|verify} messages.
+         * @param message Mention message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: ChatMessage.IMention, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a Mention message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns Mention
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ChatMessage.Mention;
+
+        /**
+         * Decodes a Mention message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns Mention
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ChatMessage.Mention;
+
+        /**
+         * Verifies a Mention message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a Mention message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns Mention
+         */
+        public static fromObject(object: { [k: string]: any }): ChatMessage.Mention;
+
+        /**
+         * Creates a plain object from a Mention message. Also converts values to other types if specified.
+         * @param message Mention
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: ChatMessage.Mention, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this Mention to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+
+    /** Properties of a CustomEmote. */
+    interface ICustomEmote {
+
+        /** CustomEmote id */
+        id?: (number|Long);
+
+        /** CustomEmote Channel */
+        Channel?: string;
+
+        /** CustomEmote Alias */
+        Alias?: string;
+    }
+
+    /** Represents a CustomEmote. */
+    class CustomEmote {
+
+        /**
+         * Constructs a new CustomEmote.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: ChatMessage.ICustomEmote);
+
+        /** CustomEmote id. */
+        public id: (number|Long);
+
+        /** CustomEmote Channel. */
+        public Channel: string;
+
+        /** CustomEmote Alias. */
+        public Alias: string;
+
+        /**
+         * Creates a new CustomEmote instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns CustomEmote instance
+         */
+        public static create(properties?: ChatMessage.ICustomEmote): ChatMessage.CustomEmote;
+
+        /**
+         * Encodes the specified CustomEmote message. Does not implicitly {@link ChatMessage.CustomEmote.verify|verify} messages.
+         * @param message CustomEmote message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: ChatMessage.ICustomEmote, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified CustomEmote message, length delimited. Does not implicitly {@link ChatMessage.CustomEmote.verify|verify} messages.
+         * @param message CustomEmote message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: ChatMessage.ICustomEmote, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a CustomEmote message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CustomEmote
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ChatMessage.CustomEmote;
+
+        /**
+         * Decodes a CustomEmote message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns CustomEmote
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ChatMessage.CustomEmote;
+
+        /**
+         * Verifies a CustomEmote message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a CustomEmote message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns CustomEmote
+         */
+        public static fromObject(object: { [k: string]: any }): ChatMessage.CustomEmote;
+
+        /**
+         * Creates a plain object from a CustomEmote message. Also converts values to other types if specified.
+         * @param message CustomEmote
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: ChatMessage.CustomEmote, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this CustomEmote to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+}
+
+/** Properties of a GlobalMessage. */
+export interface IGlobalMessage {
+
+    /** GlobalMessage message */
+    message?: string;
+}
+
+/** Represents a GlobalMessage. */
 export class GlobalMessage {
 
     /**
      * Constructs a new GlobalMessage.
-     * @exports GlobalMessage
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IGlobalMessage);
 
-    /**
-     * GlobalMessage message.
-     * @type {string|undefined}
-     */
-    message?: string;
+    /** GlobalMessage message. */
+    public message: string;
 
     /**
      * Creates a new GlobalMessage instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {GlobalMessage} GlobalMessage instance
+     * @param [properties] Properties to set
+     * @returns GlobalMessage instance
      */
-    static create(properties?: Object): GlobalMessage;
+    public static create(properties?: IGlobalMessage): GlobalMessage;
 
     /**
-     * Encodes the specified GlobalMessage message.
-     * @param {GlobalMessage|Object} message GlobalMessage message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified GlobalMessage message. Does not implicitly {@link GlobalMessage.verify|verify} messages.
+     * @param message GlobalMessage message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (GlobalMessage|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IGlobalMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified GlobalMessage message, length delimited.
-     * @param {GlobalMessage|Object} message GlobalMessage message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified GlobalMessage message, length delimited. Does not implicitly {@link GlobalMessage.verify|verify} messages.
+     * @param message GlobalMessage message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (GlobalMessage|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IGlobalMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a GlobalMessage message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {GlobalMessage} GlobalMessage
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns GlobalMessage
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): GlobalMessage;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): GlobalMessage;
 
     /**
      * Decodes a GlobalMessage message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {GlobalMessage} GlobalMessage
+     * @param reader Reader or buffer to decode from
+     * @returns GlobalMessage
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): GlobalMessage;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): GlobalMessage;
 
     /**
      * Verifies a GlobalMessage message.
-     * @param {GlobalMessage|Object} message GlobalMessage message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (GlobalMessage|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a GlobalMessage message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {GlobalMessage} GlobalMessage
+     * @param object Plain object
+     * @returns GlobalMessage
      */
-    static fromObject(object: { [k: string]: any }): GlobalMessage;
-
-    /**
-     * Creates a GlobalMessage message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link GlobalMessage.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {GlobalMessage} GlobalMessage
-     */
-    static from(object: { [k: string]: any }): GlobalMessage;
+    public static fromObject(object: { [k: string]: any }): GlobalMessage;
 
     /**
      * Creates a plain object from a GlobalMessage message. Also converts values to other types if specified.
-     * @param {GlobalMessage} message GlobalMessage
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message GlobalMessage
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: GlobalMessage, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this GlobalMessage message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: GlobalMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this GlobalMessage to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new Whisper.
- * @exports Whisper
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a Whisper. */
+export interface IWhisper {
+
+    /** Whisper id */
+    id?: number;
+
+    /** Whisper userId */
+    userId?: number;
+
+    /** Whisper displayName */
+    displayName?: string;
+
+    /** Whisper message */
+    message?: string;
+
+    /** Whisper incomming */
+    incomming?: boolean;
+
+    /** Whisper timeStamp */
+    timeStamp?: (number|Long);
+
+    /** Whisper customEmotes */
+    customEmotes?: Whisper.ICustomEmote[];
+
+    /** Whisper bot */
+    bot?: boolean;
+}
+
+/** Represents a Whisper. */
 export class Whisper {
 
     /**
      * Constructs a new Whisper.
-     * @exports Whisper
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IWhisper);
 
-    /**
-     * Whisper id.
-     * @type {number|undefined}
-     */
-    id?: number;
+    /** Whisper id. */
+    public id: number;
 
-    /**
-     * Whisper userId.
-     * @type {number|undefined}
-     */
-    userId?: number;
+    /** Whisper userId. */
+    public userId: number;
 
-    /**
-     * Whisper displayName.
-     * @type {string|undefined}
-     */
-    displayName?: string;
+    /** Whisper displayName. */
+    public displayName: string;
 
-    /**
-     * Whisper message.
-     * @type {string|undefined}
-     */
-    message?: string;
+    /** Whisper message. */
+    public message: string;
 
-    /**
-     * Whisper incomming.
-     * @type {boolean|undefined}
-     */
-    incomming?: boolean;
+    /** Whisper incomming. */
+    public incomming: boolean;
 
-    /**
-     * Whisper timeStamp.
-     * @type {number|$protobuf.Long|undefined}
-     */
-    timeStamp?: (number|$protobuf.Long);
+    /** Whisper timeStamp. */
+    public timeStamp: (number|Long);
+
+    /** Whisper customEmotes. */
+    public customEmotes: Whisper.ICustomEmote[];
+
+    /** Whisper bot. */
+    public bot: boolean;
 
     /**
      * Creates a new Whisper instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {Whisper} Whisper instance
+     * @param [properties] Properties to set
+     * @returns Whisper instance
      */
-    static create(properties?: Object): Whisper;
+    public static create(properties?: IWhisper): Whisper;
 
     /**
-     * Encodes the specified Whisper message.
-     * @param {Whisper|Object} message Whisper message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified Whisper message. Does not implicitly {@link Whisper.verify|verify} messages.
+     * @param message Whisper message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (Whisper|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IWhisper, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified Whisper message, length delimited.
-     * @param {Whisper|Object} message Whisper message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified Whisper message, length delimited. Does not implicitly {@link Whisper.verify|verify} messages.
+     * @param message Whisper message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (Whisper|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IWhisper, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a Whisper message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {Whisper} Whisper
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns Whisper
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Whisper;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Whisper;
 
     /**
      * Decodes a Whisper message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {Whisper} Whisper
+     * @param reader Reader or buffer to decode from
+     * @returns Whisper
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Whisper;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Whisper;
 
     /**
      * Verifies a Whisper message.
-     * @param {Whisper|Object} message Whisper message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (Whisper|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a Whisper message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {Whisper} Whisper
+     * @param object Plain object
+     * @returns Whisper
      */
-    static fromObject(object: { [k: string]: any }): Whisper;
-
-    /**
-     * Creates a Whisper message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link Whisper.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {Whisper} Whisper
-     */
-    static from(object: { [k: string]: any }): Whisper;
+    public static fromObject(object: { [k: string]: any }): Whisper;
 
     /**
      * Creates a plain object from a Whisper message. Also converts values to other types if specified.
-     * @param {Whisper} message Whisper
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message Whisper
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: Whisper, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this Whisper message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: Whisper, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this Whisper to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new ServerMessage.
- * @exports ServerMessage
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+export namespace Whisper {
+
+    /** Properties of a CustomEmote. */
+    interface ICustomEmote {
+
+        /** CustomEmote id */
+        id?: (number|Long);
+
+        /** CustomEmote Channel */
+        Channel?: string;
+
+        /** CustomEmote Alias */
+        Alias?: string;
+    }
+
+    /** Represents a CustomEmote. */
+    class CustomEmote {
+
+        /**
+         * Constructs a new CustomEmote.
+         * @param [properties] Properties to set
+         */
+        constructor(properties?: Whisper.ICustomEmote);
+
+        /** CustomEmote id. */
+        public id: (number|Long);
+
+        /** CustomEmote Channel. */
+        public Channel: string;
+
+        /** CustomEmote Alias. */
+        public Alias: string;
+
+        /**
+         * Creates a new CustomEmote instance using the specified properties.
+         * @param [properties] Properties to set
+         * @returns CustomEmote instance
+         */
+        public static create(properties?: Whisper.ICustomEmote): Whisper.CustomEmote;
+
+        /**
+         * Encodes the specified CustomEmote message. Does not implicitly {@link Whisper.CustomEmote.verify|verify} messages.
+         * @param message CustomEmote message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encode(message: Whisper.ICustomEmote, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Encodes the specified CustomEmote message, length delimited. Does not implicitly {@link Whisper.CustomEmote.verify|verify} messages.
+         * @param message CustomEmote message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
+         */
+        public static encodeDelimited(message: Whisper.ICustomEmote, writer?: $protobuf.Writer): $protobuf.Writer;
+
+        /**
+         * Decodes a CustomEmote message from the specified reader or buffer.
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns CustomEmote
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Whisper.CustomEmote;
+
+        /**
+         * Decodes a CustomEmote message from the specified reader or buffer, length delimited.
+         * @param reader Reader or buffer to decode from
+         * @returns CustomEmote
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
+         */
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Whisper.CustomEmote;
+
+        /**
+         * Verifies a CustomEmote message.
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
+         */
+        public static verify(message: { [k: string]: any }): (string|null);
+
+        /**
+         * Creates a CustomEmote message from a plain object. Also converts values to their respective internal types.
+         * @param object Plain object
+         * @returns CustomEmote
+         */
+        public static fromObject(object: { [k: string]: any }): Whisper.CustomEmote;
+
+        /**
+         * Creates a plain object from a CustomEmote message. Also converts values to other types if specified.
+         * @param message CustomEmote
+         * @param [options] Conversion options
+         * @returns Plain object
+         */
+        public static toObject(message: Whisper.CustomEmote, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+        /**
+         * Converts this CustomEmote to JSON.
+         * @returns JSON object
+         */
+        public toJSON(): { [k: string]: any };
+    }
+}
+
+/** Properties of a ServerMessage. */
+export interface IServerMessage {
+
+    /** ServerMessage message */
+    message?: string;
+}
+
+/** Represents a ServerMessage. */
 export class ServerMessage {
 
     /**
      * Constructs a new ServerMessage.
-     * @exports ServerMessage
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IServerMessage);
 
-    /**
-     * ServerMessage message.
-     * @type {string|undefined}
-     */
-    message?: string;
+    /** ServerMessage message. */
+    public message: string;
 
     /**
      * Creates a new ServerMessage instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {ServerMessage} ServerMessage instance
+     * @param [properties] Properties to set
+     * @returns ServerMessage instance
      */
-    static create(properties?: Object): ServerMessage;
+    public static create(properties?: IServerMessage): ServerMessage;
 
     /**
-     * Encodes the specified ServerMessage message.
-     * @param {ServerMessage|Object} message ServerMessage message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified ServerMessage message. Does not implicitly {@link ServerMessage.verify|verify} messages.
+     * @param message ServerMessage message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (ServerMessage|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IServerMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified ServerMessage message, length delimited.
-     * @param {ServerMessage|Object} message ServerMessage message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified ServerMessage message, length delimited. Does not implicitly {@link ServerMessage.verify|verify} messages.
+     * @param message ServerMessage message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (ServerMessage|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IServerMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a ServerMessage message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {ServerMessage} ServerMessage
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ServerMessage
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ServerMessage;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ServerMessage;
 
     /**
      * Decodes a ServerMessage message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {ServerMessage} ServerMessage
+     * @param reader Reader or buffer to decode from
+     * @returns ServerMessage
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ServerMessage;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ServerMessage;
 
     /**
      * Verifies a ServerMessage message.
-     * @param {ServerMessage|Object} message ServerMessage message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (ServerMessage|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a ServerMessage message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {ServerMessage} ServerMessage
+     * @param object Plain object
+     * @returns ServerMessage
      */
-    static fromObject(object: { [k: string]: any }): ServerMessage;
-
-    /**
-     * Creates a ServerMessage message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link ServerMessage.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {ServerMessage} ServerMessage
-     */
-    static from(object: { [k: string]: any }): ServerMessage;
+    public static fromObject(object: { [k: string]: any }): ServerMessage;
 
     /**
      * Creates a plain object from a ServerMessage message. Also converts values to other types if specified.
-     * @param {ServerMessage} message ServerMessage
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message ServerMessage
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: ServerMessage, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this ServerMessage message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: ServerMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this ServerMessage to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new CommandHelp.
- * @exports CommandHelp
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a CommandHelp. */
+export interface ICommandHelp {
+
+    /** CommandHelp commands */
+    commands?: CommandHelp.ICommand[];
+}
+
+/** Represents a CommandHelp. */
 export class CommandHelp {
 
     /**
      * Constructs a new CommandHelp.
-     * @exports CommandHelp
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: ICommandHelp);
 
-    /**
-     * CommandHelp commands.
-     * @type {Array.<CommandHelp.Command>|undefined}
-     */
-    commands?: CommandHelp.Command[];
+    /** CommandHelp commands. */
+    public commands: CommandHelp.ICommand[];
 
     /**
      * Creates a new CommandHelp instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {CommandHelp} CommandHelp instance
+     * @param [properties] Properties to set
+     * @returns CommandHelp instance
      */
-    static create(properties?: Object): CommandHelp;
+    public static create(properties?: ICommandHelp): CommandHelp;
 
     /**
-     * Encodes the specified CommandHelp message.
-     * @param {CommandHelp|Object} message CommandHelp message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified CommandHelp message. Does not implicitly {@link CommandHelp.verify|verify} messages.
+     * @param message CommandHelp message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (CommandHelp|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: ICommandHelp, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified CommandHelp message, length delimited.
-     * @param {CommandHelp|Object} message CommandHelp message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified CommandHelp message, length delimited. Does not implicitly {@link CommandHelp.verify|verify} messages.
+     * @param message CommandHelp message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (CommandHelp|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: ICommandHelp, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a CommandHelp message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {CommandHelp} CommandHelp
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns CommandHelp
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): CommandHelp;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): CommandHelp;
 
     /**
      * Decodes a CommandHelp message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {CommandHelp} CommandHelp
+     * @param reader Reader or buffer to decode from
+     * @returns CommandHelp
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): CommandHelp;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): CommandHelp;
 
     /**
      * Verifies a CommandHelp message.
-     * @param {CommandHelp|Object} message CommandHelp message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (CommandHelp|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a CommandHelp message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {CommandHelp} CommandHelp
+     * @param object Plain object
+     * @returns CommandHelp
      */
-    static fromObject(object: { [k: string]: any }): CommandHelp;
-
-    /**
-     * Creates a CommandHelp message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link CommandHelp.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {CommandHelp} CommandHelp
-     */
-    static from(object: { [k: string]: any }): CommandHelp;
+    public static fromObject(object: { [k: string]: any }): CommandHelp;
 
     /**
      * Creates a plain object from a CommandHelp message. Also converts values to other types if specified.
-     * @param {CommandHelp} message CommandHelp
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message CommandHelp
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: CommandHelp, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this CommandHelp message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: CommandHelp, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this CommandHelp to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
 export namespace CommandHelp {
 
-    /**
-     * Constructs a new Command.
-     * @exports CommandHelp.Command
-     * @constructor
-     * @param {Object} [properties] Properties to set
-     */
+    /** Properties of a Command. */
+    interface ICommand {
+
+        /** Command triggers */
+        triggers?: string[];
+
+        /** Command description */
+        description?: string;
+    }
+
+    /** Represents a Command. */
     class Command {
 
         /**
          * Constructs a new Command.
-         * @exports CommandHelp.Command
-         * @constructor
-         * @param {Object} [properties] Properties to set
+         * @param [properties] Properties to set
          */
-        constructor(properties?: Object);
+        constructor(properties?: CommandHelp.ICommand);
 
-        /**
-         * Command triggers.
-         * @type {Array.<string>|undefined}
-         */
-        triggers?: string[];
+        /** Command triggers. */
+        public triggers: string[];
 
-        /**
-         * Command description.
-         * @type {string|undefined}
-         */
-        description?: string;
+        /** Command description. */
+        public description: string;
 
         /**
          * Creates a new Command instance using the specified properties.
-         * @param {Object} [properties] Properties to set
-         * @returns {CommandHelp.Command} Command instance
+         * @param [properties] Properties to set
+         * @returns Command instance
          */
-        static create(properties?: Object): CommandHelp.Command;
+        public static create(properties?: CommandHelp.ICommand): CommandHelp.Command;
 
         /**
-         * Encodes the specified Command message.
-         * @param {CommandHelp.Command|Object} message Command message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
+         * Encodes the specified Command message. Does not implicitly {@link CommandHelp.Command.verify|verify} messages.
+         * @param message Command message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
          */
-        static encode(message: (CommandHelp.Command|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: CommandHelp.ICommand, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified Command message, length delimited.
-         * @param {CommandHelp.Command|Object} message Command message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
+         * Encodes the specified Command message, length delimited. Does not implicitly {@link CommandHelp.Command.verify|verify} messages.
+         * @param message Command message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
          */
-        static encodeDelimited(message: (CommandHelp.Command|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: CommandHelp.ICommand, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
          * Decodes a Command message from the specified reader or buffer.
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {CommandHelp.Command} Command
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns Command
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): CommandHelp.Command;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): CommandHelp.Command;
 
         /**
          * Decodes a Command message from the specified reader or buffer, length delimited.
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {CommandHelp.Command} Command
+         * @param reader Reader or buffer to decode from
+         * @returns Command
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): CommandHelp.Command;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): CommandHelp.Command;
 
         /**
          * Verifies a Command message.
-         * @param {CommandHelp.Command|Object} message Command message or plain object to verify
-         * @returns {?string} `null` if valid, otherwise the reason why it is not
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
          */
-        static verify(message: (CommandHelp.Command|Object)): string;
+        public static verify(message: { [k: string]: any }): (string|null);
 
         /**
          * Creates a Command message from a plain object. Also converts values to their respective internal types.
-         * @param {Object.<string,*>} object Plain object
-         * @returns {CommandHelp.Command} Command
+         * @param object Plain object
+         * @returns Command
          */
-        static fromObject(object: { [k: string]: any }): CommandHelp.Command;
-
-        /**
-         * Creates a Command message from a plain object. Also converts values to their respective internal types.
-         * This is an alias of {@link CommandHelp.Command.fromObject}.
-         * @function
-         * @param {Object.<string,*>} object Plain object
-         * @returns {CommandHelp.Command} Command
-         */
-        static from(object: { [k: string]: any }): CommandHelp.Command;
+        public static fromObject(object: { [k: string]: any }): CommandHelp.Command;
 
         /**
          * Creates a plain object from a Command message. Also converts values to other types if specified.
-         * @param {CommandHelp.Command} message Command
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
+         * @param message Command
+         * @param [options] Conversion options
+         * @returns Plain object
          */
-        static toObject(message: CommandHelp.Command, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-        /**
-         * Creates a plain object from this Command message. Also converts values to other types if specified.
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+        public static toObject(message: CommandHelp.Command, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this Command to JSON.
-         * @returns {Object.<string,*>} JSON object
+         * @returns JSON object
          */
-        toJSON(): { [k: string]: any };
+        public toJSON(): { [k: string]: any };
     }
 }
 
-/**
- * Constructs a new Control.
- * @exports Control
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a Control. */
+export interface IControl {
+
+    /** Control messageType */
+    messageType?: Control.MessageType;
+
+    /** Control dataBool */
+    dataBool?: boolean;
+}
+
+/** Represents a Control. */
 export class Control {
 
     /**
      * Constructs a new Control.
-     * @exports Control
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IControl);
 
-    /**
-     * Control messageType.
-     * @type {number|undefined}
-     */
-    messageType?: number;
+    /** Control messageType. */
+    public messageType: Control.MessageType;
 
-    /**
-     * Control dataBool.
-     * @type {boolean|undefined}
-     */
-    dataBool?: boolean;
+    /** Control dataBool. */
+    public dataBool: boolean;
 
     /**
      * Creates a new Control instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {Control} Control instance
+     * @param [properties] Properties to set
+     * @returns Control instance
      */
-    static create(properties?: Object): Control;
+    public static create(properties?: IControl): Control;
 
     /**
-     * Encodes the specified Control message.
-     * @param {Control|Object} message Control message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified Control message. Does not implicitly {@link Control.verify|verify} messages.
+     * @param message Control message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (Control|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IControl, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified Control message, length delimited.
-     * @param {Control|Object} message Control message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified Control message, length delimited. Does not implicitly {@link Control.verify|verify} messages.
+     * @param message Control message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (Control|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IControl, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a Control message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {Control} Control
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns Control
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Control;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Control;
 
     /**
      * Decodes a Control message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {Control} Control
+     * @param reader Reader or buffer to decode from
+     * @returns Control
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Control;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Control;
 
     /**
      * Verifies a Control message.
-     * @param {Control|Object} message Control message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (Control|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a Control message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {Control} Control
+     * @param object Plain object
+     * @returns Control
      */
-    static fromObject(object: { [k: string]: any }): Control;
-
-    /**
-     * Creates a Control message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link Control.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {Control} Control
-     */
-    static from(object: { [k: string]: any }): Control;
+    public static fromObject(object: { [k: string]: any }): Control;
 
     /**
      * Creates a plain object from a Control message. Also converts values to other types if specified.
-     * @param {Control} message Control
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message Control
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: Control, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this Control message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: Control, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this Control to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
 export namespace Control {
 
-    /**
-     * MessageType enum.
-     * @name MessageType
-     * @memberof Control
-     * @enum {number}
-     * @property {number} END_HISTORY=0 END_HISTORY value
-     * @property {number} KICK=1 KICK value
-     * @property {number} GAMING=2 GAMING value
-     * @property {number} ADULT=3 ADULT value
-     * @property {number} COMMISSIONS=4 COMMISSIONS value
-     * @property {number} COMMISSION_DESCRIPTION=5 COMMISSION_DESCRIPTION value
-     * @property {number} DESCRIPTION=6 DESCRIPTION value
-     * @property {number} CONTENT_TYPE=7 CONTENT_TYPE value
-     * @property {number} CAN_TALK=8 CAN_TALK value
-     * @property {number} SHOW_POLL_CREATOR=9 SHOW_POLL_CREATOR value
-     * @property {number} SHOW_RAFFLE_CREATOR=10 SHOW_RAFFLE_CREATOR value
-     * @property {number} NAME_TAKEN=11 NAME_TAKEN value
-     * @property {number} HIDE_POLL=12 HIDE_POLL value
-     */
+    /** MessageType enum. */
     enum MessageType {
         END_HISTORY = 0,
         KICK = 1,
         GAMING = 2,
         ADULT = 3,
         COMMISSIONS = 4,
-        COMMISSION_DESCRIPTION = 5,
-        DESCRIPTION = 6,
+        UNUSED_COMMISSION_DESCRIPTION = 5,
+        UNUSED_DESCRIPTION = 6,
         CONTENT_TYPE = 7,
         CAN_TALK = 8,
         SHOW_POLL_CREATOR = 9,
-        SHOW_RAFFLE_CREATOR = 10,
+        UNUSED_SHOW_RAFFLE_CREATOR = 10,
         NAME_TAKEN = 11,
-        HIDE_POLL = 12
+        HIDE_POLL = 12,
+        AWAY = 13,
+        JWT_SUCCESS = 14,
+        ENABLE_WHISPERS = 15,
+        ALLOW_LINKS = 16
     }
 }
 
-/**
- * Constructs a new AdminControl.
- * @exports AdminControl
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of an AdminControl. */
+export interface IAdminControl {
+
+    /** AdminControl messageType */
+    messageType?: AdminControl.MessageType;
+}
+
+/** Represents an AdminControl. */
 export class AdminControl {
 
     /**
      * Constructs a new AdminControl.
-     * @exports AdminControl
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IAdminControl);
 
-    /**
-     * AdminControl messageType.
-     * @type {number|undefined}
-     */
-    messageType?: number;
+    /** AdminControl messageType. */
+    public messageType: AdminControl.MessageType;
 
     /**
      * Creates a new AdminControl instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {AdminControl} AdminControl instance
+     * @param [properties] Properties to set
+     * @returns AdminControl instance
      */
-    static create(properties?: Object): AdminControl;
+    public static create(properties?: IAdminControl): AdminControl;
 
     /**
-     * Encodes the specified AdminControl message.
-     * @param {AdminControl|Object} message AdminControl message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified AdminControl message. Does not implicitly {@link AdminControl.verify|verify} messages.
+     * @param message AdminControl message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (AdminControl|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IAdminControl, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified AdminControl message, length delimited.
-     * @param {AdminControl|Object} message AdminControl message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified AdminControl message, length delimited. Does not implicitly {@link AdminControl.verify|verify} messages.
+     * @param message AdminControl message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (AdminControl|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IAdminControl, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes an AdminControl message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {AdminControl} AdminControl
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns AdminControl
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): AdminControl;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): AdminControl;
 
     /**
      * Decodes an AdminControl message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {AdminControl} AdminControl
+     * @param reader Reader or buffer to decode from
+     * @returns AdminControl
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): AdminControl;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): AdminControl;
 
     /**
      * Verifies an AdminControl message.
-     * @param {AdminControl|Object} message AdminControl message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (AdminControl|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates an AdminControl message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {AdminControl} AdminControl
+     * @param object Plain object
+     * @returns AdminControl
      */
-    static fromObject(object: { [k: string]: any }): AdminControl;
-
-    /**
-     * Creates an AdminControl message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link AdminControl.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {AdminControl} AdminControl
-     */
-    static from(object: { [k: string]: any }): AdminControl;
+    public static fromObject(object: { [k: string]: any }): AdminControl;
 
     /**
      * Creates a plain object from an AdminControl message. Also converts values to other types if specified.
-     * @param {AdminControl} message AdminControl
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message AdminControl
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: AdminControl, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this AdminControl message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: AdminControl, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this AdminControl to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
 export namespace AdminControl {
 
-    /**
-     * MessageType enum.
-     * @name MessageType
-     * @memberof AdminControl
-     * @enum {number}
-     * @property {number} ADULT=0 ADULT value
-     * @property {number} GAMING=1 GAMING value
-     * @property {number} MOVIE=2 MOVIE value
-     */
+    /** MessageType enum. */
     enum MessageType {
         ADULT = 0,
         GAMING = 1,
@@ -1623,2865 +1750,2481 @@ export namespace AdminControl {
     }
 }
 
-/**
- * Constructs a new OnlineState.
- * @exports OnlineState
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of an OnlineState. */
+export interface IOnlineState {
+
+    /** OnlineState isLive */
+    isLive?: boolean;
+
+    /** OnlineState viewers */
+    viewers?: number;
+
+    /** OnlineState channel */
+    channel?: number;
+
+    /** OnlineState channelName */
+    channelName?: string;
+}
+
+/** Represents an OnlineState. */
 export class OnlineState {
 
     /**
      * Constructs a new OnlineState.
-     * @exports OnlineState
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IOnlineState);
 
-    /**
-     * OnlineState isLive.
-     * @type {boolean|undefined}
-     */
-    isLive?: boolean;
+    /** OnlineState isLive. */
+    public isLive: boolean;
 
-    /**
-     * OnlineState viewers.
-     * @type {number|undefined}
-     */
-    viewers?: number;
+    /** OnlineState viewers. */
+    public viewers: number;
 
-    /**
-     * OnlineState channel.
-     * @type {number|undefined}
-     */
-    channel?: number;
+    /** OnlineState channel. */
+    public channel: number;
 
-    /**
-     * OnlineState channelName.
-     * @type {string|undefined}
-     */
-    channelName?: string;
+    /** OnlineState channelName. */
+    public channelName: string;
 
     /**
      * Creates a new OnlineState instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {OnlineState} OnlineState instance
+     * @param [properties] Properties to set
+     * @returns OnlineState instance
      */
-    static create(properties?: Object): OnlineState;
+    public static create(properties?: IOnlineState): OnlineState;
 
     /**
-     * Encodes the specified OnlineState message.
-     * @param {OnlineState|Object} message OnlineState message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified OnlineState message. Does not implicitly {@link OnlineState.verify|verify} messages.
+     * @param message OnlineState message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (OnlineState|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IOnlineState, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified OnlineState message, length delimited.
-     * @param {OnlineState|Object} message OnlineState message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified OnlineState message, length delimited. Does not implicitly {@link OnlineState.verify|verify} messages.
+     * @param message OnlineState message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (OnlineState|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IOnlineState, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes an OnlineState message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {OnlineState} OnlineState
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns OnlineState
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OnlineState;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): OnlineState;
 
     /**
      * Decodes an OnlineState message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {OnlineState} OnlineState
+     * @param reader Reader or buffer to decode from
+     * @returns OnlineState
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OnlineState;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): OnlineState;
 
     /**
      * Verifies an OnlineState message.
-     * @param {OnlineState|Object} message OnlineState message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (OnlineState|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates an OnlineState message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {OnlineState} OnlineState
+     * @param object Plain object
+     * @returns OnlineState
      */
-    static fromObject(object: { [k: string]: any }): OnlineState;
-
-    /**
-     * Creates an OnlineState message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link OnlineState.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {OnlineState} OnlineState
-     */
-    static from(object: { [k: string]: any }): OnlineState;
+    public static fromObject(object: { [k: string]: any }): OnlineState;
 
     /**
      * Creates a plain object from an OnlineState message. Also converts values to other types if specified.
-     * @param {OnlineState} message OnlineState
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message OnlineState
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: OnlineState, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this OnlineState message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: OnlineState, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this OnlineState to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new Multistream.
- * @exports Multistream
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a Multistream. */
+export interface IMultistream {
+
+    /** Multistream host */
+    host?: Multistream.IChannel;
+
+    /** Multistream guests */
+    guests?: Multistream.IChannel[];
+}
+
+/** Represents a Multistream. */
 export class Multistream {
 
     /**
      * Constructs a new Multistream.
-     * @exports Multistream
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IMultistream);
 
-    /**
-     * Multistream host.
-     * @type {Multistream.Channel|undefined}
-     */
-    host?: Multistream.Channel;
+    /** Multistream host. */
+    public host?: (Multistream.IChannel|null);
 
-    /**
-     * Multistream guests.
-     * @type {Array.<Multistream.Channel>|undefined}
-     */
-    guests?: Multistream.Channel[];
+    /** Multistream guests. */
+    public guests: Multistream.IChannel[];
 
     /**
      * Creates a new Multistream instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {Multistream} Multistream instance
+     * @param [properties] Properties to set
+     * @returns Multistream instance
      */
-    static create(properties?: Object): Multistream;
+    public static create(properties?: IMultistream): Multistream;
 
     /**
-     * Encodes the specified Multistream message.
-     * @param {Multistream|Object} message Multistream message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified Multistream message. Does not implicitly {@link Multistream.verify|verify} messages.
+     * @param message Multistream message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (Multistream|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IMultistream, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified Multistream message, length delimited.
-     * @param {Multistream|Object} message Multistream message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified Multistream message, length delimited. Does not implicitly {@link Multistream.verify|verify} messages.
+     * @param message Multistream message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (Multistream|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IMultistream, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a Multistream message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {Multistream} Multistream
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns Multistream
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Multistream;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Multistream;
 
     /**
      * Decodes a Multistream message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {Multistream} Multistream
+     * @param reader Reader or buffer to decode from
+     * @returns Multistream
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Multistream;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Multistream;
 
     /**
      * Verifies a Multistream message.
-     * @param {Multistream|Object} message Multistream message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (Multistream|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a Multistream message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {Multistream} Multistream
+     * @param object Plain object
+     * @returns Multistream
      */
-    static fromObject(object: { [k: string]: any }): Multistream;
-
-    /**
-     * Creates a Multistream message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link Multistream.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {Multistream} Multistream
-     */
-    static from(object: { [k: string]: any }): Multistream;
+    public static fromObject(object: { [k: string]: any }): Multistream;
 
     /**
      * Creates a plain object from a Multistream message. Also converts values to other types if specified.
-     * @param {Multistream} message Multistream
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message Multistream
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: Multistream, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this Multistream message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: Multistream, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this Multistream to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
 export namespace Multistream {
 
-    /**
-     * Constructs a new Channel.
-     * @exports Multistream.Channel
-     * @constructor
-     * @param {Object} [properties] Properties to set
-     */
+    /** Properties of a Channel. */
+    interface IChannel {
+
+        /** Channel channel */
+        channel?: number;
+
+        /** Channel channelName */
+        channelName?: string;
+    }
+
+    /** Represents a Channel. */
     class Channel {
 
         /**
          * Constructs a new Channel.
-         * @exports Multistream.Channel
-         * @constructor
-         * @param {Object} [properties] Properties to set
+         * @param [properties] Properties to set
          */
-        constructor(properties?: Object);
+        constructor(properties?: Multistream.IChannel);
 
-        /**
-         * Channel channel.
-         * @type {number|undefined}
-         */
-        channel?: number;
+        /** Channel channel. */
+        public channel: number;
 
-        /**
-         * Channel channelName.
-         * @type {string|undefined}
-         */
-        channelName?: string;
+        /** Channel channelName. */
+        public channelName: string;
 
         /**
          * Creates a new Channel instance using the specified properties.
-         * @param {Object} [properties] Properties to set
-         * @returns {Multistream.Channel} Channel instance
+         * @param [properties] Properties to set
+         * @returns Channel instance
          */
-        static create(properties?: Object): Multistream.Channel;
+        public static create(properties?: Multistream.IChannel): Multistream.Channel;
 
         /**
-         * Encodes the specified Channel message.
-         * @param {Multistream.Channel|Object} message Channel message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
+         * Encodes the specified Channel message. Does not implicitly {@link Multistream.Channel.verify|verify} messages.
+         * @param message Channel message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
          */
-        static encode(message: (Multistream.Channel|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: Multistream.IChannel, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified Channel message, length delimited.
-         * @param {Multistream.Channel|Object} message Channel message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
+         * Encodes the specified Channel message, length delimited. Does not implicitly {@link Multistream.Channel.verify|verify} messages.
+         * @param message Channel message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
          */
-        static encodeDelimited(message: (Multistream.Channel|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: Multistream.IChannel, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
          * Decodes a Channel message from the specified reader or buffer.
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {Multistream.Channel} Channel
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns Channel
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Multistream.Channel;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Multistream.Channel;
 
         /**
          * Decodes a Channel message from the specified reader or buffer, length delimited.
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {Multistream.Channel} Channel
+         * @param reader Reader or buffer to decode from
+         * @returns Channel
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Multistream.Channel;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Multistream.Channel;
 
         /**
          * Verifies a Channel message.
-         * @param {Multistream.Channel|Object} message Channel message or plain object to verify
-         * @returns {?string} `null` if valid, otherwise the reason why it is not
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
          */
-        static verify(message: (Multistream.Channel|Object)): string;
+        public static verify(message: { [k: string]: any }): (string|null);
 
         /**
          * Creates a Channel message from a plain object. Also converts values to their respective internal types.
-         * @param {Object.<string,*>} object Plain object
-         * @returns {Multistream.Channel} Channel
+         * @param object Plain object
+         * @returns Channel
          */
-        static fromObject(object: { [k: string]: any }): Multistream.Channel;
-
-        /**
-         * Creates a Channel message from a plain object. Also converts values to their respective internal types.
-         * This is an alias of {@link Multistream.Channel.fromObject}.
-         * @function
-         * @param {Object.<string,*>} object Plain object
-         * @returns {Multistream.Channel} Channel
-         */
-        static from(object: { [k: string]: any }): Multistream.Channel;
+        public static fromObject(object: { [k: string]: any }): Multistream.Channel;
 
         /**
          * Creates a plain object from a Channel message. Also converts values to other types if specified.
-         * @param {Multistream.Channel} message Channel
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
+         * @param message Channel
+         * @param [options] Conversion options
+         * @returns Plain object
          */
-        static toObject(message: Multistream.Channel, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-        /**
-         * Creates a plain object from this Channel message. Also converts values to other types if specified.
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+        public static toObject(message: Multistream.Channel, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this Channel to JSON.
-         * @returns {Object.<string,*>} JSON object
+         * @returns JSON object
          */
-        toJSON(): { [k: string]: any };
+        public toJSON(): { [k: string]: any };
     }
 }
 
-/**
- * Constructs a new Color.
- * @exports Color
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a Color. */
+export interface IColor {
+
+    /** Color color */
+    color?: string;
+}
+
+/** Represents a Color. */
 export class Color {
 
     /**
      * Constructs a new Color.
-     * @exports Color
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IColor);
 
-    /**
-     * Color color.
-     * @type {string|undefined}
-     */
-    color?: string;
+    /** Color color. */
+    public color: string;
 
     /**
      * Creates a new Color instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {Color} Color instance
+     * @param [properties] Properties to set
+     * @returns Color instance
      */
-    static create(properties?: Object): Color;
+    public static create(properties?: IColor): Color;
 
     /**
-     * Encodes the specified Color message.
-     * @param {Color|Object} message Color message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified Color message. Does not implicitly {@link Color.verify|verify} messages.
+     * @param message Color message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (Color|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IColor, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified Color message, length delimited.
-     * @param {Color|Object} message Color message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified Color message, length delimited. Does not implicitly {@link Color.verify|verify} messages.
+     * @param message Color message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (Color|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IColor, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a Color message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {Color} Color
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns Color
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Color;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Color;
 
     /**
      * Decodes a Color message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {Color} Color
+     * @param reader Reader or buffer to decode from
+     * @returns Color
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Color;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Color;
 
     /**
      * Verifies a Color message.
-     * @param {Color|Object} message Color message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (Color|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a Color message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {Color} Color
+     * @param object Plain object
+     * @returns Color
      */
-    static fromObject(object: { [k: string]: any }): Color;
-
-    /**
-     * Creates a Color message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link Color.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {Color} Color
-     */
-    static from(object: { [k: string]: any }): Color;
+    public static fromObject(object: { [k: string]: any }): Color;
 
     /**
      * Creates a plain object from a Color message. Also converts values to other types if specified.
-     * @param {Color} message Color
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message Color
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: Color, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this Color message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: Color, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this Color to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new IgnoresUpdated.
- * @exports IgnoresUpdated
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of an IgnoresUpdated. */
+export interface IIgnoresUpdated {
+
+    /** IgnoresUpdated ignores */
+    ignores?: string[];
+}
+
+/** Represents an IgnoresUpdated. */
 export class IgnoresUpdated {
 
     /**
      * Constructs a new IgnoresUpdated.
-     * @exports IgnoresUpdated
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IIgnoresUpdated);
 
-    /**
-     * IgnoresUpdated ignores.
-     * @type {Array.<string>|undefined}
-     */
-    ignores?: string[];
+    /** IgnoresUpdated ignores. */
+    public ignores: string[];
 
     /**
      * Creates a new IgnoresUpdated instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {IgnoresUpdated} IgnoresUpdated instance
+     * @param [properties] Properties to set
+     * @returns IgnoresUpdated instance
      */
-    static create(properties?: Object): IgnoresUpdated;
+    public static create(properties?: IIgnoresUpdated): IgnoresUpdated;
 
     /**
-     * Encodes the specified IgnoresUpdated message.
-     * @param {IgnoresUpdated|Object} message IgnoresUpdated message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified IgnoresUpdated message. Does not implicitly {@link IgnoresUpdated.verify|verify} messages.
+     * @param message IgnoresUpdated message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (IgnoresUpdated|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IIgnoresUpdated, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified IgnoresUpdated message, length delimited.
-     * @param {IgnoresUpdated|Object} message IgnoresUpdated message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified IgnoresUpdated message, length delimited. Does not implicitly {@link IgnoresUpdated.verify|verify} messages.
+     * @param message IgnoresUpdated message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (IgnoresUpdated|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IIgnoresUpdated, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes an IgnoresUpdated message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {IgnoresUpdated} IgnoresUpdated
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns IgnoresUpdated
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): IgnoresUpdated;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): IgnoresUpdated;
 
     /**
      * Decodes an IgnoresUpdated message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {IgnoresUpdated} IgnoresUpdated
+     * @param reader Reader or buffer to decode from
+     * @returns IgnoresUpdated
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): IgnoresUpdated;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): IgnoresUpdated;
 
     /**
      * Verifies an IgnoresUpdated message.
-     * @param {IgnoresUpdated|Object} message IgnoresUpdated message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (IgnoresUpdated|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates an IgnoresUpdated message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {IgnoresUpdated} IgnoresUpdated
+     * @param object Plain object
+     * @returns IgnoresUpdated
      */
-    static fromObject(object: { [k: string]: any }): IgnoresUpdated;
-
-    /**
-     * Creates an IgnoresUpdated message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link IgnoresUpdated.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {IgnoresUpdated} IgnoresUpdated
-     */
-    static from(object: { [k: string]: any }): IgnoresUpdated;
+    public static fromObject(object: { [k: string]: any }): IgnoresUpdated;
 
     /**
      * Creates a plain object from an IgnoresUpdated message. Also converts values to other types if specified.
-     * @param {IgnoresUpdated} message IgnoresUpdated
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message IgnoresUpdated
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: IgnoresUpdated, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this IgnoresUpdated message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: IgnoresUpdated, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this IgnoresUpdated to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new ModifyIgnores.
- * @exports ModifyIgnores
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a ModifyIgnores. */
+export interface IModifyIgnores {
+
+    /** ModifyIgnores ignoreName */
+    ignoreName?: string;
+
+    /** ModifyIgnores isAdding */
+    isAdding?: boolean;
+}
+
+/** Represents a ModifyIgnores. */
 export class ModifyIgnores {
 
     /**
      * Constructs a new ModifyIgnores.
-     * @exports ModifyIgnores
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IModifyIgnores);
 
-    /**
-     * ModifyIgnores ignoreName.
-     * @type {string|undefined}
-     */
-    ignoreName?: string;
+    /** ModifyIgnores ignoreName. */
+    public ignoreName: string;
 
-    /**
-     * ModifyIgnores isAdding.
-     * @type {boolean|undefined}
-     */
-    isAdding?: boolean;
+    /** ModifyIgnores isAdding. */
+    public isAdding: boolean;
 
     /**
      * Creates a new ModifyIgnores instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {ModifyIgnores} ModifyIgnores instance
+     * @param [properties] Properties to set
+     * @returns ModifyIgnores instance
      */
-    static create(properties?: Object): ModifyIgnores;
+    public static create(properties?: IModifyIgnores): ModifyIgnores;
 
     /**
-     * Encodes the specified ModifyIgnores message.
-     * @param {ModifyIgnores|Object} message ModifyIgnores message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified ModifyIgnores message. Does not implicitly {@link ModifyIgnores.verify|verify} messages.
+     * @param message ModifyIgnores message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (ModifyIgnores|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IModifyIgnores, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified ModifyIgnores message, length delimited.
-     * @param {ModifyIgnores|Object} message ModifyIgnores message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified ModifyIgnores message, length delimited. Does not implicitly {@link ModifyIgnores.verify|verify} messages.
+     * @param message ModifyIgnores message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (ModifyIgnores|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IModifyIgnores, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a ModifyIgnores message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {ModifyIgnores} ModifyIgnores
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ModifyIgnores
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ModifyIgnores;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ModifyIgnores;
 
     /**
      * Decodes a ModifyIgnores message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {ModifyIgnores} ModifyIgnores
+     * @param reader Reader or buffer to decode from
+     * @returns ModifyIgnores
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ModifyIgnores;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ModifyIgnores;
 
     /**
      * Verifies a ModifyIgnores message.
-     * @param {ModifyIgnores|Object} message ModifyIgnores message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (ModifyIgnores|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a ModifyIgnores message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {ModifyIgnores} ModifyIgnores
+     * @param object Plain object
+     * @returns ModifyIgnores
      */
-    static fromObject(object: { [k: string]: any }): ModifyIgnores;
-
-    /**
-     * Creates a ModifyIgnores message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link ModifyIgnores.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {ModifyIgnores} ModifyIgnores
-     */
-    static from(object: { [k: string]: any }): ModifyIgnores;
+    public static fromObject(object: { [k: string]: any }): ModifyIgnores;
 
     /**
      * Creates a plain object from a ModifyIgnores message. Also converts values to other types if specified.
-     * @param {ModifyIgnores} message ModifyIgnores
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message ModifyIgnores
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: ModifyIgnores, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this ModifyIgnores message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: ModifyIgnores, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this ModifyIgnores to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new RemoveMessage.
- * @exports RemoveMessage
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a RemoveMessage. */
+export interface IRemoveMessage {
+
+    /** RemoveMessage id */
+    id?: number;
+
+    /** RemoveMessage executionerId */
+    executionerId?: number;
+
+    /** RemoveMessage executionerDisplayName */
+    executionerDisplayName?: string;
+}
+
+/** Represents a RemoveMessage. */
 export class RemoveMessage {
 
     /**
      * Constructs a new RemoveMessage.
-     * @exports RemoveMessage
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IRemoveMessage);
 
-    /**
-     * RemoveMessage id.
-     * @type {number|undefined}
-     */
-    id?: number;
+    /** RemoveMessage id. */
+    public id: number;
 
-    /**
-     * RemoveMessage executionerId.
-     * @type {number|undefined}
-     */
-    executionerId?: number;
+    /** RemoveMessage executionerId. */
+    public executionerId: number;
 
-    /**
-     * RemoveMessage executionerDisplayName.
-     * @type {string|undefined}
-     */
-    executionerDisplayName?: string;
+    /** RemoveMessage executionerDisplayName. */
+    public executionerDisplayName: string;
 
     /**
      * Creates a new RemoveMessage instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {RemoveMessage} RemoveMessage instance
+     * @param [properties] Properties to set
+     * @returns RemoveMessage instance
      */
-    static create(properties?: Object): RemoveMessage;
+    public static create(properties?: IRemoveMessage): RemoveMessage;
 
     /**
-     * Encodes the specified RemoveMessage message.
-     * @param {RemoveMessage|Object} message RemoveMessage message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified RemoveMessage message. Does not implicitly {@link RemoveMessage.verify|verify} messages.
+     * @param message RemoveMessage message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (RemoveMessage|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IRemoveMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified RemoveMessage message, length delimited.
-     * @param {RemoveMessage|Object} message RemoveMessage message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified RemoveMessage message, length delimited. Does not implicitly {@link RemoveMessage.verify|verify} messages.
+     * @param message RemoveMessage message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (RemoveMessage|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IRemoveMessage, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a RemoveMessage message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {RemoveMessage} RemoveMessage
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns RemoveMessage
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): RemoveMessage;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): RemoveMessage;
 
     /**
      * Decodes a RemoveMessage message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {RemoveMessage} RemoveMessage
+     * @param reader Reader or buffer to decode from
+     * @returns RemoveMessage
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): RemoveMessage;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): RemoveMessage;
 
     /**
      * Verifies a RemoveMessage message.
-     * @param {RemoveMessage|Object} message RemoveMessage message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (RemoveMessage|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a RemoveMessage message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {RemoveMessage} RemoveMessage
+     * @param object Plain object
+     * @returns RemoveMessage
      */
-    static fromObject(object: { [k: string]: any }): RemoveMessage;
-
-    /**
-     * Creates a RemoveMessage message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link RemoveMessage.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {RemoveMessage} RemoveMessage
-     */
-    static from(object: { [k: string]: any }): RemoveMessage;
+    public static fromObject(object: { [k: string]: any }): RemoveMessage;
 
     /**
      * Creates a plain object from a RemoveMessage message. Also converts values to other types if specified.
-     * @param {RemoveMessage} message RemoveMessage
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message RemoveMessage
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: RemoveMessage, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this RemoveMessage message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: RemoveMessage, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this RemoveMessage to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new ClearUserMessages.
- * @exports ClearUserMessages
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a ClearUserMessages. */
+export interface IClearUserMessages {
+
+    /** ClearUserMessages username */
+    username?: string;
+
+    /** ClearUserMessages executionerId */
+    executionerId?: number;
+
+    /** ClearUserMessages executionerDisplayName */
+    executionerDisplayName?: string;
+}
+
+/** Represents a ClearUserMessages. */
 export class ClearUserMessages {
 
     /**
      * Constructs a new ClearUserMessages.
-     * @exports ClearUserMessages
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IClearUserMessages);
 
-    /**
-     * ClearUserMessages username.
-     * @type {string|undefined}
-     */
-    username?: string;
+    /** ClearUserMessages username. */
+    public username: string;
 
-    /**
-     * ClearUserMessages executionerId.
-     * @type {number|undefined}
-     */
-    executionerId?: number;
+    /** ClearUserMessages executionerId. */
+    public executionerId: number;
 
-    /**
-     * ClearUserMessages executionerDisplayName.
-     * @type {string|undefined}
-     */
-    executionerDisplayName?: string;
+    /** ClearUserMessages executionerDisplayName. */
+    public executionerDisplayName: string;
 
     /**
      * Creates a new ClearUserMessages instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {ClearUserMessages} ClearUserMessages instance
+     * @param [properties] Properties to set
+     * @returns ClearUserMessages instance
      */
-    static create(properties?: Object): ClearUserMessages;
+    public static create(properties?: IClearUserMessages): ClearUserMessages;
 
     /**
-     * Encodes the specified ClearUserMessages message.
-     * @param {ClearUserMessages|Object} message ClearUserMessages message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified ClearUserMessages message. Does not implicitly {@link ClearUserMessages.verify|verify} messages.
+     * @param message ClearUserMessages message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (ClearUserMessages|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IClearUserMessages, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified ClearUserMessages message, length delimited.
-     * @param {ClearUserMessages|Object} message ClearUserMessages message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified ClearUserMessages message, length delimited. Does not implicitly {@link ClearUserMessages.verify|verify} messages.
+     * @param message ClearUserMessages message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (ClearUserMessages|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IClearUserMessages, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a ClearUserMessages message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {ClearUserMessages} ClearUserMessages
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ClearUserMessages
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ClearUserMessages;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ClearUserMessages;
 
     /**
      * Decodes a ClearUserMessages message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {ClearUserMessages} ClearUserMessages
+     * @param reader Reader or buffer to decode from
+     * @returns ClearUserMessages
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ClearUserMessages;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ClearUserMessages;
 
     /**
      * Verifies a ClearUserMessages message.
-     * @param {ClearUserMessages|Object} message ClearUserMessages message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (ClearUserMessages|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a ClearUserMessages message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {ClearUserMessages} ClearUserMessages
+     * @param object Plain object
+     * @returns ClearUserMessages
      */
-    static fromObject(object: { [k: string]: any }): ClearUserMessages;
-
-    /**
-     * Creates a ClearUserMessages message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link ClearUserMessages.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {ClearUserMessages} ClearUserMessages
-     */
-    static from(object: { [k: string]: any }): ClearUserMessages;
+    public static fromObject(object: { [k: string]: any }): ClearUserMessages;
 
     /**
      * Creates a plain object from a ClearUserMessages message. Also converts values to other types if specified.
-     * @param {ClearUserMessages} message ClearUserMessages
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message ClearUserMessages
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: ClearUserMessages, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this ClearUserMessages message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: ClearUserMessages, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this ClearUserMessages to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new ClearHistory.
- * @exports ClearHistory
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a ClearHistory. */
+export interface IClearHistory {
+
+    /** ClearHistory executionerId */
+    executionerId?: number;
+
+    /** ClearHistory executionerDisplayName */
+    executionerDisplayName?: string;
+}
+
+/** Represents a ClearHistory. */
 export class ClearHistory {
 
     /**
      * Constructs a new ClearHistory.
-     * @exports ClearHistory
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IClearHistory);
 
-    /**
-     * ClearHistory executionerId.
-     * @type {number|undefined}
-     */
-    executionerId?: number;
+    /** ClearHistory executionerId. */
+    public executionerId: number;
 
-    /**
-     * ClearHistory executionerDisplayName.
-     * @type {string|undefined}
-     */
-    executionerDisplayName?: string;
+    /** ClearHistory executionerDisplayName. */
+    public executionerDisplayName: string;
 
     /**
      * Creates a new ClearHistory instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {ClearHistory} ClearHistory instance
+     * @param [properties] Properties to set
+     * @returns ClearHistory instance
      */
-    static create(properties?: Object): ClearHistory;
+    public static create(properties?: IClearHistory): ClearHistory;
 
     /**
-     * Encodes the specified ClearHistory message.
-     * @param {ClearHistory|Object} message ClearHistory message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified ClearHistory message. Does not implicitly {@link ClearHistory.verify|verify} messages.
+     * @param message ClearHistory message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (ClearHistory|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IClearHistory, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified ClearHistory message, length delimited.
-     * @param {ClearHistory|Object} message ClearHistory message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified ClearHistory message, length delimited. Does not implicitly {@link ClearHistory.verify|verify} messages.
+     * @param message ClearHistory message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (ClearHistory|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IClearHistory, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a ClearHistory message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {ClearHistory} ClearHistory
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ClearHistory
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ClearHistory;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ClearHistory;
 
     /**
      * Decodes a ClearHistory message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {ClearHistory} ClearHistory
+     * @param reader Reader or buffer to decode from
+     * @returns ClearHistory
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ClearHistory;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ClearHistory;
 
     /**
      * Verifies a ClearHistory message.
-     * @param {ClearHistory|Object} message ClearHistory message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (ClearHistory|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a ClearHistory message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {ClearHistory} ClearHistory
+     * @param object Plain object
+     * @returns ClearHistory
      */
-    static fromObject(object: { [k: string]: any }): ClearHistory;
-
-    /**
-     * Creates a ClearHistory message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link ClearHistory.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {ClearHistory} ClearHistory
-     */
-    static from(object: { [k: string]: any }): ClearHistory;
+    public static fromObject(object: { [k: string]: any }): ClearHistory;
 
     /**
      * Creates a plain object from a ClearHistory message. Also converts values to other types if specified.
-     * @param {ClearHistory} message ClearHistory
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message ClearHistory
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: ClearHistory, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this ClearHistory message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: ClearHistory, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this ClearHistory to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new Kick.
- * @exports Kick
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a Kick. */
+export interface IKick {
+
+    /** Kick userId */
+    userId?: number;
+
+    /** Kick displayName */
+    displayName?: string;
+
+    /** Kick executionerId */
+    executionerId?: number;
+
+    /** Kick executionerDisplayName */
+    executionerDisplayName?: string;
+}
+
+/** Represents a Kick. */
 export class Kick {
 
     /**
      * Constructs a new Kick.
-     * @exports Kick
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IKick);
 
-    /**
-     * Kick userId.
-     * @type {number|undefined}
-     */
-    userId?: number;
+    /** Kick userId. */
+    public userId: number;
 
-    /**
-     * Kick displayName.
-     * @type {string|undefined}
-     */
-    displayName?: string;
+    /** Kick displayName. */
+    public displayName: string;
 
-    /**
-     * Kick executionerId.
-     * @type {number|undefined}
-     */
-    executionerId?: number;
+    /** Kick executionerId. */
+    public executionerId: number;
 
-    /**
-     * Kick executionerDisplayName.
-     * @type {string|undefined}
-     */
-    executionerDisplayName?: string;
+    /** Kick executionerDisplayName. */
+    public executionerDisplayName: string;
 
     /**
      * Creates a new Kick instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {Kick} Kick instance
+     * @param [properties] Properties to set
+     * @returns Kick instance
      */
-    static create(properties?: Object): Kick;
+    public static create(properties?: IKick): Kick;
 
     /**
-     * Encodes the specified Kick message.
-     * @param {Kick|Object} message Kick message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified Kick message. Does not implicitly {@link Kick.verify|verify} messages.
+     * @param message Kick message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (Kick|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IKick, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified Kick message, length delimited.
-     * @param {Kick|Object} message Kick message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified Kick message, length delimited. Does not implicitly {@link Kick.verify|verify} messages.
+     * @param message Kick message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (Kick|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IKick, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a Kick message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {Kick} Kick
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns Kick
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Kick;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Kick;
 
     /**
      * Decodes a Kick message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {Kick} Kick
+     * @param reader Reader or buffer to decode from
+     * @returns Kick
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Kick;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Kick;
 
     /**
      * Verifies a Kick message.
-     * @param {Kick|Object} message Kick message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (Kick|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a Kick message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {Kick} Kick
+     * @param object Plain object
+     * @returns Kick
      */
-    static fromObject(object: { [k: string]: any }): Kick;
-
-    /**
-     * Creates a Kick message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link Kick.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {Kick} Kick
-     */
-    static from(object: { [k: string]: any }): Kick;
+    public static fromObject(object: { [k: string]: any }): Kick;
 
     /**
      * Creates a plain object from a Kick message. Also converts values to other types if specified.
-     * @param {Kick} message Kick
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message Kick
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: Kick, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this Kick message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: Kick, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this Kick to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new Ban.
- * @exports Ban
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a Ban. */
+export interface IBan {
+
+    /** Ban userId */
+    userId?: number;
+
+    /** Ban displayName */
+    displayName?: string;
+
+    /** Ban executionerId */
+    executionerId?: number;
+
+    /** Ban executionerDisplayName */
+    executionerDisplayName?: string;
+
+    /** Ban isShadowBan */
+    isShadowBan?: boolean;
+}
+
+/** Represents a Ban. */
 export class Ban {
 
     /**
      * Constructs a new Ban.
-     * @exports Ban
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IBan);
 
-    /**
-     * Ban userId.
-     * @type {number|undefined}
-     */
-    userId?: number;
+    /** Ban userId. */
+    public userId: number;
 
-    /**
-     * Ban displayName.
-     * @type {string|undefined}
-     */
-    displayName?: string;
+    /** Ban displayName. */
+    public displayName: string;
 
-    /**
-     * Ban executionerId.
-     * @type {number|undefined}
-     */
-    executionerId?: number;
+    /** Ban executionerId. */
+    public executionerId: number;
 
-    /**
-     * Ban executionerDisplayName.
-     * @type {string|undefined}
-     */
-    executionerDisplayName?: string;
+    /** Ban executionerDisplayName. */
+    public executionerDisplayName: string;
 
-    /**
-     * Ban isShadowBan.
-     * @type {boolean|undefined}
-     */
-    isShadowBan?: boolean;
+    /** Ban isShadowBan. */
+    public isShadowBan: boolean;
 
     /**
      * Creates a new Ban instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {Ban} Ban instance
+     * @param [properties] Properties to set
+     * @returns Ban instance
      */
-    static create(properties?: Object): Ban;
+    public static create(properties?: IBan): Ban;
 
     /**
-     * Encodes the specified Ban message.
-     * @param {Ban|Object} message Ban message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified Ban message. Does not implicitly {@link Ban.verify|verify} messages.
+     * @param message Ban message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (Ban|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IBan, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified Ban message, length delimited.
-     * @param {Ban|Object} message Ban message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified Ban message, length delimited. Does not implicitly {@link Ban.verify|verify} messages.
+     * @param message Ban message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (Ban|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IBan, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a Ban message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {Ban} Ban
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns Ban
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Ban;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Ban;
 
     /**
      * Decodes a Ban message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {Ban} Ban
+     * @param reader Reader or buffer to decode from
+     * @returns Ban
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Ban;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Ban;
 
     /**
      * Verifies a Ban message.
-     * @param {Ban|Object} message Ban message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (Ban|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a Ban message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {Ban} Ban
+     * @param object Plain object
+     * @returns Ban
      */
-    static fromObject(object: { [k: string]: any }): Ban;
-
-    /**
-     * Creates a Ban message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link Ban.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {Ban} Ban
-     */
-    static from(object: { [k: string]: any }): Ban;
+    public static fromObject(object: { [k: string]: any }): Ban;
 
     /**
      * Creates a plain object from a Ban message. Also converts values to other types if specified.
-     * @param {Ban} message Ban
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message Ban
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: Ban, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this Ban message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: Ban, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this Ban to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new UnBan.
- * @exports UnBan
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of an UnBan. */
+export interface IUnBan {
+
+    /** UnBan userId */
+    userId?: number;
+
+    /** UnBan displayName */
+    displayName?: string;
+
+    /** UnBan executionerId */
+    executionerId?: number;
+
+    /** UnBan executionerDisplayName */
+    executionerDisplayName?: string;
+}
+
+/** Represents an UnBan. */
 export class UnBan {
 
     /**
      * Constructs a new UnBan.
-     * @exports UnBan
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IUnBan);
 
-    /**
-     * UnBan userId.
-     * @type {number|undefined}
-     */
-    userId?: number;
+    /** UnBan userId. */
+    public userId: number;
 
-    /**
-     * UnBan displayName.
-     * @type {string|undefined}
-     */
-    displayName?: string;
+    /** UnBan displayName. */
+    public displayName: string;
 
-    /**
-     * UnBan executionerId.
-     * @type {number|undefined}
-     */
-    executionerId?: number;
+    /** UnBan executionerId. */
+    public executionerId: number;
 
-    /**
-     * UnBan executionerDisplayName.
-     * @type {string|undefined}
-     */
-    executionerDisplayName?: string;
+    /** UnBan executionerDisplayName. */
+    public executionerDisplayName: string;
 
     /**
      * Creates a new UnBan instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {UnBan} UnBan instance
+     * @param [properties] Properties to set
+     * @returns UnBan instance
      */
-    static create(properties?: Object): UnBan;
+    public static create(properties?: IUnBan): UnBan;
 
     /**
-     * Encodes the specified UnBan message.
-     * @param {UnBan|Object} message UnBan message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified UnBan message. Does not implicitly {@link UnBan.verify|verify} messages.
+     * @param message UnBan message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (UnBan|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IUnBan, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified UnBan message, length delimited.
-     * @param {UnBan|Object} message UnBan message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified UnBan message, length delimited. Does not implicitly {@link UnBan.verify|verify} messages.
+     * @param message UnBan message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (UnBan|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IUnBan, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes an UnBan message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {UnBan} UnBan
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns UnBan
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): UnBan;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): UnBan;
 
     /**
      * Decodes an UnBan message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {UnBan} UnBan
+     * @param reader Reader or buffer to decode from
+     * @returns UnBan
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): UnBan;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): UnBan;
 
     /**
      * Verifies an UnBan message.
-     * @param {UnBan|Object} message UnBan message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (UnBan|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates an UnBan message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {UnBan} UnBan
+     * @param object Plain object
+     * @returns UnBan
      */
-    static fromObject(object: { [k: string]: any }): UnBan;
-
-    /**
-     * Creates an UnBan message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link UnBan.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {UnBan} UnBan
-     */
-    static from(object: { [k: string]: any }): UnBan;
+    public static fromObject(object: { [k: string]: any }): UnBan;
 
     /**
      * Creates a plain object from an UnBan message. Also converts values to other types if specified.
-     * @param {UnBan} message UnBan
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message UnBan
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: UnBan, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this UnBan message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: UnBan, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this UnBan to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new Mod.
- * @exports Mod
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a Mod. */
+export interface IMod {
+
+    /** Mod userId */
+    userId?: number;
+
+    /** Mod displayName */
+    displayName?: string;
+
+    /** Mod isNowMod */
+    isNowMod?: boolean;
+}
+
+/** Represents a Mod. */
 export class Mod {
 
     /**
      * Constructs a new Mod.
-     * @exports Mod
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IMod);
 
-    /**
-     * Mod userId.
-     * @type {number|undefined}
-     */
-    userId?: number;
+    /** Mod userId. */
+    public userId: number;
 
-    /**
-     * Mod displayName.
-     * @type {string|undefined}
-     */
-    displayName?: string;
+    /** Mod displayName. */
+    public displayName: string;
 
-    /**
-     * Mod isNowMod.
-     * @type {boolean|undefined}
-     */
-    isNowMod?: boolean;
+    /** Mod isNowMod. */
+    public isNowMod: boolean;
 
     /**
      * Creates a new Mod instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {Mod} Mod instance
+     * @param [properties] Properties to set
+     * @returns Mod instance
      */
-    static create(properties?: Object): Mod;
+    public static create(properties?: IMod): Mod;
 
     /**
-     * Encodes the specified Mod message.
-     * @param {Mod|Object} message Mod message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified Mod message. Does not implicitly {@link Mod.verify|verify} messages.
+     * @param message Mod message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (Mod|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IMod, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified Mod message, length delimited.
-     * @param {Mod|Object} message Mod message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified Mod message, length delimited. Does not implicitly {@link Mod.verify|verify} messages.
+     * @param message Mod message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (Mod|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IMod, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a Mod message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {Mod} Mod
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns Mod
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Mod;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Mod;
 
     /**
      * Decodes a Mod message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {Mod} Mod
+     * @param reader Reader or buffer to decode from
+     * @returns Mod
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Mod;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Mod;
 
     /**
      * Verifies a Mod message.
-     * @param {Mod|Object} message Mod message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (Mod|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a Mod message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {Mod} Mod
+     * @param object Plain object
+     * @returns Mod
      */
-    static fromObject(object: { [k: string]: any }): Mod;
-
-    /**
-     * Creates a Mod message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link Mod.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {Mod} Mod
-     */
-    static from(object: { [k: string]: any }): Mod;
+    public static fromObject(object: { [k: string]: any }): Mod;
 
     /**
      * Creates a plain object from a Mod message. Also converts values to other types if specified.
-     * @param {Mod} message Mod
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message Mod
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: Mod, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this Mod message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: Mod, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this Mod to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new ModList.
- * @exports ModList
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a ModList. */
+export interface IModList {
+
+    /** ModList moderators */
+    moderators?: ModList.IModerator[];
+}
+
+/** Represents a ModList. */
 export class ModList {
 
     /**
      * Constructs a new ModList.
-     * @exports ModList
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IModList);
 
-    /**
-     * ModList moderators.
-     * @type {Array.<ModList.Moderator>|undefined}
-     */
-    moderators?: ModList.Moderator[];
+    /** ModList moderators. */
+    public moderators: ModList.IModerator[];
 
     /**
      * Creates a new ModList instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {ModList} ModList instance
+     * @param [properties] Properties to set
+     * @returns ModList instance
      */
-    static create(properties?: Object): ModList;
+    public static create(properties?: IModList): ModList;
 
     /**
-     * Encodes the specified ModList message.
-     * @param {ModList|Object} message ModList message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified ModList message. Does not implicitly {@link ModList.verify|verify} messages.
+     * @param message ModList message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (ModList|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IModList, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified ModList message, length delimited.
-     * @param {ModList|Object} message ModList message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified ModList message, length delimited. Does not implicitly {@link ModList.verify|verify} messages.
+     * @param message ModList message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (ModList|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IModList, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a ModList message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {ModList} ModList
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ModList
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ModList;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ModList;
 
     /**
      * Decodes a ModList message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {ModList} ModList
+     * @param reader Reader or buffer to decode from
+     * @returns ModList
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ModList;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ModList;
 
     /**
      * Verifies a ModList message.
-     * @param {ModList|Object} message ModList message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (ModList|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a ModList message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {ModList} ModList
+     * @param object Plain object
+     * @returns ModList
      */
-    static fromObject(object: { [k: string]: any }): ModList;
-
-    /**
-     * Creates a ModList message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link ModList.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {ModList} ModList
-     */
-    static from(object: { [k: string]: any }): ModList;
+    public static fromObject(object: { [k: string]: any }): ModList;
 
     /**
      * Creates a plain object from a ModList message. Also converts values to other types if specified.
-     * @param {ModList} message ModList
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message ModList
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: ModList, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this ModList message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: ModList, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this ModList to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
 export namespace ModList {
 
-    /**
-     * Constructs a new Moderator.
-     * @exports ModList.Moderator
-     * @constructor
-     * @param {Object} [properties] Properties to set
-     */
+    /** Properties of a Moderator. */
+    interface IModerator {
+
+        /** Moderator userId */
+        userId?: number;
+
+        /** Moderator displayName */
+        displayName?: string;
+    }
+
+    /** Represents a Moderator. */
     class Moderator {
 
         /**
          * Constructs a new Moderator.
-         * @exports ModList.Moderator
-         * @constructor
-         * @param {Object} [properties] Properties to set
+         * @param [properties] Properties to set
          */
-        constructor(properties?: Object);
+        constructor(properties?: ModList.IModerator);
 
-        /**
-         * Moderator userId.
-         * @type {number|undefined}
-         */
-        userId?: number;
+        /** Moderator userId. */
+        public userId: number;
 
-        /**
-         * Moderator displayName.
-         * @type {string|undefined}
-         */
-        displayName?: string;
+        /** Moderator displayName. */
+        public displayName: string;
 
         /**
          * Creates a new Moderator instance using the specified properties.
-         * @param {Object} [properties] Properties to set
-         * @returns {ModList.Moderator} Moderator instance
+         * @param [properties] Properties to set
+         * @returns Moderator instance
          */
-        static create(properties?: Object): ModList.Moderator;
+        public static create(properties?: ModList.IModerator): ModList.Moderator;
 
         /**
-         * Encodes the specified Moderator message.
-         * @param {ModList.Moderator|Object} message Moderator message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
+         * Encodes the specified Moderator message. Does not implicitly {@link ModList.Moderator.verify|verify} messages.
+         * @param message Moderator message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
          */
-        static encode(message: (ModList.Moderator|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: ModList.IModerator, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified Moderator message, length delimited.
-         * @param {ModList.Moderator|Object} message Moderator message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
+         * Encodes the specified Moderator message, length delimited. Does not implicitly {@link ModList.Moderator.verify|verify} messages.
+         * @param message Moderator message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
          */
-        static encodeDelimited(message: (ModList.Moderator|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: ModList.IModerator, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
          * Decodes a Moderator message from the specified reader or buffer.
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {ModList.Moderator} Moderator
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns Moderator
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ModList.Moderator;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ModList.Moderator;
 
         /**
          * Decodes a Moderator message from the specified reader or buffer, length delimited.
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {ModList.Moderator} Moderator
+         * @param reader Reader or buffer to decode from
+         * @returns Moderator
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ModList.Moderator;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ModList.Moderator;
 
         /**
          * Verifies a Moderator message.
-         * @param {ModList.Moderator|Object} message Moderator message or plain object to verify
-         * @returns {?string} `null` if valid, otherwise the reason why it is not
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
          */
-        static verify(message: (ModList.Moderator|Object)): string;
+        public static verify(message: { [k: string]: any }): (string|null);
 
         /**
          * Creates a Moderator message from a plain object. Also converts values to their respective internal types.
-         * @param {Object.<string,*>} object Plain object
-         * @returns {ModList.Moderator} Moderator
+         * @param object Plain object
+         * @returns Moderator
          */
-        static fromObject(object: { [k: string]: any }): ModList.Moderator;
-
-        /**
-         * Creates a Moderator message from a plain object. Also converts values to their respective internal types.
-         * This is an alias of {@link ModList.Moderator.fromObject}.
-         * @function
-         * @param {Object.<string,*>} object Plain object
-         * @returns {ModList.Moderator} Moderator
-         */
-        static from(object: { [k: string]: any }): ModList.Moderator;
+        public static fromObject(object: { [k: string]: any }): ModList.Moderator;
 
         /**
          * Creates a plain object from a Moderator message. Also converts values to other types if specified.
-         * @param {ModList.Moderator} message Moderator
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
+         * @param message Moderator
+         * @param [options] Conversion options
+         * @returns Plain object
          */
-        static toObject(message: ModList.Moderator, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-        /**
-         * Creates a plain object from this Moderator message. Also converts values to other types if specified.
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+        public static toObject(message: ModList.Moderator, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this Moderator to JSON.
-         * @returns {Object.<string,*>} JSON object
+         * @returns JSON object
          */
-        toJSON(): { [k: string]: any };
+        public toJSON(): { [k: string]: any };
     }
 }
 
-/**
- * Constructs a new RaffleInit.
- * @exports RaffleInit
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a RaffleInit. */
+export interface IRaffleInit {
+
+    /** RaffleInit names */
+    names?: string[];
+}
+
+/** Represents a RaffleInit. */
 export class RaffleInit {
 
     /**
      * Constructs a new RaffleInit.
-     * @exports RaffleInit
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IRaffleInit);
 
-    /**
-     * RaffleInit names.
-     * @type {Array.<string>|undefined}
-     */
-    names?: string[];
+    /** RaffleInit names. */
+    public names: string[];
 
     /**
      * Creates a new RaffleInit instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {RaffleInit} RaffleInit instance
+     * @param [properties] Properties to set
+     * @returns RaffleInit instance
      */
-    static create(properties?: Object): RaffleInit;
+    public static create(properties?: IRaffleInit): RaffleInit;
 
     /**
-     * Encodes the specified RaffleInit message.
-     * @param {RaffleInit|Object} message RaffleInit message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified RaffleInit message. Does not implicitly {@link RaffleInit.verify|verify} messages.
+     * @param message RaffleInit message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (RaffleInit|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IRaffleInit, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified RaffleInit message, length delimited.
-     * @param {RaffleInit|Object} message RaffleInit message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified RaffleInit message, length delimited. Does not implicitly {@link RaffleInit.verify|verify} messages.
+     * @param message RaffleInit message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (RaffleInit|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IRaffleInit, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a RaffleInit message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {RaffleInit} RaffleInit
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns RaffleInit
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): RaffleInit;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): RaffleInit;
 
     /**
      * Decodes a RaffleInit message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {RaffleInit} RaffleInit
+     * @param reader Reader or buffer to decode from
+     * @returns RaffleInit
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): RaffleInit;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): RaffleInit;
 
     /**
      * Verifies a RaffleInit message.
-     * @param {RaffleInit|Object} message RaffleInit message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (RaffleInit|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a RaffleInit message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {RaffleInit} RaffleInit
+     * @param object Plain object
+     * @returns RaffleInit
      */
-    static fromObject(object: { [k: string]: any }): RaffleInit;
-
-    /**
-     * Creates a RaffleInit message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link RaffleInit.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {RaffleInit} RaffleInit
-     */
-    static from(object: { [k: string]: any }): RaffleInit;
+    public static fromObject(object: { [k: string]: any }): RaffleInit;
 
     /**
      * Creates a plain object from a RaffleInit message. Also converts values to other types if specified.
-     * @param {RaffleInit} message RaffleInit
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message RaffleInit
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: RaffleInit, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this RaffleInit message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: RaffleInit, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this RaffleInit to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new RaffleRun.
- * @exports RaffleRun
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a RaffleRun. */
+export interface IRaffleRun {
+
+    /** RaffleRun winner */
+    winner?: string;
+
+    /** RaffleRun names */
+    names?: string[];
+
+    /** RaffleRun hostId */
+    hostId?: number;
+
+    /** RaffleRun hostDisplayName */
+    hostDisplayName?: string;
+}
+
+/** Represents a RaffleRun. */
 export class RaffleRun {
 
     /**
      * Constructs a new RaffleRun.
-     * @exports RaffleRun
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IRaffleRun);
 
-    /**
-     * RaffleRun winner.
-     * @type {string|undefined}
-     */
-    winner?: string;
+    /** RaffleRun winner. */
+    public winner: string;
 
-    /**
-     * RaffleRun names.
-     * @type {Array.<string>|undefined}
-     */
-    names?: string[];
+    /** RaffleRun names. */
+    public names: string[];
 
-    /**
-     * RaffleRun hostId.
-     * @type {number|undefined}
-     */
-    hostId?: number;
+    /** RaffleRun hostId. */
+    public hostId: number;
 
-    /**
-     * RaffleRun hostDisplayName.
-     * @type {string|undefined}
-     */
-    hostDisplayName?: string;
+    /** RaffleRun hostDisplayName. */
+    public hostDisplayName: string;
 
     /**
      * Creates a new RaffleRun instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {RaffleRun} RaffleRun instance
+     * @param [properties] Properties to set
+     * @returns RaffleRun instance
      */
-    static create(properties?: Object): RaffleRun;
+    public static create(properties?: IRaffleRun): RaffleRun;
 
     /**
-     * Encodes the specified RaffleRun message.
-     * @param {RaffleRun|Object} message RaffleRun message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified RaffleRun message. Does not implicitly {@link RaffleRun.verify|verify} messages.
+     * @param message RaffleRun message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (RaffleRun|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IRaffleRun, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified RaffleRun message, length delimited.
-     * @param {RaffleRun|Object} message RaffleRun message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified RaffleRun message, length delimited. Does not implicitly {@link RaffleRun.verify|verify} messages.
+     * @param message RaffleRun message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (RaffleRun|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IRaffleRun, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a RaffleRun message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {RaffleRun} RaffleRun
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns RaffleRun
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): RaffleRun;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): RaffleRun;
 
     /**
      * Decodes a RaffleRun message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {RaffleRun} RaffleRun
+     * @param reader Reader or buffer to decode from
+     * @returns RaffleRun
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): RaffleRun;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): RaffleRun;
 
     /**
      * Verifies a RaffleRun message.
-     * @param {RaffleRun|Object} message RaffleRun message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (RaffleRun|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a RaffleRun message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {RaffleRun} RaffleRun
+     * @param object Plain object
+     * @returns RaffleRun
      */
-    static fromObject(object: { [k: string]: any }): RaffleRun;
-
-    /**
-     * Creates a RaffleRun message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link RaffleRun.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {RaffleRun} RaffleRun
-     */
-    static from(object: { [k: string]: any }): RaffleRun;
+    public static fromObject(object: { [k: string]: any }): RaffleRun;
 
     /**
      * Creates a plain object from a RaffleRun message. Also converts values to other types if specified.
-     * @param {RaffleRun} message RaffleRun
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message RaffleRun
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: RaffleRun, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this RaffleRun message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: RaffleRun, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this RaffleRun to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new PollInit.
- * @exports PollInit
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a PollInit. */
+export interface IPollInit {
+
+    /** PollInit question */
+    question?: string;
+
+    /** PollInit options */
+    options?: string[];
+
+    /** PollInit hostId */
+    hostId?: number;
+
+    /** PollInit hostDisplayName */
+    hostDisplayName?: string;
+}
+
+/** Represents a PollInit. */
 export class PollInit {
 
     /**
      * Constructs a new PollInit.
-     * @exports PollInit
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IPollInit);
 
-    /**
-     * PollInit question.
-     * @type {string|undefined}
-     */
-    question?: string;
+    /** PollInit question. */
+    public question: string;
 
-    /**
-     * PollInit options.
-     * @type {Array.<string>|undefined}
-     */
-    options?: string[];
+    /** PollInit options. */
+    public options: string[];
 
-    /**
-     * PollInit hostId.
-     * @type {number|undefined}
-     */
-    hostId?: number;
+    /** PollInit hostId. */
+    public hostId: number;
 
-    /**
-     * PollInit hostDisplayName.
-     * @type {string|undefined}
-     */
-    hostDisplayName?: string;
+    /** PollInit hostDisplayName. */
+    public hostDisplayName: string;
 
     /**
      * Creates a new PollInit instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {PollInit} PollInit instance
+     * @param [properties] Properties to set
+     * @returns PollInit instance
      */
-    static create(properties?: Object): PollInit;
+    public static create(properties?: IPollInit): PollInit;
 
     /**
-     * Encodes the specified PollInit message.
-     * @param {PollInit|Object} message PollInit message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified PollInit message. Does not implicitly {@link PollInit.verify|verify} messages.
+     * @param message PollInit message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (PollInit|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IPollInit, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified PollInit message, length delimited.
-     * @param {PollInit|Object} message PollInit message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified PollInit message, length delimited. Does not implicitly {@link PollInit.verify|verify} messages.
+     * @param message PollInit message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (PollInit|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IPollInit, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a PollInit message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {PollInit} PollInit
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns PollInit
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PollInit;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PollInit;
 
     /**
      * Decodes a PollInit message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {PollInit} PollInit
+     * @param reader Reader or buffer to decode from
+     * @returns PollInit
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PollInit;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PollInit;
 
     /**
      * Verifies a PollInit message.
-     * @param {PollInit|Object} message PollInit message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (PollInit|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a PollInit message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {PollInit} PollInit
+     * @param object Plain object
+     * @returns PollInit
      */
-    static fromObject(object: { [k: string]: any }): PollInit;
-
-    /**
-     * Creates a PollInit message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link PollInit.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {PollInit} PollInit
-     */
-    static from(object: { [k: string]: any }): PollInit;
+    public static fromObject(object: { [k: string]: any }): PollInit;
 
     /**
      * Creates a plain object from a PollInit message. Also converts values to other types if specified.
-     * @param {PollInit} message PollInit
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message PollInit
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: PollInit, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this PollInit message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: PollInit, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this PollInit to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new PollUpdate.
- * @exports PollUpdate
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a PollUpdate. */
+export interface IPollUpdate {
+
+    /** PollUpdate votes */
+    votes?: number[];
+
+    /** PollUpdate hostId */
+    hostId?: number;
+
+    /** PollUpdate hostDisplayName */
+    hostDisplayName?: string;
+}
+
+/** Represents a PollUpdate. */
 export class PollUpdate {
 
     /**
      * Constructs a new PollUpdate.
-     * @exports PollUpdate
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IPollUpdate);
 
-    /**
-     * PollUpdate votes.
-     * @type {Array.<number>|undefined}
-     */
-    votes?: number[];
+    /** PollUpdate votes. */
+    public votes: number[];
 
-    /**
-     * PollUpdate hostId.
-     * @type {number|undefined}
-     */
-    hostId?: number;
+    /** PollUpdate hostId. */
+    public hostId: number;
 
-    /**
-     * PollUpdate hostDisplayName.
-     * @type {string|undefined}
-     */
-    hostDisplayName?: string;
+    /** PollUpdate hostDisplayName. */
+    public hostDisplayName: string;
 
     /**
      * Creates a new PollUpdate instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {PollUpdate} PollUpdate instance
+     * @param [properties] Properties to set
+     * @returns PollUpdate instance
      */
-    static create(properties?: Object): PollUpdate;
+    public static create(properties?: IPollUpdate): PollUpdate;
 
     /**
-     * Encodes the specified PollUpdate message.
-     * @param {PollUpdate|Object} message PollUpdate message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified PollUpdate message. Does not implicitly {@link PollUpdate.verify|verify} messages.
+     * @param message PollUpdate message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (PollUpdate|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IPollUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified PollUpdate message, length delimited.
-     * @param {PollUpdate|Object} message PollUpdate message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified PollUpdate message, length delimited. Does not implicitly {@link PollUpdate.verify|verify} messages.
+     * @param message PollUpdate message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (PollUpdate|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IPollUpdate, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a PollUpdate message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {PollUpdate} PollUpdate
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns PollUpdate
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PollUpdate;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PollUpdate;
 
     /**
      * Decodes a PollUpdate message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {PollUpdate} PollUpdate
+     * @param reader Reader or buffer to decode from
+     * @returns PollUpdate
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PollUpdate;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PollUpdate;
 
     /**
      * Verifies a PollUpdate message.
-     * @param {PollUpdate|Object} message PollUpdate message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (PollUpdate|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a PollUpdate message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {PollUpdate} PollUpdate
+     * @param object Plain object
+     * @returns PollUpdate
      */
-    static fromObject(object: { [k: string]: any }): PollUpdate;
-
-    /**
-     * Creates a PollUpdate message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link PollUpdate.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {PollUpdate} PollUpdate
-     */
-    static from(object: { [k: string]: any }): PollUpdate;
+    public static fromObject(object: { [k: string]: any }): PollUpdate;
 
     /**
      * Creates a plain object from a PollUpdate message. Also converts values to other types if specified.
-     * @param {PollUpdate} message PollUpdate
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message PollUpdate
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: PollUpdate, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this PollUpdate message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: PollUpdate, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this PollUpdate to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new PollResult.
- * @exports PollResult
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a PollResult. */
+export interface IPollResult {
+
+    /** PollResult question */
+    question?: string;
+
+    /** PollResult winners */
+    winners?: string[];
+
+    /** PollResult votes */
+    votes?: number;
+
+    /** PollResult hostId */
+    hostId?: number;
+
+    /** PollResult hostDisplayName */
+    hostDisplayName?: string;
+}
+
+/** Represents a PollResult. */
 export class PollResult {
 
     /**
      * Constructs a new PollResult.
-     * @exports PollResult
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IPollResult);
 
-    /**
-     * PollResult question.
-     * @type {string|undefined}
-     */
-    question?: string;
+    /** PollResult question. */
+    public question: string;
 
-    /**
-     * PollResult winners.
-     * @type {Array.<string>|undefined}
-     */
-    winners?: string[];
+    /** PollResult winners. */
+    public winners: string[];
 
-    /**
-     * PollResult votes.
-     * @type {number|undefined}
-     */
-    votes?: number;
+    /** PollResult votes. */
+    public votes: number;
 
-    /**
-     * PollResult hostId.
-     * @type {number|undefined}
-     */
-    hostId?: number;
+    /** PollResult hostId. */
+    public hostId: number;
 
-    /**
-     * PollResult hostDisplayName.
-     * @type {string|undefined}
-     */
-    hostDisplayName?: string;
+    /** PollResult hostDisplayName. */
+    public hostDisplayName: string;
 
     /**
      * Creates a new PollResult instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {PollResult} PollResult instance
+     * @param [properties] Properties to set
+     * @returns PollResult instance
      */
-    static create(properties?: Object): PollResult;
+    public static create(properties?: IPollResult): PollResult;
 
     /**
-     * Encodes the specified PollResult message.
-     * @param {PollResult|Object} message PollResult message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified PollResult message. Does not implicitly {@link PollResult.verify|verify} messages.
+     * @param message PollResult message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (PollResult|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IPollResult, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified PollResult message, length delimited.
-     * @param {PollResult|Object} message PollResult message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified PollResult message, length delimited. Does not implicitly {@link PollResult.verify|verify} messages.
+     * @param message PollResult message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (PollResult|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IPollResult, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a PollResult message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {PollResult} PollResult
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns PollResult
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PollResult;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PollResult;
 
     /**
      * Decodes a PollResult message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {PollResult} PollResult
+     * @param reader Reader or buffer to decode from
+     * @returns PollResult
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PollResult;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PollResult;
 
     /**
      * Verifies a PollResult message.
-     * @param {PollResult|Object} message PollResult message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (PollResult|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a PollResult message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {PollResult} PollResult
+     * @param object Plain object
+     * @returns PollResult
      */
-    static fromObject(object: { [k: string]: any }): PollResult;
-
-    /**
-     * Creates a PollResult message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link PollResult.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {PollResult} PollResult
-     */
-    static from(object: { [k: string]: any }): PollResult;
+    public static fromObject(object: { [k: string]: any }): PollResult;
 
     /**
      * Creates a plain object from a PollResult message. Also converts values to other types if specified.
-     * @param {PollResult} message PollResult
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message PollResult
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: PollResult, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this PollResult message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: PollResult, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this PollResult to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new PollVote.
- * @exports PollVote
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a PollVote. */
+export interface IPollVote {
+
+    /** PollVote option */
+    option?: number;
+}
+
+/** Represents a PollVote. */
 export class PollVote {
 
     /**
      * Constructs a new PollVote.
-     * @exports PollVote
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IPollVote);
 
-    /**
-     * PollVote option.
-     * @type {number|undefined}
-     */
-    option?: number;
+    /** PollVote option. */
+    public option: number;
 
     /**
      * Creates a new PollVote instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {PollVote} PollVote instance
+     * @param [properties] Properties to set
+     * @returns PollVote instance
      */
-    static create(properties?: Object): PollVote;
+    public static create(properties?: IPollVote): PollVote;
 
     /**
-     * Encodes the specified PollVote message.
-     * @param {PollVote|Object} message PollVote message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified PollVote message. Does not implicitly {@link PollVote.verify|verify} messages.
+     * @param message PollVote message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (PollVote|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IPollVote, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified PollVote message, length delimited.
-     * @param {PollVote|Object} message PollVote message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified PollVote message, length delimited. Does not implicitly {@link PollVote.verify|verify} messages.
+     * @param message PollVote message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (PollVote|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IPollVote, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a PollVote message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {PollVote} PollVote
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns PollVote
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PollVote;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PollVote;
 
     /**
      * Decodes a PollVote message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {PollVote} PollVote
+     * @param reader Reader or buffer to decode from
+     * @returns PollVote
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PollVote;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PollVote;
 
     /**
      * Verifies a PollVote message.
-     * @param {PollVote|Object} message PollVote message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (PollVote|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a PollVote message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {PollVote} PollVote
+     * @param object Plain object
+     * @returns PollVote
      */
-    static fromObject(object: { [k: string]: any }): PollVote;
-
-    /**
-     * Creates a PollVote message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link PollVote.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {PollVote} PollVote
-     */
-    static from(object: { [k: string]: any }): PollVote;
+    public static fromObject(object: { [k: string]: any }): PollVote;
 
     /**
      * Creates a plain object from a PollVote message. Also converts values to other types if specified.
-     * @param {PollVote} message PollVote
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message PollVote
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: PollVote, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this PollVote message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: PollVote, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this PollVote to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new PollVoteResponse.
- * @exports PollVoteResponse
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a PollVoteResponse. */
+export interface IPollVoteResponse {
+
+    /** PollVoteResponse success */
+    success?: boolean;
+}
+
+/** Represents a PollVoteResponse. */
 export class PollVoteResponse {
 
     /**
      * Constructs a new PollVoteResponse.
-     * @exports PollVoteResponse
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IPollVoteResponse);
 
-    /**
-     * PollVoteResponse success.
-     * @type {boolean|undefined}
-     */
-    success?: boolean;
+    /** PollVoteResponse success. */
+    public success: boolean;
 
     /**
      * Creates a new PollVoteResponse instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {PollVoteResponse} PollVoteResponse instance
+     * @param [properties] Properties to set
+     * @returns PollVoteResponse instance
      */
-    static create(properties?: Object): PollVoteResponse;
+    public static create(properties?: IPollVoteResponse): PollVoteResponse;
 
     /**
-     * Encodes the specified PollVoteResponse message.
-     * @param {PollVoteResponse|Object} message PollVoteResponse message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified PollVoteResponse message. Does not implicitly {@link PollVoteResponse.verify|verify} messages.
+     * @param message PollVoteResponse message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (PollVoteResponse|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IPollVoteResponse, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified PollVoteResponse message, length delimited.
-     * @param {PollVoteResponse|Object} message PollVoteResponse message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified PollVoteResponse message, length delimited. Does not implicitly {@link PollVoteResponse.verify|verify} messages.
+     * @param message PollVoteResponse message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (PollVoteResponse|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IPollVoteResponse, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a PollVoteResponse message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {PollVoteResponse} PollVoteResponse
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns PollVoteResponse
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PollVoteResponse;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PollVoteResponse;
 
     /**
      * Decodes a PollVoteResponse message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {PollVoteResponse} PollVoteResponse
+     * @param reader Reader or buffer to decode from
+     * @returns PollVoteResponse
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PollVoteResponse;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PollVoteResponse;
 
     /**
      * Verifies a PollVoteResponse message.
-     * @param {PollVoteResponse|Object} message PollVoteResponse message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (PollVoteResponse|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a PollVoteResponse message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {PollVoteResponse} PollVoteResponse
+     * @param object Plain object
+     * @returns PollVoteResponse
      */
-    static fromObject(object: { [k: string]: any }): PollVoteResponse;
-
-    /**
-     * Creates a PollVoteResponse message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link PollVoteResponse.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {PollVoteResponse} PollVoteResponse
-     */
-    static from(object: { [k: string]: any }): PollVoteResponse;
+    public static fromObject(object: { [k: string]: any }): PollVoteResponse;
 
     /**
      * Creates a plain object from a PollVoteResponse message. Also converts values to other types if specified.
-     * @param {PollVoteResponse} message PollVoteResponse
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message PollVoteResponse
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: PollVoteResponse, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this PollVoteResponse message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: PollVoteResponse, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this PollVoteResponse to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new SetName.
- * @exports SetName
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a SetName. */
+export interface ISetName {
+
+    /** SetName name */
+    name?: string;
+}
+
+/** Represents a SetName. */
 export class SetName {
 
     /**
      * Constructs a new SetName.
-     * @exports SetName
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: ISetName);
 
-    /**
-     * SetName name.
-     * @type {string|undefined}
-     */
-    name?: string;
+    /** SetName name. */
+    public name: string;
 
     /**
      * Creates a new SetName instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {SetName} SetName instance
+     * @param [properties] Properties to set
+     * @returns SetName instance
      */
-    static create(properties?: Object): SetName;
+    public static create(properties?: ISetName): SetName;
 
     /**
-     * Encodes the specified SetName message.
-     * @param {SetName|Object} message SetName message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified SetName message. Does not implicitly {@link SetName.verify|verify} messages.
+     * @param message SetName message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (SetName|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: ISetName, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified SetName message, length delimited.
-     * @param {SetName|Object} message SetName message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified SetName message, length delimited. Does not implicitly {@link SetName.verify|verify} messages.
+     * @param message SetName message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (SetName|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: ISetName, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a SetName message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {SetName} SetName
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns SetName
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SetName;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SetName;
 
     /**
      * Decodes a SetName message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {SetName} SetName
+     * @param reader Reader or buffer to decode from
+     * @returns SetName
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SetName;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SetName;
 
     /**
      * Verifies a SetName message.
-     * @param {SetName|Object} message SetName message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (SetName|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a SetName message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {SetName} SetName
+     * @param object Plain object
+     * @returns SetName
      */
-    static fromObject(object: { [k: string]: any }): SetName;
-
-    /**
-     * Creates a SetName message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link SetName.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {SetName} SetName
-     */
-    static from(object: { [k: string]: any }): SetName;
+    public static fromObject(object: { [k: string]: any }): SetName;
 
     /**
      * Creates a plain object from a SetName message. Also converts values to other types if specified.
-     * @param {SetName} message SetName
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message SetName
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: SetName, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this SetName message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: SetName, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this SetName to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new NameConfirmation.
- * @exports NameConfirmation
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a NameConfirmation. */
+export interface INameConfirmation {
+
+    /** NameConfirmation response */
+    response?: string;
+}
+
+/** Represents a NameConfirmation. */
 export class NameConfirmation {
 
     /**
      * Constructs a new NameConfirmation.
-     * @exports NameConfirmation
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: INameConfirmation);
 
-    /**
-     * NameConfirmation response.
-     * @type {string|undefined}
-     */
-    response?: string;
+    /** NameConfirmation response. */
+    public response: string;
 
     /**
      * Creates a new NameConfirmation instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {NameConfirmation} NameConfirmation instance
+     * @param [properties] Properties to set
+     * @returns NameConfirmation instance
      */
-    static create(properties?: Object): NameConfirmation;
+    public static create(properties?: INameConfirmation): NameConfirmation;
 
     /**
-     * Encodes the specified NameConfirmation message.
-     * @param {NameConfirmation|Object} message NameConfirmation message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified NameConfirmation message. Does not implicitly {@link NameConfirmation.verify|verify} messages.
+     * @param message NameConfirmation message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (NameConfirmation|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: INameConfirmation, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified NameConfirmation message, length delimited.
-     * @param {NameConfirmation|Object} message NameConfirmation message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified NameConfirmation message, length delimited. Does not implicitly {@link NameConfirmation.verify|verify} messages.
+     * @param message NameConfirmation message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (NameConfirmation|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: INameConfirmation, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a NameConfirmation message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {NameConfirmation} NameConfirmation
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns NameConfirmation
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): NameConfirmation;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): NameConfirmation;
 
     /**
      * Decodes a NameConfirmation message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {NameConfirmation} NameConfirmation
+     * @param reader Reader or buffer to decode from
+     * @returns NameConfirmation
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): NameConfirmation;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): NameConfirmation;
 
     /**
      * Verifies a NameConfirmation message.
-     * @param {NameConfirmation|Object} message NameConfirmation message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (NameConfirmation|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a NameConfirmation message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {NameConfirmation} NameConfirmation
+     * @param object Plain object
+     * @returns NameConfirmation
      */
-    static fromObject(object: { [k: string]: any }): NameConfirmation;
-
-    /**
-     * Creates a NameConfirmation message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link NameConfirmation.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {NameConfirmation} NameConfirmation
-     */
-    static from(object: { [k: string]: any }): NameConfirmation;
+    public static fromObject(object: { [k: string]: any }): NameConfirmation;
 
     /**
      * Creates a plain object from a NameConfirmation message. Also converts values to other types if specified.
-     * @param {NameConfirmation} message NameConfirmation
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message NameConfirmation
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: NameConfirmation, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this NameConfirmation message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: NameConfirmation, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this NameConfirmation to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new ModTools.
- * @exports ModTools
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a ModTools. */
+export interface IModTools {
+
+    /** ModTools modToolsType */
+    modToolsType?: ModTools.ModToolsType;
+}
+
+/** Represents a ModTools. */
 export class ModTools {
 
     /**
      * Constructs a new ModTools.
-     * @exports ModTools
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IModTools);
 
-    /**
-     * ModTools modToolsType.
-     * @type {number|undefined}
-     */
-    modToolsType?: number;
+    /** ModTools modToolsType. */
+    public modToolsType: ModTools.ModToolsType;
 
     /**
      * Creates a new ModTools instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {ModTools} ModTools instance
+     * @param [properties] Properties to set
+     * @returns ModTools instance
      */
-    static create(properties?: Object): ModTools;
+    public static create(properties?: IModTools): ModTools;
 
     /**
-     * Encodes the specified ModTools message.
-     * @param {ModTools|Object} message ModTools message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified ModTools message. Does not implicitly {@link ModTools.verify|verify} messages.
+     * @param message ModTools message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (ModTools|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IModTools, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified ModTools message, length delimited.
-     * @param {ModTools|Object} message ModTools message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified ModTools message, length delimited. Does not implicitly {@link ModTools.verify|verify} messages.
+     * @param message ModTools message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (ModTools|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IModTools, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a ModTools message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {ModTools} ModTools
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ModTools
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ModTools;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ModTools;
 
     /**
      * Decodes a ModTools message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {ModTools} ModTools
+     * @param reader Reader or buffer to decode from
+     * @returns ModTools
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ModTools;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ModTools;
 
     /**
      * Verifies a ModTools message.
-     * @param {ModTools|Object} message ModTools message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (ModTools|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a ModTools message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {ModTools} ModTools
+     * @param object Plain object
+     * @returns ModTools
      */
-    static fromObject(object: { [k: string]: any }): ModTools;
-
-    /**
-     * Creates a ModTools message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link ModTools.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {ModTools} ModTools
-     */
-    static from(object: { [k: string]: any }): ModTools;
+    public static fromObject(object: { [k: string]: any }): ModTools;
 
     /**
      * Creates a plain object from a ModTools message. Also converts values to other types if specified.
-     * @param {ModTools} message ModTools
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message ModTools
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: ModTools, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this ModTools message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: ModTools, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this ModTools to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
 export namespace ModTools {
 
-    /**
-     * ModToolsType enum.
-     * @name ModToolsType
-     * @memberof ModTools
-     * @enum {number}
-     * @property {number} NONE=0 NONE value
-     * @property {number} MODERATOR=1 MODERATOR value
-     * @property {number} STREAMER=2 STREAMER value
-     * @property {number} PTV_ADMIN=3 PTV_ADMIN value
-     */
+    /** ModToolsType enum. */
     enum ModToolsType {
         NONE = 0,
         MODERATOR = 1,
@@ -4490,1157 +4233,1414 @@ export namespace ModTools {
     }
 }
 
-/**
- * Constructs a new PollEnd.
- * @exports PollEnd
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a PollEnd. */
+export interface IPollEnd {
+}
+
+/** Represents a PollEnd. */
 export class PollEnd {
 
     /**
      * Constructs a new PollEnd.
-     * @exports PollEnd
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IPollEnd);
 
     /**
      * Creates a new PollEnd instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {PollEnd} PollEnd instance
+     * @param [properties] Properties to set
+     * @returns PollEnd instance
      */
-    static create(properties?: Object): PollEnd;
+    public static create(properties?: IPollEnd): PollEnd;
 
     /**
-     * Encodes the specified PollEnd message.
-     * @param {PollEnd|Object} message PollEnd message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified PollEnd message. Does not implicitly {@link PollEnd.verify|verify} messages.
+     * @param message PollEnd message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (PollEnd|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IPollEnd, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified PollEnd message, length delimited.
-     * @param {PollEnd|Object} message PollEnd message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified PollEnd message, length delimited. Does not implicitly {@link PollEnd.verify|verify} messages.
+     * @param message PollEnd message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (PollEnd|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IPollEnd, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a PollEnd message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {PollEnd} PollEnd
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns PollEnd
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PollEnd;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PollEnd;
 
     /**
      * Decodes a PollEnd message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {PollEnd} PollEnd
+     * @param reader Reader or buffer to decode from
+     * @returns PollEnd
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PollEnd;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PollEnd;
 
     /**
      * Verifies a PollEnd message.
-     * @param {PollEnd|Object} message PollEnd message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (PollEnd|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a PollEnd message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {PollEnd} PollEnd
+     * @param object Plain object
+     * @returns PollEnd
      */
-    static fromObject(object: { [k: string]: any }): PollEnd;
-
-    /**
-     * Creates a PollEnd message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link PollEnd.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {PollEnd} PollEnd
-     */
-    static from(object: { [k: string]: any }): PollEnd;
+    public static fromObject(object: { [k: string]: any }): PollEnd;
 
     /**
      * Creates a plain object from a PollEnd message. Also converts values to other types if specified.
-     * @param {PollEnd} message PollEnd
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message PollEnd
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: PollEnd, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this PollEnd message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: PollEnd, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this PollEnd to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new Reminder.
- * @exports Reminder
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a Reminder. */
+export interface IReminder {
+
+    /** Reminder message */
+    message?: string;
+}
+
+/** Represents a Reminder. */
 export class Reminder {
 
     /**
      * Constructs a new Reminder.
-     * @exports Reminder
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IReminder);
 
-    /**
-     * Reminder message.
-     * @type {string|undefined}
-     */
-    message?: string;
+    /** Reminder message. */
+    public message: string;
 
     /**
      * Creates a new Reminder instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {Reminder} Reminder instance
+     * @param [properties] Properties to set
+     * @returns Reminder instance
      */
-    static create(properties?: Object): Reminder;
+    public static create(properties?: IReminder): Reminder;
 
     /**
-     * Encodes the specified Reminder message.
-     * @param {Reminder|Object} message Reminder message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified Reminder message. Does not implicitly {@link Reminder.verify|verify} messages.
+     * @param message Reminder message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (Reminder|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IReminder, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified Reminder message, length delimited.
-     * @param {Reminder|Object} message Reminder message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified Reminder message, length delimited. Does not implicitly {@link Reminder.verify|verify} messages.
+     * @param message Reminder message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (Reminder|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IReminder, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a Reminder message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {Reminder} Reminder
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns Reminder
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Reminder;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Reminder;
 
     /**
      * Decodes a Reminder message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {Reminder} Reminder
+     * @param reader Reader or buffer to decode from
+     * @returns Reminder
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Reminder;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Reminder;
 
     /**
      * Verifies a Reminder message.
-     * @param {Reminder|Object} message Reminder message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (Reminder|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a Reminder message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {Reminder} Reminder
+     * @param object Plain object
+     * @returns Reminder
      */
-    static fromObject(object: { [k: string]: any }): Reminder;
-
-    /**
-     * Creates a Reminder message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link Reminder.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {Reminder} Reminder
-     */
-    static from(object: { [k: string]: any }): Reminder;
+    public static fromObject(object: { [k: string]: any }): Reminder;
 
     /**
      * Creates a plain object from a Reminder message. Also converts values to other types if specified.
-     * @param {Reminder} message Reminder
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message Reminder
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: Reminder, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this Reminder message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: Reminder, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this Reminder to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new Timer.
- * @exports Timer
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a Timer. */
+export interface ITimer {
+
+    /** Timer message */
+    message?: string;
+}
+
+/** Represents a Timer. */
 export class Timer {
 
     /**
      * Constructs a new Timer.
-     * @exports Timer
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: ITimer);
 
-    /**
-     * Timer message.
-     * @type {string|undefined}
-     */
-    message?: string;
+    /** Timer message. */
+    public message: string;
 
     /**
      * Creates a new Timer instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {Timer} Timer instance
+     * @param [properties] Properties to set
+     * @returns Timer instance
      */
-    static create(properties?: Object): Timer;
+    public static create(properties?: ITimer): Timer;
 
     /**
-     * Encodes the specified Timer message.
-     * @param {Timer|Object} message Timer message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified Timer message. Does not implicitly {@link Timer.verify|verify} messages.
+     * @param message Timer message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (Timer|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: ITimer, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified Timer message, length delimited.
-     * @param {Timer|Object} message Timer message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified Timer message, length delimited. Does not implicitly {@link Timer.verify|verify} messages.
+     * @param message Timer message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (Timer|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: ITimer, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a Timer message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {Timer} Timer
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns Timer
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Timer;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Timer;
 
     /**
      * Decodes a Timer message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {Timer} Timer
+     * @param reader Reader or buffer to decode from
+     * @returns Timer
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Timer;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Timer;
 
     /**
      * Verifies a Timer message.
-     * @param {Timer|Object} message Timer message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (Timer|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a Timer message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {Timer} Timer
+     * @param object Plain object
+     * @returns Timer
      */
-    static fromObject(object: { [k: string]: any }): Timer;
-
-    /**
-     * Creates a Timer message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link Timer.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {Timer} Timer
-     */
-    static from(object: { [k: string]: any }): Timer;
+    public static fromObject(object: { [k: string]: any }): Timer;
 
     /**
      * Creates a plain object from a Timer message. Also converts values to other types if specified.
-     * @param {Timer} message Timer
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message Timer
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: Timer, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this Timer message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: Timer, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this Timer to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new MonitorData.
- * @exports MonitorData
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a MonitorData. */
+export interface IMonitorData {
+
+    /** MonitorData messageContent */
+    messageContent?: Uint8Array;
+
+    /** MonitorData channel */
+    channel?: number;
+
+    /** MonitorData channelName */
+    channelName?: string;
+}
+
+/** Represents a MonitorData. */
 export class MonitorData {
 
     /**
      * Constructs a new MonitorData.
-     * @exports MonitorData
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IMonitorData);
 
-    /**
-     * MonitorData messageContent.
-     * @type {Uint8Array|undefined}
-     */
-    messageContent?: Uint8Array;
+    /** MonitorData messageContent. */
+    public messageContent: Uint8Array;
 
-    /**
-     * MonitorData channel.
-     * @type {number|undefined}
-     */
-    channel?: number;
+    /** MonitorData channel. */
+    public channel: number;
 
-    /**
-     * MonitorData channelName.
-     * @type {string|undefined}
-     */
-    channelName?: string;
+    /** MonitorData channelName. */
+    public channelName: string;
 
     /**
      * Creates a new MonitorData instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {MonitorData} MonitorData instance
+     * @param [properties] Properties to set
+     * @returns MonitorData instance
      */
-    static create(properties?: Object): MonitorData;
+    public static create(properties?: IMonitorData): MonitorData;
 
     /**
-     * Encodes the specified MonitorData message.
-     * @param {MonitorData|Object} message MonitorData message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified MonitorData message. Does not implicitly {@link MonitorData.verify|verify} messages.
+     * @param message MonitorData message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (MonitorData|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IMonitorData, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified MonitorData message, length delimited.
-     * @param {MonitorData|Object} message MonitorData message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified MonitorData message, length delimited. Does not implicitly {@link MonitorData.verify|verify} messages.
+     * @param message MonitorData message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (MonitorData|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IMonitorData, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a MonitorData message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {MonitorData} MonitorData
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns MonitorData
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): MonitorData;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): MonitorData;
 
     /**
      * Decodes a MonitorData message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {MonitorData} MonitorData
+     * @param reader Reader or buffer to decode from
+     * @returns MonitorData
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): MonitorData;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): MonitorData;
 
     /**
      * Verifies a MonitorData message.
-     * @param {MonitorData|Object} message MonitorData message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (MonitorData|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a MonitorData message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {MonitorData} MonitorData
+     * @param object Plain object
+     * @returns MonitorData
      */
-    static fromObject(object: { [k: string]: any }): MonitorData;
-
-    /**
-     * Creates a MonitorData message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link MonitorData.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {MonitorData} MonitorData
-     */
-    static from(object: { [k: string]: any }): MonitorData;
+    public static fromObject(object: { [k: string]: any }): MonitorData;
 
     /**
      * Creates a plain object from a MonitorData message. Also converts values to other types if specified.
-     * @param {MonitorData} message MonitorData
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message MonitorData
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: MonitorData, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this MonitorData message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: MonitorData, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this MonitorData to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new ChatLevel.
- * @exports ChatLevel
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a ChatLevel. */
+export interface IChatLevel {
+
+    /** ChatLevel chatLevel */
+    chatLevel?: ChatLevel.ChatLevelType;
+}
+
+/** Represents a ChatLevel. */
 export class ChatLevel {
 
     /**
      * Constructs a new ChatLevel.
-     * @exports ChatLevel
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IChatLevel);
 
-    /**
-     * ChatLevel chatLevel.
-     * @type {number|undefined}
-     */
-    chatLevel?: number;
+    /** ChatLevel chatLevel. */
+    public chatLevel: ChatLevel.ChatLevelType;
 
     /**
      * Creates a new ChatLevel instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {ChatLevel} ChatLevel instance
+     * @param [properties] Properties to set
+     * @returns ChatLevel instance
      */
-    static create(properties?: Object): ChatLevel;
+    public static create(properties?: IChatLevel): ChatLevel;
 
     /**
-     * Encodes the specified ChatLevel message.
-     * @param {ChatLevel|Object} message ChatLevel message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified ChatLevel message. Does not implicitly {@link ChatLevel.verify|verify} messages.
+     * @param message ChatLevel message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (ChatLevel|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IChatLevel, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified ChatLevel message, length delimited.
-     * @param {ChatLevel|Object} message ChatLevel message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified ChatLevel message, length delimited. Does not implicitly {@link ChatLevel.verify|verify} messages.
+     * @param message ChatLevel message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (ChatLevel|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IChatLevel, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a ChatLevel message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {ChatLevel} ChatLevel
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ChatLevel
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ChatLevel;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ChatLevel;
 
     /**
      * Decodes a ChatLevel message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {ChatLevel} ChatLevel
+     * @param reader Reader or buffer to decode from
+     * @returns ChatLevel
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ChatLevel;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ChatLevel;
 
     /**
      * Verifies a ChatLevel message.
-     * @param {ChatLevel|Object} message ChatLevel message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (ChatLevel|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a ChatLevel message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {ChatLevel} ChatLevel
+     * @param object Plain object
+     * @returns ChatLevel
      */
-    static fromObject(object: { [k: string]: any }): ChatLevel;
-
-    /**
-     * Creates a ChatLevel message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link ChatLevel.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {ChatLevel} ChatLevel
-     */
-    static from(object: { [k: string]: any }): ChatLevel;
+    public static fromObject(object: { [k: string]: any }): ChatLevel;
 
     /**
      * Creates a plain object from a ChatLevel message. Also converts values to other types if specified.
-     * @param {ChatLevel} message ChatLevel
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message ChatLevel
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: ChatLevel, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this ChatLevel message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: ChatLevel, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this ChatLevel to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
 export namespace ChatLevel {
 
-    /**
-     * ChatLevelType enum.
-     * @name ChatLevelType
-     * @memberof ChatLevel
-     * @enum {number}
-     * @property {number} EVERYONE=0 EVERYONE value
-     * @property {number} STREAMER=1 STREAMER value
-     * @property {number} STREAMER_MODERATOR=2 STREAMER_MODERATOR value
-     * @property {number} STREAMER_MODERATOR_SUBSCRIBER=3 STREAMER_MODERATOR_SUBSCRIBER value
-     * @property {number} STREAMER_MODERATOR_FOLLOWER=4 STREAMER_MODERATOR_FOLLOWER value
-     * @property {number} STREAMER_MODERATOR_SUBSCRIBER_FOLLOWER=5 STREAMER_MODERATOR_SUBSCRIBER_FOLLOWER value
-     */
+    /** ChatLevelType enum. */
     enum ChatLevelType {
         EVERYONE = 0,
         STREAMER = 1,
         STREAMER_MODERATOR = 2,
         STREAMER_MODERATOR_SUBSCRIBER = 3,
         STREAMER_MODERATOR_FOLLOWER = 4,
-        STREAMER_MODERATOR_SUBSCRIBER_FOLLOWER = 5
+        STREAMER_MODERATOR_SUBSCRIBER_FOLLOWER = 5,
+        NO_GUEST = 6
     }
 }
 
-/**
- * Constructs a new RequestUserlist.
- * @exports RequestUserlist
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a RequestUserlist. */
+export interface IRequestUserlist {
+}
+
+/** Represents a RequestUserlist. */
 export class RequestUserlist {
 
     /**
      * Constructs a new RequestUserlist.
-     * @exports RequestUserlist
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IRequestUserlist);
 
     /**
      * Creates a new RequestUserlist instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {RequestUserlist} RequestUserlist instance
+     * @param [properties] Properties to set
+     * @returns RequestUserlist instance
      */
-    static create(properties?: Object): RequestUserlist;
+    public static create(properties?: IRequestUserlist): RequestUserlist;
 
     /**
-     * Encodes the specified RequestUserlist message.
-     * @param {RequestUserlist|Object} message RequestUserlist message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified RequestUserlist message. Does not implicitly {@link RequestUserlist.verify|verify} messages.
+     * @param message RequestUserlist message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (RequestUserlist|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IRequestUserlist, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified RequestUserlist message, length delimited.
-     * @param {RequestUserlist|Object} message RequestUserlist message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified RequestUserlist message, length delimited. Does not implicitly {@link RequestUserlist.verify|verify} messages.
+     * @param message RequestUserlist message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (RequestUserlist|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IRequestUserlist, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a RequestUserlist message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {RequestUserlist} RequestUserlist
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns RequestUserlist
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): RequestUserlist;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): RequestUserlist;
 
     /**
      * Decodes a RequestUserlist message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {RequestUserlist} RequestUserlist
+     * @param reader Reader or buffer to decode from
+     * @returns RequestUserlist
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): RequestUserlist;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): RequestUserlist;
 
     /**
      * Verifies a RequestUserlist message.
-     * @param {RequestUserlist|Object} message RequestUserlist message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (RequestUserlist|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a RequestUserlist message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {RequestUserlist} RequestUserlist
+     * @param object Plain object
+     * @returns RequestUserlist
      */
-    static fromObject(object: { [k: string]: any }): RequestUserlist;
-
-    /**
-     * Creates a RequestUserlist message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link RequestUserlist.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {RequestUserlist} RequestUserlist
-     */
-    static from(object: { [k: string]: any }): RequestUserlist;
+    public static fromObject(object: { [k: string]: any }): RequestUserlist;
 
     /**
      * Creates a plain object from a RequestUserlist message. Also converts values to other types if specified.
-     * @param {RequestUserlist} message RequestUserlist
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message RequestUserlist
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: RequestUserlist, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this RequestUserlist message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: RequestUserlist, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this RequestUserlist to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new UserInfo.
- * @exports UserInfo
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a UserInfo. */
+export interface IUserInfo {
+
+    /** UserInfo userId */
+    userId?: number;
+
+    /** UserInfo displayName */
+    displayName?: string;
+
+    /** UserInfo registered */
+    registered?: boolean;
+
+    /** UserInfo moderator */
+    moderator?: boolean;
+
+    /** UserInfo streamer */
+    streamer?: boolean;
+
+    /** UserInfo ptvAdmin */
+    ptvAdmin?: boolean;
+
+    /** UserInfo basic */
+    basic?: boolean;
+
+    /** UserInfo premium */
+    premium?: boolean;
+
+    /** UserInfo subscriber */
+    subscriber?: boolean;
+
+    /** UserInfo color */
+    color?: string;
+
+    /** UserInfo ignoring */
+    ignoring?: boolean;
+
+    /** UserInfo banned */
+    banned?: boolean;
+
+    /** UserInfo shadowBanned */
+    shadowBanned?: boolean;
+
+    /** UserInfo bot */
+    bot?: boolean;
+}
+
+/** Represents a UserInfo. */
 export class UserInfo {
 
     /**
      * Constructs a new UserInfo.
-     * @exports UserInfo
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IUserInfo);
 
-    /**
-     * UserInfo userId.
-     * @type {number|undefined}
-     */
-    userId?: number;
+    /** UserInfo userId. */
+    public userId: number;
 
-    /**
-     * UserInfo displayName.
-     * @type {string|undefined}
-     */
-    displayName?: string;
+    /** UserInfo displayName. */
+    public displayName: string;
 
-    /**
-     * UserInfo registered.
-     * @type {boolean|undefined}
-     */
-    registered?: boolean;
+    /** UserInfo registered. */
+    public registered: boolean;
 
-    /**
-     * UserInfo moderator.
-     * @type {boolean|undefined}
-     */
-    moderator?: boolean;
+    /** UserInfo moderator. */
+    public moderator: boolean;
 
-    /**
-     * UserInfo streamer.
-     * @type {boolean|undefined}
-     */
-    streamer?: boolean;
+    /** UserInfo streamer. */
+    public streamer: boolean;
 
-    /**
-     * UserInfo ptvAdmin.
-     * @type {boolean|undefined}
-     */
-    ptvAdmin?: boolean;
+    /** UserInfo ptvAdmin. */
+    public ptvAdmin: boolean;
 
-    /**
-     * UserInfo basic.
-     * @type {boolean|undefined}
-     */
-    basic?: boolean;
+    /** UserInfo basic. */
+    public basic: boolean;
 
-    /**
-     * UserInfo premium.
-     * @type {boolean|undefined}
-     */
-    premium?: boolean;
+    /** UserInfo premium. */
+    public premium: boolean;
 
-    /**
-     * UserInfo subscriber.
-     * @type {boolean|undefined}
-     */
-    subscriber?: boolean;
+    /** UserInfo subscriber. */
+    public subscriber: boolean;
 
-    /**
-     * UserInfo color.
-     * @type {string|undefined}
-     */
-    color?: string;
+    /** UserInfo color. */
+    public color: string;
 
-    /**
-     * UserInfo ignoring.
-     * @type {boolean|undefined}
-     */
-    ignoring?: boolean;
+    /** UserInfo ignoring. */
+    public ignoring: boolean;
 
-    /**
-     * UserInfo banned.
-     * @type {boolean|undefined}
-     */
-    banned?: boolean;
+    /** UserInfo banned. */
+    public banned: boolean;
 
-    /**
-     * UserInfo shadowBanned.
-     * @type {boolean|undefined}
-     */
-    shadowBanned?: boolean;
+    /** UserInfo shadowBanned. */
+    public shadowBanned: boolean;
+
+    /** UserInfo bot. */
+    public bot: boolean;
 
     /**
      * Creates a new UserInfo instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {UserInfo} UserInfo instance
+     * @param [properties] Properties to set
+     * @returns UserInfo instance
      */
-    static create(properties?: Object): UserInfo;
+    public static create(properties?: IUserInfo): UserInfo;
 
     /**
-     * Encodes the specified UserInfo message.
-     * @param {UserInfo|Object} message UserInfo message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified UserInfo message. Does not implicitly {@link UserInfo.verify|verify} messages.
+     * @param message UserInfo message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (UserInfo|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IUserInfo, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified UserInfo message, length delimited.
-     * @param {UserInfo|Object} message UserInfo message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified UserInfo message, length delimited. Does not implicitly {@link UserInfo.verify|verify} messages.
+     * @param message UserInfo message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (UserInfo|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IUserInfo, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a UserInfo message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {UserInfo} UserInfo
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns UserInfo
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): UserInfo;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): UserInfo;
 
     /**
      * Decodes a UserInfo message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {UserInfo} UserInfo
+     * @param reader Reader or buffer to decode from
+     * @returns UserInfo
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): UserInfo;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): UserInfo;
 
     /**
      * Verifies a UserInfo message.
-     * @param {UserInfo|Object} message UserInfo message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (UserInfo|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a UserInfo message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {UserInfo} UserInfo
+     * @param object Plain object
+     * @returns UserInfo
      */
-    static fromObject(object: { [k: string]: any }): UserInfo;
-
-    /**
-     * Creates a UserInfo message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link UserInfo.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {UserInfo} UserInfo
-     */
-    static from(object: { [k: string]: any }): UserInfo;
+    public static fromObject(object: { [k: string]: any }): UserInfo;
 
     /**
      * Creates a plain object from a UserInfo message. Also converts values to other types if specified.
-     * @param {UserInfo} message UserInfo
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message UserInfo
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: UserInfo, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this UserInfo message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: UserInfo, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this UserInfo to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new UserCount.
- * @exports UserCount
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a UserCount. */
+export interface IUserCount {
+
+    /** UserCount users */
+    users?: number;
+}
+
+/** Represents a UserCount. */
 export class UserCount {
 
     /**
      * Constructs a new UserCount.
-     * @exports UserCount
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IUserCount);
 
-    /**
-     * UserCount users.
-     * @type {number|undefined}
-     */
-    users?: number;
+    /** UserCount users. */
+    public users: number;
 
     /**
      * Creates a new UserCount instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {UserCount} UserCount instance
+     * @param [properties] Properties to set
+     * @returns UserCount instance
      */
-    static create(properties?: Object): UserCount;
+    public static create(properties?: IUserCount): UserCount;
 
     /**
-     * Encodes the specified UserCount message.
-     * @param {UserCount|Object} message UserCount message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified UserCount message. Does not implicitly {@link UserCount.verify|verify} messages.
+     * @param message UserCount message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (UserCount|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IUserCount, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified UserCount message, length delimited.
-     * @param {UserCount|Object} message UserCount message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified UserCount message, length delimited. Does not implicitly {@link UserCount.verify|verify} messages.
+     * @param message UserCount message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (UserCount|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IUserCount, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a UserCount message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {UserCount} UserCount
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns UserCount
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): UserCount;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): UserCount;
 
     /**
      * Decodes a UserCount message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {UserCount} UserCount
+     * @param reader Reader or buffer to decode from
+     * @returns UserCount
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): UserCount;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): UserCount;
 
     /**
      * Verifies a UserCount message.
-     * @param {UserCount|Object} message UserCount message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (UserCount|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a UserCount message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {UserCount} UserCount
+     * @param object Plain object
+     * @returns UserCount
      */
-    static fromObject(object: { [k: string]: any }): UserCount;
-
-    /**
-     * Creates a UserCount message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link UserCount.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {UserCount} UserCount
-     */
-    static from(object: { [k: string]: any }): UserCount;
+    public static fromObject(object: { [k: string]: any }): UserCount;
 
     /**
      * Creates a plain object from a UserCount message. Also converts values to other types if specified.
-     * @param {UserCount} message UserCount
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message UserCount
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: UserCount, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this UserCount message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: UserCount, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this UserCount to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
-/**
- * Constructs a new ShowRaffle.
- * @exports ShowRaffle
- * @constructor
- * @param {Object} [properties] Properties to set
- */
+/** Properties of a ShowRaffle. */
+export interface IShowRaffle {
+
+    /** ShowRaffle user */
+    user?: ShowRaffle.IUser[];
+}
+
+/** Represents a ShowRaffle. */
 export class ShowRaffle {
 
     /**
      * Constructs a new ShowRaffle.
-     * @exports ShowRaffle
-     * @constructor
-     * @param {Object} [properties] Properties to set
+     * @param [properties] Properties to set
      */
-    constructor(properties?: Object);
+    constructor(properties?: IShowRaffle);
 
-    /**
-     * ShowRaffle userList.
-     * @type {Array.<ShowRaffle.User>|undefined}
-     */
-    userList?: ShowRaffle.User[];
+    /** ShowRaffle user. */
+    public user: ShowRaffle.IUser[];
 
     /**
      * Creates a new ShowRaffle instance using the specified properties.
-     * @param {Object} [properties] Properties to set
-     * @returns {ShowRaffle} ShowRaffle instance
+     * @param [properties] Properties to set
+     * @returns ShowRaffle instance
      */
-    static create(properties?: Object): ShowRaffle;
+    public static create(properties?: IShowRaffle): ShowRaffle;
 
     /**
-     * Encodes the specified ShowRaffle message.
-     * @param {ShowRaffle|Object} message ShowRaffle message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified ShowRaffle message. Does not implicitly {@link ShowRaffle.verify|verify} messages.
+     * @param message ShowRaffle message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encode(message: (ShowRaffle|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encode(message: IShowRaffle, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
-     * Encodes the specified ShowRaffle message, length delimited.
-     * @param {ShowRaffle|Object} message ShowRaffle message or plain object to encode
-     * @param {$protobuf.Writer} [writer] Writer to encode to
-     * @returns {$protobuf.Writer} Writer
+     * Encodes the specified ShowRaffle message, length delimited. Does not implicitly {@link ShowRaffle.verify|verify} messages.
+     * @param message ShowRaffle message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
      */
-    static encodeDelimited(message: (ShowRaffle|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+    public static encodeDelimited(message: IShowRaffle, writer?: $protobuf.Writer): $protobuf.Writer;
 
     /**
      * Decodes a ShowRaffle message from the specified reader or buffer.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @param {number} [length] Message length if known beforehand
-     * @returns {ShowRaffle} ShowRaffle
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns ShowRaffle
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ShowRaffle;
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ShowRaffle;
 
     /**
      * Decodes a ShowRaffle message from the specified reader or buffer, length delimited.
-     * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-     * @returns {ShowRaffle} ShowRaffle
+     * @param reader Reader or buffer to decode from
+     * @returns ShowRaffle
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
      */
-    static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ShowRaffle;
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ShowRaffle;
 
     /**
      * Verifies a ShowRaffle message.
-     * @param {ShowRaffle|Object} message ShowRaffle message or plain object to verify
-     * @returns {?string} `null` if valid, otherwise the reason why it is not
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
      */
-    static verify(message: (ShowRaffle|Object)): string;
+    public static verify(message: { [k: string]: any }): (string|null);
 
     /**
      * Creates a ShowRaffle message from a plain object. Also converts values to their respective internal types.
-     * @param {Object.<string,*>} object Plain object
-     * @returns {ShowRaffle} ShowRaffle
+     * @param object Plain object
+     * @returns ShowRaffle
      */
-    static fromObject(object: { [k: string]: any }): ShowRaffle;
-
-    /**
-     * Creates a ShowRaffle message from a plain object. Also converts values to their respective internal types.
-     * This is an alias of {@link ShowRaffle.fromObject}.
-     * @function
-     * @param {Object.<string,*>} object Plain object
-     * @returns {ShowRaffle} ShowRaffle
-     */
-    static from(object: { [k: string]: any }): ShowRaffle;
+    public static fromObject(object: { [k: string]: any }): ShowRaffle;
 
     /**
      * Creates a plain object from a ShowRaffle message. Also converts values to other types if specified.
-     * @param {ShowRaffle} message ShowRaffle
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
+     * @param message ShowRaffle
+     * @param [options] Conversion options
+     * @returns Plain object
      */
-    static toObject(message: ShowRaffle, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-    /**
-     * Creates a plain object from this ShowRaffle message. Also converts values to other types if specified.
-     * @param {$protobuf.ConversionOptions} [options] Conversion options
-     * @returns {Object.<string,*>} Plain object
-     */
-    toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+    public static toObject(message: ShowRaffle, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
     /**
      * Converts this ShowRaffle to JSON.
-     * @returns {Object.<string,*>} JSON object
+     * @returns JSON object
      */
-    toJSON(): { [k: string]: any };
+    public toJSON(): { [k: string]: any };
 }
 
 export namespace ShowRaffle {
 
-    /**
-     * Constructs a new User.
-     * @exports ShowRaffle.User
-     * @constructor
-     * @param {Object} [properties] Properties to set
-     */
+    /** Properties of a User. */
+    interface IUser {
+
+        /** User displayName */
+        displayName?: string;
+
+        /** User subscriber */
+        subscriber?: boolean;
+    }
+
+    /** Represents a User. */
     class User {
 
         /**
          * Constructs a new User.
-         * @exports ShowRaffle.User
-         * @constructor
-         * @param {Object} [properties] Properties to set
+         * @param [properties] Properties to set
          */
-        constructor(properties?: Object);
+        constructor(properties?: ShowRaffle.IUser);
 
-        /**
-         * User displayName.
-         * @type {string|undefined}
-         */
-        displayName?: string;
+        /** User displayName. */
+        public displayName: string;
 
-        /**
-         * User subscriber.
-         * @type {boolean|undefined}
-         */
-        subscriber?: boolean;
+        /** User subscriber. */
+        public subscriber: boolean;
 
         /**
          * Creates a new User instance using the specified properties.
-         * @param {Object} [properties] Properties to set
-         * @returns {ShowRaffle.User} User instance
+         * @param [properties] Properties to set
+         * @returns User instance
          */
-        static create(properties?: Object): ShowRaffle.User;
+        public static create(properties?: ShowRaffle.IUser): ShowRaffle.User;
 
         /**
-         * Encodes the specified User message.
-         * @param {ShowRaffle.User|Object} message User message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
+         * Encodes the specified User message. Does not implicitly {@link ShowRaffle.User.verify|verify} messages.
+         * @param message User message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
          */
-        static encode(message: (ShowRaffle.User|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encode(message: ShowRaffle.IUser, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
-         * Encodes the specified User message, length delimited.
-         * @param {ShowRaffle.User|Object} message User message or plain object to encode
-         * @param {$protobuf.Writer} [writer] Writer to encode to
-         * @returns {$protobuf.Writer} Writer
+         * Encodes the specified User message, length delimited. Does not implicitly {@link ShowRaffle.User.verify|verify} messages.
+         * @param message User message or plain object to encode
+         * @param [writer] Writer to encode to
+         * @returns Writer
          */
-        static encodeDelimited(message: (ShowRaffle.User|Object), writer?: $protobuf.Writer): $protobuf.Writer;
+        public static encodeDelimited(message: ShowRaffle.IUser, writer?: $protobuf.Writer): $protobuf.Writer;
 
         /**
          * Decodes a User message from the specified reader or buffer.
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @param {number} [length] Message length if known beforehand
-         * @returns {ShowRaffle.User} User
+         * @param reader Reader or buffer to decode from
+         * @param [length] Message length if known beforehand
+         * @returns User
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ShowRaffle.User;
+        public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): ShowRaffle.User;
 
         /**
          * Decodes a User message from the specified reader or buffer, length delimited.
-         * @param {$protobuf.Reader|Uint8Array} reader Reader or buffer to decode from
-         * @returns {ShowRaffle.User} User
+         * @param reader Reader or buffer to decode from
+         * @returns User
+         * @throws {Error} If the payload is not a reader or valid buffer
+         * @throws {$protobuf.util.ProtocolError} If required fields are missing
          */
-        static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ShowRaffle.User;
+        public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): ShowRaffle.User;
 
         /**
          * Verifies a User message.
-         * @param {ShowRaffle.User|Object} message User message or plain object to verify
-         * @returns {?string} `null` if valid, otherwise the reason why it is not
+         * @param message Plain object to verify
+         * @returns `null` if valid, otherwise the reason why it is not
          */
-        static verify(message: (ShowRaffle.User|Object)): string;
+        public static verify(message: { [k: string]: any }): (string|null);
 
         /**
          * Creates a User message from a plain object. Also converts values to their respective internal types.
-         * @param {Object.<string,*>} object Plain object
-         * @returns {ShowRaffle.User} User
+         * @param object Plain object
+         * @returns User
          */
-        static fromObject(object: { [k: string]: any }): ShowRaffle.User;
-
-        /**
-         * Creates a User message from a plain object. Also converts values to their respective internal types.
-         * This is an alias of {@link ShowRaffle.User.fromObject}.
-         * @function
-         * @param {Object.<string,*>} object Plain object
-         * @returns {ShowRaffle.User} User
-         */
-        static from(object: { [k: string]: any }): ShowRaffle.User;
+        public static fromObject(object: { [k: string]: any }): ShowRaffle.User;
 
         /**
          * Creates a plain object from a User message. Also converts values to other types if specified.
-         * @param {ShowRaffle.User} message User
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
+         * @param message User
+         * @param [options] Conversion options
+         * @returns Plain object
          */
-        static toObject(message: ShowRaffle.User, options?: $protobuf.ConversionOptions): { [k: string]: any };
-
-        /**
-         * Creates a plain object from this User message. Also converts values to other types if specified.
-         * @param {$protobuf.ConversionOptions} [options] Conversion options
-         * @returns {Object.<string,*>} Plain object
-         */
-        toObject(options?: $protobuf.ConversionOptions): { [k: string]: any };
+        public static toObject(message: ShowRaffle.User, options?: $protobuf.IConversionOptions): { [k: string]: any };
 
         /**
          * Converts this User to JSON.
-         * @returns {Object.<string,*>} JSON object
+         * @returns JSON object
          */
-        toJSON(): { [k: string]: any };
+        public toJSON(): { [k: string]: any };
+    }
+}
+
+/** Properties of an Event. */
+export interface IEvent {
+
+    /** Event eventId */
+    eventId?: string;
+
+    /** Event starting */
+    starting?: boolean;
+
+    /** Event shouldRedirect */
+    shouldRedirect?: boolean;
+}
+
+/** Represents an Event. */
+export class Event {
+
+    /**
+     * Constructs a new Event.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IEvent);
+
+    /** Event eventId. */
+    public eventId: string;
+
+    /** Event starting. */
+    public starting: boolean;
+
+    /** Event shouldRedirect. */
+    public shouldRedirect: boolean;
+
+    /**
+     * Creates a new Event instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns Event instance
+     */
+    public static create(properties?: IEvent): Event;
+
+    /**
+     * Encodes the specified Event message. Does not implicitly {@link Event.verify|verify} messages.
+     * @param message Event message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IEvent, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified Event message, length delimited. Does not implicitly {@link Event.verify|verify} messages.
+     * @param message Event message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IEvent, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes an Event message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns Event
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): Event;
+
+    /**
+     * Decodes an Event message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns Event
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): Event;
+
+    /**
+     * Verifies an Event message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates an Event message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns Event
+     */
+    public static fromObject(object: { [k: string]: any }): Event;
+
+    /**
+     * Creates a plain object from an Event message. Also converts values to other types if specified.
+     * @param message Event
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: Event, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this Event to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of a SetJWT. */
+export interface ISetJWT {
+
+    /** SetJWT key */
+    key?: string;
+
+    /** SetJWT name */
+    name?: string;
+
+    /** SetJWT registered */
+    registered?: boolean;
+
+    /** SetJWT premium */
+    premium?: boolean;
+
+    /** SetJWT basic */
+    basic?: boolean;
+
+    /** SetJWT streamer */
+    streamer?: boolean;
+}
+
+/** Represents a SetJWT. */
+export class SetJWT {
+
+    /**
+     * Constructs a new SetJWT.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: ISetJWT);
+
+    /** SetJWT key. */
+    public key: string;
+
+    /** SetJWT name. */
+    public name: string;
+
+    /** SetJWT registered. */
+    public registered: boolean;
+
+    /** SetJWT premium. */
+    public premium: boolean;
+
+    /** SetJWT basic. */
+    public basic: boolean;
+
+    /** SetJWT streamer. */
+    public streamer: boolean;
+
+    /**
+     * Creates a new SetJWT instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns SetJWT instance
+     */
+    public static create(properties?: ISetJWT): SetJWT;
+
+    /**
+     * Encodes the specified SetJWT message. Does not implicitly {@link SetJWT.verify|verify} messages.
+     * @param message SetJWT message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: ISetJWT, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified SetJWT message, length delimited. Does not implicitly {@link SetJWT.verify|verify} messages.
+     * @param message SetJWT message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: ISetJWT, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a SetJWT message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns SetJWT
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): SetJWT;
+
+    /**
+     * Decodes a SetJWT message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns SetJWT
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): SetJWT;
+
+    /**
+     * Verifies a SetJWT message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a SetJWT message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns SetJWT
+     */
+    public static fromObject(object: { [k: string]: any }): SetJWT;
+
+    /**
+     * Creates a plain object from a SetJWT message. Also converts values to other types if specified.
+     * @param message SetJWT
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: SetJWT, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this SetJWT to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of an UpdateEmotes. */
+export interface IUpdateEmotes {
+
+    /** UpdateEmotes emotes */
+    emotes?: string;
+}
+
+/** Represents an UpdateEmotes. */
+export class UpdateEmotes {
+
+    /**
+     * Constructs a new UpdateEmotes.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IUpdateEmotes);
+
+    /** UpdateEmotes emotes. */
+    public emotes: string;
+
+    /**
+     * Creates a new UpdateEmotes instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns UpdateEmotes instance
+     */
+    public static create(properties?: IUpdateEmotes): UpdateEmotes;
+
+    /**
+     * Encodes the specified UpdateEmotes message. Does not implicitly {@link UpdateEmotes.verify|verify} messages.
+     * @param message UpdateEmotes message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IUpdateEmotes, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified UpdateEmotes message, length delimited. Does not implicitly {@link UpdateEmotes.verify|verify} messages.
+     * @param message UpdateEmotes message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IUpdateEmotes, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes an UpdateEmotes message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns UpdateEmotes
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): UpdateEmotes;
+
+    /**
+     * Decodes an UpdateEmotes message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns UpdateEmotes
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): UpdateEmotes;
+
+    /**
+     * Verifies an UpdateEmotes message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates an UpdateEmotes message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns UpdateEmotes
+     */
+    public static fromObject(object: { [k: string]: any }): UpdateEmotes;
+
+    /**
+     * Creates a plain object from an UpdateEmotes message. Also converts values to other types if specified.
+     * @param message UpdateEmotes
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: UpdateEmotes, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this UpdateEmotes to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+/** Properties of a PingPong. */
+export interface IPingPong {
+
+    /** PingPong type */
+    type?: PingPong.PingType;
+}
+
+/** Represents a PingPong. */
+export class PingPong {
+
+    /**
+     * Constructs a new PingPong.
+     * @param [properties] Properties to set
+     */
+    constructor(properties?: IPingPong);
+
+    /** PingPong type. */
+    public type: PingPong.PingType;
+
+    /**
+     * Creates a new PingPong instance using the specified properties.
+     * @param [properties] Properties to set
+     * @returns PingPong instance
+     */
+    public static create(properties?: IPingPong): PingPong;
+
+    /**
+     * Encodes the specified PingPong message. Does not implicitly {@link PingPong.verify|verify} messages.
+     * @param message PingPong message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encode(message: IPingPong, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Encodes the specified PingPong message, length delimited. Does not implicitly {@link PingPong.verify|verify} messages.
+     * @param message PingPong message or plain object to encode
+     * @param [writer] Writer to encode to
+     * @returns Writer
+     */
+    public static encodeDelimited(message: IPingPong, writer?: $protobuf.Writer): $protobuf.Writer;
+
+    /**
+     * Decodes a PingPong message from the specified reader or buffer.
+     * @param reader Reader or buffer to decode from
+     * @param [length] Message length if known beforehand
+     * @returns PingPong
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decode(reader: ($protobuf.Reader|Uint8Array), length?: number): PingPong;
+
+    /**
+     * Decodes a PingPong message from the specified reader or buffer, length delimited.
+     * @param reader Reader or buffer to decode from
+     * @returns PingPong
+     * @throws {Error} If the payload is not a reader or valid buffer
+     * @throws {$protobuf.util.ProtocolError} If required fields are missing
+     */
+    public static decodeDelimited(reader: ($protobuf.Reader|Uint8Array)): PingPong;
+
+    /**
+     * Verifies a PingPong message.
+     * @param message Plain object to verify
+     * @returns `null` if valid, otherwise the reason why it is not
+     */
+    public static verify(message: { [k: string]: any }): (string|null);
+
+    /**
+     * Creates a PingPong message from a plain object. Also converts values to their respective internal types.
+     * @param object Plain object
+     * @returns PingPong
+     */
+    public static fromObject(object: { [k: string]: any }): PingPong;
+
+    /**
+     * Creates a plain object from a PingPong message. Also converts values to other types if specified.
+     * @param message PingPong
+     * @param [options] Conversion options
+     * @returns Plain object
+     */
+    public static toObject(message: PingPong, options?: $protobuf.IConversionOptions): { [k: string]: any };
+
+    /**
+     * Converts this PingPong to JSON.
+     * @returns JSON object
+     */
+    public toJSON(): { [k: string]: any };
+}
+
+export namespace PingPong {
+
+    /** PingType enum. */
+    enum PingType {
+        PING = 0,
+        PONG = 1
     }
 }

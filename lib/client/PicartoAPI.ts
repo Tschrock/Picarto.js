@@ -6,21 +6,25 @@
  * or it's team. It is provided as-is with no guarantees. Please make sure you
  * read through and comply with Picarto's TOS: https://picarto.tv/site/terms
  *
- * Tschrock <tschrock123@gmail.com>
+ * CyberPon3 <cyber@cyberpon3.net>
  *
  * This Source Code Form is subject to the terms of the Mozilla Public
  * License, v. 2.0. If a copy of the MPL was not distributed with this
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-'use strict';
+"use strict";
 
 // tslint:disable-next-line:no-require-imports
-import request = require('request');
+import request = require("request");
 
 const HTTP_200_OK = 200;
 const HTTP_302_REDIRECT = 302;
+const HTTP_400_BAD_REQUSET = 400;
 
+const x: request.CoreOptions = {
+
+}
 
 /**
  * The main Picarto API class. Each instance acts as a unique browser session.
@@ -32,8 +36,8 @@ export class PicartoAPI {
     protected apiURL = "https://api.picarto.tv/v1";
 
     // TODO: Actually impliment cacheing
-    private _cacheTime: number = 30000;
-    private _minCacheTime: number = 10000; // Always cache at least 10 sec.
+    private _cacheTime = 30000;
+    private _minCacheTime = 10000; // Always cache at least 10 sec.
 
     public set cacheTime(milliseconds: number) {
         this._cacheTime = Math.max(milliseconds, this._minCacheTime);
@@ -42,42 +46,54 @@ export class PicartoAPI {
         return this._cacheTime;
     }
 
-    private _oauthToken: string;
+    private _authToken: string;
 
-    public setOAuthToken(token: string) {
-        this._oauthToken = token;
+    public setAuthToken(token: string) {
+        this._authToken = token;
     }
 
+
+
+
+    /*
+     *
+     * Public APIs: Publicly accessible operations without any need for authentication
+     * https://docs.picarto.tv/api/#/public
+     *
+     */
+
     /**
+     * GET /online
+     *
      * Gets all currently online channels
-     * @param {boolean} [adult]
-     * @param {boolean} [gaming]
-     * @param {string[]} [categories]
-     * @returns {Promise<OnlineDetails[]>}
+     * https://docs.picarto.tv/api/#!/public/get_online
+     *
+     * @param {boolean} [adult] Whether or not to include adult channels (defaults to `false`).
+     * @param {boolean} [gaming] Whether or not to include gaming channels (defaults to `false`).
+     * @param {string[]} [categories] What categories to limit the results to.
+     * @returns {Promise<IOnlineDetails[]>} A Promise for a list of `IOnlineDetails`.
+     *
      * @memberOf PicartoAPI
      */
-    public getOnlineChannels(adult?: boolean, gaming?: boolean, categories?: string[]): Promise<OnlineDetails[]> {
-        return new Promise((resolve, reject) => {
+    public async getOnlineChannels(adult?: boolean, gaming?: boolean, categories?: string[]): Promise<IOnlineDetails[]> {
+        return new Promise<IOnlineDetails[]>((resolve, reject) => {
 
-            const query = {};
-            if (typeof adult !== 'undefined') { query["adult"] = adult; }
-            if (typeof gaming !== 'undefined') { query["gaming"] = gaming; }
-            if (typeof categories !== 'undefined') { query["categories"] = gaming; }
+            const qs: { adult?; gaming?; categories?} = {};
+            if (typeof adult !== "undefined") { qs.adult = adult; }
+            if (typeof gaming !== "undefined") { qs.gaming = gaming; }
+            if (typeof categories !== "undefined") { qs.categories = gaming; }
 
-            const head = {};
-            if (this._oauthToken) { head["Authorization"] = `Bearer ${this._oauthToken}`; }
+            const headers: { Authorization?} = {};
+            if (this._authToken) { headers.Authorization = `Bearer ${this._authToken}`; }
 
             request({
-                method: 'GET',
-                qs: query,
-                headers: head,
+                method: "GET",
+                headers,
                 uri: `${this.apiURL}/online`,
-                useQuerystring: true,
+                qs,
                 json: true
             }, (err, httpResponse, body) => {
-                if (err) {
-                    reject(err);
-                }
+                if (err) reject(err);
                 else {
                     const statusCode = httpResponse.statusCode;
                     if (statusCode !== HTTP_200_OK && statusCode !== HTTP_302_REDIRECT) {
@@ -90,18 +106,22 @@ export class PicartoAPI {
     }
 
     /**
+     * GET /categories
+     *
      * Get information about all categories
-     * @returns {Promise<Category[]>}
+     * https://docs.picarto.tv/api/#!/public/get_categories
+     *
+     * @returns {Promise<ICategory[]>} A Promise for a list of `ICategory`.
      * @memberOf PicartoAPI
      */
-    public getChannelCategories(): Promise<Category[]> {
-        return new Promise((resolve, reject) => {
+    public async getChannelCategories(): Promise<ICategory[]> {
+        return new Promise<ICategory[]>((resolve, reject) => {
 
-            const head = {};
-            if (this._oauthToken) { head["Authorization"] = `Bearer ${this._oauthToken}`; }
+            const head: { Authorization?} = {};
+            if (this._authToken) { head.Authorization = `Bearer ${this._authToken}`; }
 
             request({
-                method: 'GET',
+                method: "GET",
                 headers: head,
                 uri: `${this.apiURL}/categories`,
                 json: true
@@ -121,18 +141,22 @@ export class PicartoAPI {
     }
 
     /**
+     * GET /events
+     *
      * Get all events that are about to run or are running
-     * @returns {Promise<Event[]>}
+     * https://docs.picarto.tv/api/#!/public/get_events
+     *
+     * @returns {Promise<IEvent[]>}  A Promise for a list of `IEvent`.
      * @memberOf PicartoAPI
      */
-    public getCurrentEvents(): Promise<Event[]> {
-        return new Promise((resolve, reject) => {
+    public async getCurrentEvents(): Promise<IEvent[]> {
+        return new Promise<IEvent[]>((resolve, reject) => {
 
-            const head = {};
-            if (this._oauthToken) { head["Authorization"] = `Bearer ${this._oauthToken}`; }
+            const head: { Authorization?} = {};
+            if (this._authToken) { head.Authorization = `Bearer ${this._authToken}`; }
 
             request({
-                method: 'GET',
+                method: "GET",
                 headers: head,
                 uri: `${this.apiURL}/events`,
                 json: true
@@ -151,20 +175,34 @@ export class PicartoAPI {
         });
     }
 
+
+
+
+    /*
+     *
+     * Channel APIs: All channel information
+     * https://docs.picarto.tv/api/#/channel
+     *
+     */
+
     /**
+     * GET /channel/id/{channel_id}
+     *
      * Gets information about a channel by ID
+     * https://docs.picarto.tv/api/#!/channel/get_channel_id_channel_id
+     *
      * @param {number} channelId The channel's Id
-     * @returns {Promise<ChannelDetails>}
+     * @returns {Promise<IChannelDetails>} A Promise for a `IChannelDetails`.
      * @memberOf PicartoAPI
      */
-    public getChannelInfoById(channelId: number): Promise<ChannelDetails> {
-        return new Promise((resolve, reject) => {
+    public async getChannelInfoById(channelId: number): Promise<IChannelDetails> {
+        return new Promise<IChannelDetails>((resolve, reject) => {
 
-            const head = {};
-            if (this._oauthToken) { head["Authorization"] = `Bearer ${this._oauthToken}`; }
+            const head: { Authorization?} = {};
+            if (this._authToken) { head.Authorization = `Bearer ${this._authToken}`; }
 
             request({
-                method: 'GET',
+                method: "GET",
                 headers: head,
                 uri: `${this.apiURL}/channel/id/${channelId}`,
                 json: true
@@ -184,19 +222,23 @@ export class PicartoAPI {
     }
 
     /**
+     * GET /channel/name/{channel_name}
+     *
      * Gets information about a channel by Name
+     * https://docs.picarto.tv/api/#!/channel/get_channel_name_channel_name
+     *
      * @param {string} channelName The channel's Name
-     * @returns {Promise<ChannelDetails>}
+     * @returns {Promise<IChannelDetails>} A Promise for a `IChannelDetails`.
      * @memberOf PicartoAPI
      */
-    public getChannelInfoByName(channelName: string): Promise<ChannelDetails> {
-        return new Promise((resolve, reject) => {
+    public async getChannelInfoByName(channelName: string): Promise<IChannelDetails> {
+        return new Promise<IChannelDetails>((resolve, reject) => {
 
-            const head = {};
-            if (this._oauthToken) { head["Authorization"] = `Bearer ${this._oauthToken}`; }
+            const head: { Authorization?} = {};
+            if (this._authToken) { head.Authorization = `Bearer ${this._authToken}`; }
 
             request({
-                method: 'GET',
+                method: "GET",
                 headers: head,
                 uri: `${this.apiURL}/channel/name/${channelName}`,
                 json: true
@@ -215,24 +257,40 @@ export class PicartoAPI {
         });
     }
 
+
+
+
+    /*
+     *
+     * User APIs: All operations that read or write account information
+     * https://docs.picarto.tv/api/#/user
+     *
+     */
+
     /**
+     * GET /user
+     *
      * Get private info about the currently authenticated user
-     * @returns {Promise<ChannelDetails>}
+     * https://docs.picarto.tv/api/#!/user/get_user
+     *
+     * Requires oauth scope: readpriv
+     *
+     * @returns {Promise<IUserData>} A Promise for a `IUserData`.
      * @memberOf PicartoAPI
      */
-    public getUserInfo(): Promise<UserData> {
-        return new Promise((resolve, reject) => {
+    public async getUserInfo(): Promise<IUserData> {
+        return new Promise<IUserData>((resolve, reject) => {
 
-            if (!this._oauthToken) {
+            if (!this._authToken) {
                 reject(new Error("This endpoint requires authorization."));
                 return;
             }
 
-            const head = {};
-            if (this._oauthToken) { head["Authorization"] = `Bearer ${this._oauthToken}`; }
+            const head: { Authorization?} = {};
+            if (this._authToken) { head.Authorization = `Bearer ${this._authToken}`; }
 
             request({
-                method: 'GET',
+                method: "GET",
                 headers: head,
                 uri: `${this.apiURL}/user`,
                 json: true
@@ -252,23 +310,29 @@ export class PicartoAPI {
     }
 
     /**
+     * GET /user/streamkey
+     *
      * Get the stream key of the currently authenticated user
-     * @returns {Promise<string>}
+     * https://docs.picarto.tv/api/#!/user/get_user_streamkey
+     *
+     * Requires oauth scope: sudo
+     *
+     * @returns {Promise<string>} A Promise for the stream key (`string`).
      * @memberOf PicartoAPI
      */
-    public getUserStreamKey(): Promise<string> {
-        return new Promise((resolve, reject) => {
+    public async getUserStreamKey(): Promise<string> {
+        return new Promise<string>((resolve, reject) => {
 
-            if (!this._oauthToken) {
+            if (!this._authToken) {
                 reject(new Error("This endpoint requires authorization."));
                 return;
             }
 
-            const head = {};
-            if (this._oauthToken) { head["Authorization"] = `Bearer ${this._oauthToken}`; }
+            const head: { Authorization?} = {};
+            if (this._authToken) { head.Authorization = `Bearer ${this._authToken}`; }
 
             request({
-                method: 'GET',
+                method: "GET",
                 headers: head,
                 uri: `${this.apiURL}/user/streamkey`,
                 json: true
@@ -288,16 +352,22 @@ export class PicartoAPI {
     }
 
     /**
+     * GET /user/jwtkey
+     *
      * Generate a bot JWT token to connect to a channel
-     * @param {number} channel_id
-     * @param {boolean} bot
-     * @returns {Promise<string>}
+     * https://docs.picarto.tv/api/#!/user/get_user_jwtkey
+     *
+     * Requires oauth scope: sudo
+     *
+     * @param {number} channel_id Channel ID you wish to connect to.
+     * @param {boolean} bot Whether or not this is a bot token.
+     * @returns {Promise<string>} A Promise for the chat key (`string`).
      * @memberOf PicartoAPI
      */
-    public getUserChatKey(channel_id: number, bot: boolean): Promise<string> {
-        return new Promise((resolve, reject) => {
+    public async getUserChatKey(channel_id: number, bot: boolean): Promise<string> {
+        return new Promise<string>((resolve, reject) => {
 
-            if (!this._oauthToken) {
+            if (!this._authToken) {
                 reject(new Error("This endpoint requires authorization."));
                 return;
             }
@@ -312,15 +382,15 @@ export class PicartoAPI {
                 return;
             }
 
-            const head = {};
-            if (this._oauthToken) { head["Authorization"] = `Bearer ${this._oauthToken}`; }
+            const head: { Authorization?} = {};
+            if (this._authToken) { head.Authorization = `Bearer ${this._authToken}`; }
 
             request({
-                method: 'GET',
+                method: "GET",
                 headers: head,
                 qs: {
-                    channel_id: channel_id,
-                    bot: bot
+                    channel_id,
+                    bot
                 },
                 uri: `${this.apiURL}/user/jwtkey`,
                 useQuerystring: true,
@@ -341,8 +411,201 @@ export class PicartoAPI {
     }
 
 
-    public getWebhooks(client_id: string, client_secret: string, channel_id?: number): Promise<Webhook[]> {
-        return new Promise((resolve, reject) => {
+    /**
+     * POST /user/title
+     *
+     * Update the user's channel title
+     * https://docs.picarto.tv/api/#!/user/post_user_title
+     *
+     * Requires oauth scope: write
+     *
+     * @param {string} title The new title.
+     * @returns {Promise<void>} A Promise.
+     * @memberOf PicartoAPI
+     */
+    public async setUserChannelTitle(title: string): Promise<string> {
+        return new Promise<string>((resolve, reject) => {
+
+            if (!this._authToken) {
+                reject(new Error("This endpoint requires authorization."));
+                return;
+            }
+
+            if (!title) {
+                reject(new Error("`title` is required."));
+                return;
+            }
+
+            request({
+                method: "POST",
+                headers: {
+                    "Authorization": `Bearer ${this._authToken}`
+                },
+                formData: {
+                    title
+                },
+                uri: `${this.apiURL}/user/title`,
+                useQuerystring: true
+            }, (err, httpResponse, body) => {
+                if (err) {
+                    reject(err);
+                }
+                else {
+                    const statusCode = httpResponse.statusCode;
+                    if (statusCode !== HTTP_200_OK && statusCode !== HTTP_302_REDIRECT) {
+                        reject(new Error(`Recieved Status Code ${statusCode}`));
+                    }
+                    resolve();
+                }
+            });
+        });
+    }
+
+
+    /**
+     * POST /user/category
+     *
+     * Update the user's channel category
+     * https://docs.picarto.tv/api/#!/user/post_user_category
+     *
+     * Requires oauth scope: write
+     *
+     * @param {number} id The category ID.
+     * @returns {Promise<void>} A Promise.
+     * @memberOf PicartoAPI
+     */
+    public async setUserChannelCategory(id: number): Promise<string> {
+        return new Promise<string>((resolve, reject) => {
+
+            if (!this._authToken) {
+                reject(new Error("This endpoint requires authorization."));
+                return;
+            }
+
+            if (!id) {
+                reject(new Error("`id` is required."));
+                return;
+            }
+
+            request({
+                method: "POST",
+                headers: {
+                    "Authorization": `Bearer ${this._authToken}`
+                },
+                formData: {
+                    id
+                },
+                uri: `${this.apiURL}/user/title`,
+                useQuerystring: true
+            }, (err, httpResponse, body) => {
+                if (err) {
+                    reject(err);
+                }
+                else {
+                    const statusCode = httpResponse.statusCode;
+                    if (statusCode !== HTTP_200_OK && statusCode !== HTTP_302_REDIRECT) {
+                        reject(new Error(`Recieved Status Code ${statusCode}`));
+                    }
+                    resolve();
+                }
+            });
+        });
+    }
+
+
+    /**
+     * POST /user/adult
+     *
+     * Update the user's adult status
+     * https://docs.picarto.tv/api/#!/user/post_user_adult
+     *
+     * Requires oauth scope: write
+     *
+     * @param {boolean} adult If the user is to be made an adult channel.
+     * @returns {Promise<void>} A Promise.
+     * @memberOf PicartoAPI
+     */
+    public async setUserChannelIsAdult(adult: boolean): Promise<string> {
+        return new Promise<string>((resolve, reject) => {
+
+            if (!this._authToken) {
+                reject(new Error("This endpoint requires authorization."));
+                return;
+            }
+
+            request({
+                method: "POST",
+                headers: {
+                    "Authorization": `Bearer ${this._authToken}`
+                },
+                formData: {
+                    adult: !!adult
+                },
+                uri: `${this.apiURL}/user/title`,
+                useQuerystring: true
+            }, (err, httpResponse, body) => {
+                if (err) {
+                    reject(err);
+                }
+                else {
+                    const statusCode = httpResponse.statusCode;
+                    if (statusCode !== HTTP_200_OK && statusCode !== HTTP_302_REDIRECT) {
+                        reject(new Error(`Recieved Status Code ${statusCode}`));
+                    }
+                    resolve();
+                }
+            });
+        });
+    }
+
+
+
+
+    /*
+     *
+     * Sensitive APIs: All operations that retrieve sensitive account information
+     * https://docs.picarto.tv/api/#/sensitive
+     *
+     * SEE: getUserInfo, getUserStreamKey, getUserChatKey
+     *
+     */
+
+
+
+
+    /*
+     *
+     * Bot APIs: Any actions that are useful to bot/acct management applications
+     * https://docs.picarto.tv/api/#/bot
+     *
+     * SEE: getUserChatKey
+     *
+     */
+
+
+
+
+    /*
+     *
+     * Webhook APIs: Webhook management
+     * https://docs.picarto.tv/api/#/webhook
+     *
+     */
+
+    /**
+     * GET /webhooks
+     *
+     * Get all registered webhooks for your account
+     * https://docs.picarto.tv/api/#!/webhook/get_webhooks
+     *
+     * @param {string} client_id Your application's client ID.
+     * @param {string} client_secret Your application's client secret.
+     * @param {number} channel_id A channel ID to filter by (optional).
+     * @returns {Promise<IWebhook[]>} A Promise for a list of webhooks.
+     * @memberOf PicartoAPI
+     */
+    public async getWebhooks(client_id: string, client_secret: string, channel_id?: number): Promise<IWebhook[]> {
+        return new Promise<IWebhook[]>((resolve, reject) => {
 
             if (!client_id) {
                 reject(new Error("`client_id` is required."));
@@ -354,18 +617,19 @@ export class PicartoAPI {
                 return;
             }
 
-            const query = {};
-            if (typeof client_id !== 'undefined') { query["client_id"] = client_id; }
-            if (typeof client_secret !== 'undefined') { query["client_secret"] = client_secret; }
-            if (typeof channel_id !== 'undefined') { query["channel_id"] = channel_id; }
+            const qs: { client_id: string; client_secret: string; channel_id?: number } = {
+                client_id,
+                client_secret
+            };
+            if (typeof channel_id !== "undefined") { qs.channel_id = channel_id; }
 
-            const head = {};
-            if (this._oauthToken) { head["Authorization"] = `Bearer ${this._oauthToken}`; }
+            const headers: { Authorization?} = {};
+            if (this._authToken) { headers.Authorization = `Bearer ${this._authToken}`; }
 
             request({
-                method: 'GET',
-                headers: head,
-                qs: query,
+                method: "GET",
+                headers,
+                qs,
                 uri: `${this.apiURL}/webhooks`,
                 useQuerystring: true,
                 json: true
@@ -384,8 +648,19 @@ export class PicartoAPI {
         });
     }
 
-    public registerWebhook(type: string, uri: string): Promise<null> {
-        return new Promise((resolve, reject) => {
+    /**
+     * POST /webhooks
+     *
+     * Register a webhook
+     * https://docs.picarto.tv/api/#!/webhook/post_webhooks
+     *
+     * @param {string} type The webhook type.
+     * @param {string} uri Webhook destination URI.
+     * @returns {Promise<string>} A Promise for the location of the new webhook.
+     * @memberOf PicartoAPI
+     */
+    public async registerWebhook(type: WebhookType, uri: string): Promise<string> {
+        return new Promise<string>((resolve, reject) => {
 
             if (!type) {
                 reject(new Error("`type` is required."));
@@ -397,15 +672,15 @@ export class PicartoAPI {
                 return;
             }
 
-            const head = {};
-            if (this._oauthToken) { head["Authorization"] = `Bearer ${this._oauthToken}`; }
+            const head: { Authorization?} = {};
+            if (this._authToken) { head.Authorization = `Bearer ${this._authToken}`; }
 
             request({
-                method: 'POST',
+                method: "POST",
                 headers: head,
                 formData: {
-                    type: type,
-                    uri: uri
+                    type,
+                    uri
                 },
                 uri: `${this.apiURL}/webhooks`,
                 json: true
@@ -418,14 +693,27 @@ export class PicartoAPI {
                     if (statusCode !== HTTP_200_OK && statusCode !== HTTP_302_REDIRECT) {
                         reject(new Error(`Recieved Status Code ${statusCode}`));
                     }
-                    resolve();
+                    const location = httpResponse.headers["Location"];
+                    resolve(Array.isArray(location) ? location.pop() : location);
                 }
             });
         });
     }
 
-    public deleteWebhook(webhook_id: number, client_id: string, client_secret: string): Promise<null> {
-        return new Promise((resolve, reject) => {
+    /**
+     * DELETE /webhooks/{webhook_id}
+     *
+     * Delete a webhook
+     * https://docs.picarto.tv/api/#!/webhook/delete_webhooks_webhook_id
+     *
+     * @param {number} webhook_id The webhook ID.
+     * @param {string} client_id Your application's client ID.
+     * @param {string} client_secret Your application's client secret.
+     * @returns {Promise<null>} A Promise.
+     * @memberOf PicartoAPI
+     */
+    public async deleteWebhook(webhook_id: number, client_id: string, client_secret: string): Promise<null> {
+        return new Promise<null>((resolve, reject) => {
 
             if (!webhook_id) {
                 reject(new Error("`webhook_id` is required."));
@@ -442,17 +730,17 @@ export class PicartoAPI {
                 return;
             }
 
-            const query = {};
-            if (typeof client_id !== 'undefined') { query["client_id"] = client_id; }
-            if (typeof client_secret !== 'undefined') { query["client_secret"] = client_secret; }
 
-            const head = {};
-            if (this._oauthToken) { head["Authorization"] = `Bearer ${this._oauthToken}`; }
+            const head: { Authorization?} = {};
+            if (this._authToken) { head.Authorization = `Bearer ${this._authToken}`; }
 
             request({
-                method: 'DELETE',
+                method: "DELETE",
                 headers: head,
-                qs: query,
+                qs: {
+                    client_id,
+                    client_secret
+                },
                 uri: `${this.apiURL}/webhooks/${webhook_id}`,
                 useQuerystring: true,
                 json: true
@@ -471,8 +759,20 @@ export class PicartoAPI {
         });
     }
 
-    public getWebhookDetails(webhook_id: number, client_id: string, client_secret: string): Promise<Webhook> {
-        return new Promise((resolve, reject) => {
+    /**
+     * GET /webhooks/{webhook_id}
+     *
+     * Get a webhook
+     * https://docs.picarto.tv/api/#!/webhook/get_webhooks_webhook_id
+     *
+     * @param {number} webhook_id The webhook ID.
+     * @param {string} client_id Your application's client ID.
+     * @param {string} client_secret Your application's client secret.
+     * @returns {Promise<IWebhook>} A Promise for a webhook's information.
+     * @memberOf PicartoAPI
+     */
+    public async getWebhookDetails(webhook_id: number, client_id: string, client_secret: string): Promise<IWebhook> {
+        return new Promise<IWebhook>((resolve, reject) => {
 
             if (!webhook_id) {
                 reject(new Error("`webhook_id` is required."));
@@ -489,17 +789,16 @@ export class PicartoAPI {
                 return;
             }
 
-            const query = {};
-            if (typeof client_id !== 'undefined') { query["client_id"] = client_id; }
-            if (typeof client_secret !== 'undefined') { query["client_secret"] = client_secret; }
-
-            const head = {};
-            if (this._oauthToken) { head["Authorization"] = `Bearer ${this._oauthToken}`; }
+            const head: { Authorization?} = {};
+            if (this._authToken) { head.Authorization = `Bearer ${this._authToken}`; }
 
             request({
-                method: 'GET',
+                method: "GET",
                 headers: head,
-                qs: query,
+                qs: {
+                    client_id,
+                    client_secret
+                },
                 uri: `${this.apiURL}/webhooks/${webhook_id}`,
                 useQuerystring: true,
                 json: true
@@ -518,8 +817,22 @@ export class PicartoAPI {
         });
     }
 
-    public updateWebhookURI(webhook_id: number, uri: string, client_id: string, client_secret: string): Promise<Webhook> {
-        return new Promise((resolve, reject) => {
+    /**
+     * PUT /webhooks/{webhook_id}
+     *
+     * Update a webhook's URI
+     * Note: You can not change the webhook type. To do that you must create a new webhook, authenticated by the user.
+     * https://docs.picarto.tv/api/#!/webhook/put_webhooks_webhook_id
+     *
+     * @param {number} webhook_id The webhook ID.
+     * @param {string} uri Webhook destination URI.
+     * @param {string} client_id Your application's client ID.
+     * @param {string} client_secret Your application's client secret.
+     * @returns {Promise<string>} A Promise for the location of the new webhook.
+     * @memberOf PicartoAPI
+     */
+    public async updateWebhookURI(webhook_id: number, uri: string, client_id: string, client_secret: string): Promise<string> {
+        return new Promise<string>((resolve, reject) => {
 
             if (!webhook_id) {
                 reject(new Error("`webhook_id` is required."));
@@ -541,18 +854,17 @@ export class PicartoAPI {
                 return;
             }
 
-            const query = {};
-            if (typeof uri !== 'undefined') { query["uri"] = uri; }
-            if (typeof client_id !== 'undefined') { query["client_id"] = client_id; }
-            if (typeof client_secret !== 'undefined') { query["client_secret"] = client_secret; }
-
-            const head = {};
-            if (this._oauthToken) { head["Authorization"] = `Bearer ${this._oauthToken}`; }
+            const head: { Authorization?} = {};
+            if (this._authToken) { head.Authorization = `Bearer ${this._authToken}`; }
 
             request({
-                method: 'PUT',
+                method: "PUT",
                 headers: head,
-                qs: query,
+                qs: {
+                    uri,
+                    client_id,
+                    client_secret
+                },
                 uri: `${this.apiURL}/webhooks/${webhook_id}`,
                 useQuerystring: true,
                 json: true
@@ -565,7 +877,8 @@ export class PicartoAPI {
                     if (statusCode !== HTTP_200_OK && statusCode !== HTTP_302_REDIRECT) {
                         reject(new Error(`Recieved Status Code ${statusCode}`));
                     }
-                    resolve(body);
+                    const location = httpResponse.headers["Location"];
+                    resolve(Array.isArray(location) ? location.pop() : location);
                 }
             });
         });
@@ -578,7 +891,22 @@ export class PicartoAPI {
  *   Public
  */
 
-export interface OnlineDetails {
+/**
+ * Basic info about a Channel.
+ * @export
+ * @interface IBasicChannelInfo
+ */
+export interface IBasicChannelInfo {
+    user_id: number;
+    name: string;
+}
+
+/**
+ * Details about an online Channel.
+ * @export
+ * @interface IOnlineDetails
+ */
+export interface IOnlineDetails extends IBasicChannelInfo {
     user_id: number;
     name: string;
     viewers: number;
@@ -588,21 +916,26 @@ export interface OnlineDetails {
     multistream: boolean;
 }
 
-export interface Category {
+/**
+ * Details about a Channel Category.
+ * @export
+ * @interface ICategory
+ */
+export interface ICategory {
     name: string;
     total_channels: number;
     online_channels: number;
     viewers: number;
 }
 
-export interface BasicChannelInfo {
-    user_id: number;
-    name: string;
-}
-
-export interface Event {
+/**
+ * Details about a Picarto Event
+ * @export
+ * @interface IEvent
+ */
+export interface IEvent {
     id: string;
-    channel_details: BasicChannelInfo;
+    channel_details: IBasicChannelInfo;
     category: string;
     ticket_price: number;
     ticket_limit: number;
@@ -611,7 +944,12 @@ export interface Event {
     adult: boolean;
 }
 
-export interface DescriptionPanel {
+/**
+ * Details for a Panel in a Channel's Description.
+ * @export
+ * @interface IDescriptionPanel
+ */
+export interface IDescriptionPanel {
     title: string;
     body: string;
     image: string;
@@ -619,58 +957,84 @@ export interface DescriptionPanel {
     position: number;
 }
 
-export interface MultiParticipant {
-    user_id: string;
+/**
+ * Basic info about a Multistream Channel.
+ * @export
+ * @interface IMultiParticipant
+ */
+export interface IMultiParticipant extends IBasicChannelInfo {
+    user_id: number;
     name: string;
     online: boolean;
+    adult: boolean;
 }
 
-export interface ChannelDetails {
+/**
+ * Details about a Channel.
+ * @export
+ * @interface IChannelDetails
+ * @extends {IMultiParticipant}
+ */
+export interface IChannelDetails extends IMultiParticipant {
     user_id: number;
     name: string;
     online: boolean;
     viewers: number;
     viewers_total: number;
     followers: number;
+    subscribers: number;
     adult: boolean;
     category: string;
-    account_type: string;
+    account_type: "free" | "basic" | "premium";
     commissions: boolean;
     title: string;
-    description_panels: DescriptionPanel[];
+    description_panels: IDescriptionPanel[];
     private: boolean;
     gaming: boolean;
     guest_chat: boolean;
     last_live: Date;
     tags: string[];
-    multistream: MultiParticipant[];
+    multistream: IMultiParticipant[];
 }
 
-export interface UserData {
-    channel_details: ChannelDetails;
+/**
+ * Private details about a User.
+ * @export
+ * @interface IUserData
+ */
+export interface IUserData {
+    channel_details: IChannelDetails;
     email: string;
     creation_date: string;
     private_key: string;
-    following: BasicChannelInfo[];
-    subscriptions: BasicChannelInfo[];
+    following: IBasicChannelInfo[];
+    subscriptions: IBasicChannelInfo[];
 }
 
-// tslint:disable-next-line:no-namespace
-// tslint:disable-next-line:no-internal-module
-export module WebhookType {
-    export const online = "online";
-    export const offline = "offline";
-    export const follow = "follow";
-    export const unfollow = "unfollow";
-    export const subscribe = "subscribe";
-    export const unsubscribe = "unsubscribe";
-    export const event_start = "event_start";
-    export const event_end = "event_end";
+/**
+ * The available types of webhooks.
+ * @export
+ * @enum {string}
+ */
+export enum WebhookType {
+    online = "online",
+    offline = "offline",
+    follow = "follow",
+    unfollow = "unfollow",
+    subscribe = "subscribe",
+    unsubscribe = "unsubscribe",
+    event_start = "event_start",
+    event_end = "event_end"
 }
 
-export interface Webhook {
+/**
+ * A Webhook.
+ * @export
+ * @interface IWebhook
+ */
+export interface IWebhook {
     id: string;
-    channel: BasicChannelInfo;
+    channel: IBasicChannelInfo;
     type: string;
     uri: string;
 }

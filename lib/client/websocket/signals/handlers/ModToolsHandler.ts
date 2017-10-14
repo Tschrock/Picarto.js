@@ -14,20 +14,18 @@
  */
 "use strict";
 
-import { WebSocketSignalManager } from "../WebSocketSignalManager";
-
-import { TSignal } from "../../WebSocketConnection";
+import { ModTools } from "../../../../gen/picarto.proto.prebuilt";
+import { AbstractHandler } from "./AbstractHandler";
 
 /**
- * Signal handler base.
+ * Handler for ModTools signals.
  * @export
- * @class AbstractHandler
+ * @class ModToolsHandler
+ * @extends {AbstractHandler}
  */
-export class AbstractHandler {
-    constructor(protected packetManager: WebSocketSignalManager) { }
-
-    public handle(signal: TSignal): boolean {
+export class ModToolsHandler extends AbstractHandler {
+    public handle(signal: ModTools): boolean {
         console.log(signal);
-        return !!signal;
+        return true;
     }
 }

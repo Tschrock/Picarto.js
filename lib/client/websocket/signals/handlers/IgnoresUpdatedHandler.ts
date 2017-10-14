@@ -14,20 +14,18 @@
  */
 "use strict";
 
-import { WebSocketSignalManager } from "../WebSocketSignalManager";
-
-import { TSignal } from "../../WebSocketConnection";
+import { IgnoresUpdated } from "../../../../gen/picarto.proto.prebuilt";
+import { AbstractHandler } from "./AbstractHandler";
 
 /**
- * Signal handler base.
+ * Handler for IgnoresUpdated signals.
  * @export
- * @class AbstractHandler
+ * @class IgnoresUpdatedHandler
+ * @extends {AbstractHandler}
  */
-export class AbstractHandler {
-    constructor(protected packetManager: WebSocketSignalManager) { }
-
-    public handle(signal: TSignal): boolean {
+export class IgnoresUpdatedHandler extends AbstractHandler {
+    public handle(signal: IgnoresUpdated): boolean {
         console.log(signal);
-        return !!signal;
+        return true;
     }
 }

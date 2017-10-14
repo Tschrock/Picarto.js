@@ -14,20 +14,19 @@
  */
 "use strict";
 
-import { WebSocketSignalManager } from "../WebSocketSignalManager";
-
-import { TSignal } from "../../WebSocketConnection";
+import { PingPong } from "../../../../gen/picarto.proto.prebuilt";
+import { AbstractHandler } from "./AbstractHandler";
 
 /**
- * Signal handler base.
+ * Handler for PingPong signals.
  * @export
- * @class AbstractHandler
+ * @class PingPongHandler
+ * @extends {AbstractHandler}
  */
-export class AbstractHandler {
-    constructor(protected packetManager: WebSocketSignalManager) { }
-
-    public handle(signal: TSignal): boolean {
+export class PingPongHandler extends AbstractHandler {
+    public handle(signal: PingPong): boolean {
         console.log(signal);
-        return !!signal;
+        this.packetManager.connection.send(new PingPong({ type: signal.type + 1 % 2}));
+        return true;
     }
 }
